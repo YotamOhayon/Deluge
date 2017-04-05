@@ -1,0 +1,65 @@
+{
+    "id": 16,
+    "result": {
+        "stats": {
+            "upload_protocol_rate": 291129,
+            "max_upload": -1.0,
+            "download_protocol_rate": 261792,
+            "download_rate": 4641785,
+            "has_incoming_connections": true,
+            "num_connections": 200,
+            "max_download": -1.0,
+            "upload_rate": 44235,
+            "dht_nodes": 368,
+            "free_space": 66118631424,
+            "max_num_connections": 200
+        },
+        "connected": true,
+        "torrents": {
+            "ae177186a11b64f743dc420e393410b8109da724": {
+                "max_download_speed": -1,
+                "upload_payload_rate": 11714,
+                "download_payload_rate": 518724,
+                "num_peers": 3,
+                "ratio": 13.10362434387207,
+                "total_peers": 6,
+                "state": "Downloading",
+                "max_upload_speed": -1,
+                "eta": 2619,
+                "save_path": "/home/user/Downloads/",
+                "progress": 5.034800052642822,
+                "time_added": 1504721408.0,
+                "tracker_host": "trackerfix.com",
+                "total_uploaded": 943998340,
+                "total_done": 72041010,
+                "total_wanted": 1430842345,
+                "total_seeds": 41,
+                "seeds_peers_ratio": 6.833333492279053,
+                "num_seeds": 17,
+                "name": "torrent.name",
+                "is_auto_managed": true,
+                "queue": 1,
+                "distributed_copies": 17.87299919128418
+            }
+        },
+        "filters": {
+            "state": [
+                      ["All", 3],
+                      ["Downloading", 2],
+                      ["Seeding", 1],
+                      ["Active", 2],
+                      ["Paused", 0],
+                      ["Queued", 0],
+                      ["Checking", 0],
+                      ["Error", 0]
+                      ],
+            "tracker_host": [
+                             ["All", 3],
+                             ["Error", 1],
+                             ["sektori.org", 1],
+                             ["trackerfix.com", 2]
+                             ]
+        }
+    },
+    "error": null
+}

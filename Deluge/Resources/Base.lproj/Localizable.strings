@@ -1,0 +1,10 @@
+{
+	cancel = Cancel;
+	showAll = "Show All";
+	sortBy = "Sort By";
+	all = All;
+	filterBy = "Filter By";
+	error = Error;
+	paused = Paused;
+	completed = Completed;
+}

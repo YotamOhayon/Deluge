@@ -1,0 +1,6 @@
+framework module Pods_DelugeTests {
+  umbrella header "Pods-DelugeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

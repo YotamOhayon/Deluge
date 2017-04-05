@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoTorrentsView" customModule="Deluge" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="gF5-le-ckR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't downloaded anything yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-YS-tVN">
+                    <rect key="frame" x="45.5" y="323" width="285" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.56463009119033813" green="0.56466931104660034" blue="0.56871789693832397" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="KvJ-8Z-Lmy">
+                    <rect key="frame" x="147" y="227" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="AvC-uh-9cd"/>
+                        <constraint firstAttribute="width" secondItem="KvJ-8Z-Lmy" secondAttribute="height" multiplier="1:1" id="xQX-Bj-k3g"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="j7J-YS-tVN" firstAttribute="top" secondItem="KvJ-8Z-Lmy" secondAttribute="bottom" constant="16" id="CvW-5g-piB"/>
+                <constraint firstItem="KvJ-8Z-Lmy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xru-qa-2JR"/>
+                <constraint firstItem="j7J-YS-tVN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ykf-fH-uB5"/>
+                <constraint firstItem="j7J-YS-tVN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bzr-sl-Tw1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Search" width="68" height="68"/>
+    </resources>
+</document>

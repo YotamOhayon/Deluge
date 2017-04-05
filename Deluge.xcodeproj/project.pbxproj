@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E4EC9AA30195AB93E3353E1 /* Pods_DelugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */; };
 		553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7E61E959A4200B2A658 /* AppDelegate.swift */; };
 		553AC7E91E959A4200B2A658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7E81E959A4200B2A658 /* ViewController.swift */; };
 		553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EA1E959A4200B2A658 /* Main.storyboard */; };
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
 		553AC7FC1E959A4200B2A658 /* DelugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* DelugeTests.swift */; };
+		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
+		56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,13 @@
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7FB1E959A4200B2A658 /* DelugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelugeTests.swift; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests.release.xcconfig"; sourceTree = "<group>"; };
+		BAA9F2ECAC63A2F61C8B8EBB /* Pods-DelugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D978AC660750F137BFF2E275 /* Pods-Deluge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deluge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deluge/Pods-Deluge.release.xcconfig"; sourceTree = "<group>"; };
+		E7263B7AAF78990851B838C2 /* Pods-Deluge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deluge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deluge/Pods-Deluge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4EC9AA30195AB93E3353E1 /* Pods_DelugeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,9 @@
 				553AC7E51E959A4200B2A658 /* Deluge */,
 				553AC7FA1E959A4200B2A658 /* DelugeTests */,
 				553AC7E41E959A4200B2A658 /* Products */,
+				556B847A1E959AB000C37034 /* Podfile */,
+				D222C19DBFA6106F5F0D68B4 /* Pods */,
+				95A7BA7E275FADB335BCC937 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +111,26 @@
 			path = DelugeTests;
 			sourceTree = "<group>";
 		};
+		95A7BA7E275FADB335BCC937 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */,
+				57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D222C19DBFA6106F5F0D68B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7263B7AAF78990851B838C2 /* Pods-Deluge.debug.xcconfig */,
+				D978AC660750F137BFF2E275 /* Pods-Deluge.release.xcconfig */,
+				BAA9F2ECAC63A2F61C8B8EBB /* Pods-DelugeTests.debug.xcconfig */,
+				9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 553AC8001E959A4200B2A658 /* Build configuration list for PBXNativeTarget "Deluge" */;
 			buildPhases = (
+				5A11EAD63AF72087FCB6F558 /* [CP] Check Pods Manifest.lock */,
 				553AC7DF1E959A4200B2A658 /* Sources */,
 				553AC7E01E959A4200B2A658 /* Frameworks */,
 				553AC7E11E959A4200B2A658 /* Resources */,
+				2EE7DF68A84A6DBB51BB5DC1 /* [CP] Embed Pods Frameworks */,
+				567872F89E7DFD8A3EB6D1CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 553AC8031E959A4200B2A658 /* Build configuration list for PBXNativeTarget "DelugeTests" */;
 			buildPhases = (
+				589EB0023F2BF9A2255110A2 /* [CP] Check Pods Manifest.lock */,
 				553AC7F31E959A4200B2A658 /* Sources */,
 				553AC7F41E959A4200B2A658 /* Frameworks */,
 				553AC7F51E959A4200B2A658 /* Resources */,
+				0611B8A63EDB5F7011287D61 /* [CP] Embed Pods Frameworks */,
+				EE7D9630D5A1365F18FFA4F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +224,7 @@
 			files = (
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
+				556B847B1E959AB000C37034 /* Podfile in Resources */,
 				553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +237,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0611B8A63EDB5F7011287D61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EE7DF68A84A6DBB51BB5DC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deluge/Pods-Deluge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		567872F89E7DFD8A3EB6D1CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deluge/Pods-Deluge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		589EB0023F2BF9A2255110A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A11EAD63AF72087FCB6F558 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE7D9630D5A1365F18FFA4F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		553AC7DF1E959A4200B2A658 /* Sources */ = {
@@ -341,6 +476,7 @@
 		};
 		553AC8011E959A4200B2A658 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7263B7AAF78990851B838C2 /* Pods-Deluge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7V77HPPE58;
@@ -354,6 +490,7 @@
 		};
 		553AC8021E959A4200B2A658 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D978AC660750F137BFF2E275 /* Pods-Deluge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7V77HPPE58;
@@ -367,6 +504,7 @@
 		};
 		553AC8041E959A4200B2A658 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAA9F2ECAC63A2F61C8B8EBB /* Pods-DelugeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -382,6 +520,7 @@
 		};
 		553AC8051E959A4200B2A658 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -414,6 +553,7 @@
 				553AC8021E959A4200B2A658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		553AC8031E959A4200B2A658 /* Build configuration list for PBXNativeTarget "DelugeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +562,7 @@
 				553AC8051E959A4200B2A658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

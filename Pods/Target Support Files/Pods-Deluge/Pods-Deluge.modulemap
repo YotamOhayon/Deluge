@@ -1,0 +1,6 @@
+framework module Pods_Deluge {
+  umbrella header "Pods-Deluge-umbrella.h"
+
+  export *
+  module * { export * }
+}

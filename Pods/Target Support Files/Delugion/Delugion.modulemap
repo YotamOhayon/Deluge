@@ -1,0 +1,6 @@
+framework module Delugion {
+  umbrella header "Delugion-umbrella.h"
+
+  export *
+  module * { export * }
+}

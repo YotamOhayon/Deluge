@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "63D3A3F9073508C97921FF71ADC46846F02AAACE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4" : 9223372036854775807,
+    "63D3A3F9073508C97921FF71ADC46846F02AAACE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9376878C-2533-47DF-B115-0918C183F9E9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4" : "Delugion\/",
+    "63D3A3F9073508C97921FF71ADC46846F02AAACE" : "Deluge\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Deluge",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Deluge.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yotamoo\/Deluge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "63D3A3F9073508C97921FF71ADC46846F02AAACE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yotamoo\/Delugion.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4"
+    }
+  ]
+}

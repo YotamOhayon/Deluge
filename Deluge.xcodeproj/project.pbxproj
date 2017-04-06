@@ -39,7 +39,7 @@
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7FB1E959A4200B2A658 /* DelugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelugeTests.swift; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,9 +74,9 @@
 				553AC7E51E959A4200B2A658 /* Deluge */,
 				553AC7FA1E959A4200B2A658 /* DelugeTests */,
 				553AC7E41E959A4200B2A658 /* Products */,
-				556B847A1E959AB000C37034 /* Podfile */,
 				D222C19DBFA6106F5F0D68B4 /* Pods */,
 				95A7BA7E275FADB335BCC937 /* Frameworks */,
+				556B847A1E959AB000C37034 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};

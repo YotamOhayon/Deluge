@@ -28,6 +28,18 @@ fileprivate extension AppDelegate {
     
     func setupContainer() {
         
+        container.register(DelugionServicing.self) { _ in
+            DelugionService()
+        }
+        
+        container.register(MainViewModeling.self) { r in
+            MainViewModel(delugionService: r.resolve(DelugionServicing.self)!)
+        }
+        
+        container.storyboardInitCompleted(MainViewController.self) { r, c in
+            c.viewModel = r.resolve(MainViewModeling.self)
+        }
+        
     }
     
     func setupWindow() {

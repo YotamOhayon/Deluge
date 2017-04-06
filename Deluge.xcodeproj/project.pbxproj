@@ -16,6 +16,8 @@
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
 		55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D5EB631E9610DD00F93DE1 /* Gemfile */; };
+		55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */; };
+		55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */; };
 		56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		55D5EB631E9610DD00F93DE1 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionService.swift; sourceTree = "<group>"; };
 		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DelugeTests/Pods-DelugeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,9 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				55D5EB671E96113C00F93DE1 /* Resources */,
+				55D5EB6C1E96172400F93DE1 /* Services */,
 				55D5EB661E96113500F93DE1 /* Storyboards */,
 				55D5EB651E96112900F93DE1 /* Supporting Files */,
-				55D5EB681E96114300F93DE1 /* Views */,
+				55D5EB681E96114300F93DE1 /* View */,
+				55D5EB691E96163200F93DE1 /* ViewModel */,
 			);
 			path = Deluge;
 			sourceTree = "<group>";
@@ -118,7 +124,6 @@
 				553AC7E61E959A4200B2A658 /* AppDelegate.swift */,
 				553AC7F21E959A4200B2A658 /* Info.plist */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -128,7 +133,6 @@
 				553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */,
 				553AC7EA1E959A4200B2A658 /* Main.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -137,17 +141,34 @@
 			children = (
 				553AC7ED1E959A4200B2A658 /* Assets.xcassets */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		55D5EB681E96114300F93DE1 /* Views */ = {
+		55D5EB681E96114300F93DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
 			);
-			name = Views;
-			path = Views;
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		55D5EB691E96163200F93DE1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55D5EB6C1E96172400F93DE1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */,
+			);
+			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		95A7BA7E275FADB335BCC937 /* Frameworks */ = {
@@ -376,8 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
+				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

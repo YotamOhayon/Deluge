@@ -23,9 +23,4 @@ class PausedTableViewCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
 }

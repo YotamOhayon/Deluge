@@ -1,5 +1,5 @@
 //
-//  ErrorTableViewCell.swift
+//  CompletedTableViewCell.swift
 //  Deluge
 //
 //  Created by Yotam Ohayon on 08/04/2017.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ErrorTableViewCell: UITableViewCell {
-    
+class CompletedTableViewCell: UITableViewCell {
+
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var size: UILabel!
     
-    var viewModel: ErrorCellViewModeling! {
+    var viewModel: CompletedCellViewModeling! {
         didSet {
             self.title.text = viewModel.title
+            self.size.text = viewModel.size
         }
     }
 

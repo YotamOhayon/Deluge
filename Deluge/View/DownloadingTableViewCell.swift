@@ -23,8 +23,4 @@ class DownloadingTableViewCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
 }

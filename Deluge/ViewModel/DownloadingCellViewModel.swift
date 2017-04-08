@@ -25,7 +25,7 @@ class DownloadingCellViewModel: DownloadingCellViewModeling {
         self.title = torrent.name
         self.progress = Double(360 * (torrent.progress ?? 0 / 100))
         let (speed, unit) = torrent.downloadPayloadrate?.inUnits() ?? (0, .byte)
-        self.downloadSpeed = "\(speed), \(unit)"
+        self.downloadSpeed = "\(speed) \(unit.stringifiedAsSpeed())"
     }
 }
 

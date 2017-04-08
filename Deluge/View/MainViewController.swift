@@ -24,12 +24,17 @@ class MainViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        viewModel.torrents.subscribe(onNext: { [unowned self] in
-            self.dataSource = $0
-        }).disposed(by: disposeBag)
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [unowned self] _ in
+            self.viewModel.torrents.subscribe(onNext: { [unowned self] in
+                self.dataSource = $0
+            }).disposed(by: self.disposeBag)
+        }
+        
     }
 
 }

@@ -17,10 +17,55 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let disposeBag = DisposeBag()
+    fileprivate var dataSource = [Torrent]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        viewModel.torrents.subscribe(onNext: { [unowned self] in
+            self.dataSource = $0
+        }).disposed(by: disposeBag)
+    }
+
+}
+
+extension MainViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let torrent = self.dataSource[indexPath.row]
+        switch torrent.state {
+        case .downloading:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DownloadingCell") as! DownloadingTableViewCell
+            cell.viewModel = DownloadingCellViewModel(torrent: torrent)
+            return cell
+        case .paused:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PausedCell") as! PausedTableViewCell
+            cell.viewModel = PausedCellViewModel(torrent: torrent)
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+            cell.textLabel?.text = self.dataSource[indexPath.row].name
+            return cell
+        }
         
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    
+}
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 89.0
+    }
+    
 }

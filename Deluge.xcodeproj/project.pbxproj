@@ -14,6 +14,10 @@
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
 		553AC7FC1E959A4200B2A658 /* DelugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* DelugeTests.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
+		55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */; };
+		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
+		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
+		55885C0A1E99184E005A4D3D /* PausedCellViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModeling.swift */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
 		55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D5EB631E9610DD00F93DE1 /* Gemfile */; };
 		55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */; };
@@ -42,6 +46,10 @@
 		553AC7FB1E959A4200B2A658 /* DelugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelugeTests.swift; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingTableViewCell.swift; sourceTree = "<group>"; };
+		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
+		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
+		55885C091E99184E005A4D3D /* PausedCellViewModeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModeling.swift; sourceTree = "<group>"; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		55D5EB631E9610DD00F93DE1 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
+				55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */,
+				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
+				55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */,
+				55885C091E99184E005A4D3D /* PausedCellViewModeling.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -396,6 +408,10 @@
 			files = (
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
+				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
+				55885C0A1E99184E005A4D3D /* PausedCellViewModeling.swift in Sources */,
+				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
+				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 			);

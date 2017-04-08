@@ -13,11 +13,13 @@ class DownloadingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressView: KDCircularProgress!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var downloadSpeedLabel: UILabel!
+    
     var viewModel: DownloadingCellViewModeling! {
         didSet {
-            self.title.text = viewModel.text
-            let progress = viewModel.progress ?? 0
-            self.progressView.angle = Double(360 * (progress / 100))
+            self.title.text = viewModel.title
+            self.progressView.angle = viewModel.progress
+            self.downloadSpeedLabel.text = viewModel.downloadSpeed
         }
     }
 

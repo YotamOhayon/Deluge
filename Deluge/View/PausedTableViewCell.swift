@@ -11,7 +11,6 @@ import KDCircularProgress
 
 class PausedTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var progressView: KDCircularProgress!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var size: UILabel!

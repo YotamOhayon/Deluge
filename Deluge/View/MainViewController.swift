@@ -48,6 +48,10 @@ extension MainViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PausedCell") as! PausedTableViewCell
             cell.viewModel = PausedCellViewModel(torrent: torrent)
             return cell
+        case .error:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorCell") as! ErrorTableViewCell
+            cell.viewModel = ErrorCellViewModel(torrent: torrent)
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
             cell.textLabel?.text = self.dataSource[indexPath.row].name

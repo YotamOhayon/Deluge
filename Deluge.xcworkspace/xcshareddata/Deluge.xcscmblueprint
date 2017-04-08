@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F1DAE970C8FE365FE7161F9A23E1F733C2379A01" : 9223372036854775807,
     "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4" : 9223372036854775807,
     "63D3A3F9073508C97921FF71ADC46846F02AAACE" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9376878C-2533-47DF-B115-0918C183F9E9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F1DAE970C8FE365FE7161F9A23E1F733C2379A01" : "KDCircularProgress\/",
     "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4" : "Delugion\/",
     "63D3A3F9073508C97921FF71ADC46846F02AAACE" : "Deluge\/"
   },
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yotamoo\/Delugion.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7EA4E0CC44B62ED1E60AAB5A326F0ACDD59178C4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kaandedeoglu\/KDCircularProgress.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F1DAE970C8FE365FE7161F9A23E1F733C2379A01"
     }
   ]
 }

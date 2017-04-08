@@ -11,13 +11,16 @@ import Delugion
 
 protocol DownloadingCellViewModeling {
     var text: String? { get }
+    var progress: Double? { get }
 }
 
 class DownloadingCellViewModel: DownloadingCellViewModeling {
     
-    var text: String?
+    let text: String?
+    let progress: Double?
     
     init(torrent: Torrent) {
         self.text = torrent.name
+        self.progress = torrent.progress
     }
 }

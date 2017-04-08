@@ -9,6 +9,7 @@ target 'Deluge' do
   pod 'RxCocoa', '~> 3.3'
   pod 'Swinject', '~> 2.0'
   pod 'SwinjectStoryboard', '~> 1.0'
+  pod 'KDCircularProgress', :path => '../KDCircularProgress/'
 
   # Pods for Deluge
 

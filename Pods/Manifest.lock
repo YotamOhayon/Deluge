@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.4.0)
   - Delugion (0.1.8):
     - Alamofire (~> 4.2)
+  - KDCircularProgress (1.5.2)
   - RxCocoa (3.3.1):
     - RxSwift (~> 3.3)
   - RxSwift (3.3.1)
@@ -11,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Delugion (from `../Delugion/`)
+  - KDCircularProgress (from `../KDCircularProgress/`)
   - RxCocoa (~> 3.3)
   - RxSwift (~> 3.3)
   - Swinject (~> 2.0)
@@ -19,15 +21,18 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Delugion:
     :path: "../Delugion/"
+  KDCircularProgress:
+    :path: "../KDCircularProgress/"
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Delugion: f58cd382a18386339c3c5817b5d552d77d0f9a1a
+  KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
 
-PODFILE CHECKSUM: 18ee03208c2576c71956275d4f339d0e163b6489
+PODFILE CHECKSUM: 548b7691140af7af178fb073854619f59b3c3095
 
 COCOAPODS: 1.2.0

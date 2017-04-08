@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double RxDataSourcesVersionNumber;
-FOUNDATION_EXPORT const unsigned char RxDataSourcesVersionString[];
+FOUNDATION_EXPORT double KDCircularProgressVersionNumber;
+FOUNDATION_EXPORT const unsigned char KDCircularProgressVersionString[];
 

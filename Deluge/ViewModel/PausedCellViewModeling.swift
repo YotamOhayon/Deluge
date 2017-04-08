@@ -10,14 +10,17 @@ import Foundation
 import Delugion
 
 protocol PausedCellViewModeling {
-    var text: String? { get }
+    var title: String? { get }
+    var progress: Double? { get }
 }
 
 class PausedCellViewModel: PausedCellViewModeling {
     
-    var text: String?
+    let title: String?
+    let progress: Double?
     
     init(torrent: Torrent) {
-        self.text = torrent.name
+        self.title = torrent.name
+        self.progress = torrent.progress
     }
 }

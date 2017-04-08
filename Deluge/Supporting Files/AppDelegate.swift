@@ -9,6 +9,7 @@
 import UIKit
 import Swinject
 import SwinjectStoryboard
+import Delugion
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,8 +30,9 @@ fileprivate extension AppDelegate {
     func setupContainer() {
         
         container.register(DelugionServicing.self) { _ in
-            DelugionService()
-        }
+            let delugion = DelugeSDK(hostname: "yotamoo.zapto.org", port: 8112, password: "Y6412257")
+            return DelugionService(delugion: delugion)
+        }.inObjectScope(.container)
         
         container.register(MainViewModeling.self) { r in
             MainViewModel(delugionService: r.resolve(DelugionServicing.self)!)

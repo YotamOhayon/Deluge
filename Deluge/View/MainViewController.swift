@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import Delugion
 
 class MainViewController: UIViewController {
     
     var viewModel: MainViewModeling!
+    @IBOutlet weak var tableView: UITableView!
+
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
 }

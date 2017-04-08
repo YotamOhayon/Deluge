@@ -7,11 +7,38 @@
 //
 
 import Foundation
+import Delugion
+import RxSwift
 
 protocol DelugionServicing {
-    
+    var connection: Observable<ServerResponse<Bool>> { get }
+    var torrents: Observable<ServerResponse<[Torrent]>> { get }
 }
 
 class DelugionService: DelugionServicing {
+
+    var connection: Observable<ServerResponse<Bool>> {
+        return Observable.create { [unowned self] observer -> Disposable in
+            self.delugion.connect {
+                observer.onNext($0)
+            }
+            return Disposables.create()
+        }
+    }
+
+    var torrents: Observable<ServerResponse<[Torrent]>> {
+        return Observable.create { [unowned self] observer -> Disposable in
+            self.delugion.info(filterByState: nil) {
+                observer.onNext($0)
+            }
+            return Disposables.create()
+        }
+    }
+    
+    let delugion: Delugion
+    
+    init(delugion: Delugion) {
+        self.delugion = delugion
+    }
     
 }

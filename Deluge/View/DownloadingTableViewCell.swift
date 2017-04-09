@@ -12,14 +12,18 @@ import KDCircularProgress
 class DownloadingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressView: KDCircularProgress!
+    @IBOutlet weak var progressNumericView: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var downloadSpeedLabel: UILabel!
+    @IBOutlet weak var etaLabel: UILabel!
     
     var viewModel: DownloadingCellViewModeling! {
         didSet {
             self.title.text = viewModel.title
             self.progressView.angle = viewModel.progress
+            self.progressNumericView.text = viewModel.progressNumeric
             self.downloadSpeedLabel.text = viewModel.downloadSpeed
+            self.etaLabel.text = viewModel.eta
         }
     }
 

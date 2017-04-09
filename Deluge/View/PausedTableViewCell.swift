@@ -12,14 +12,15 @@ import KDCircularProgress
 class PausedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var progressView: KDCircularProgress!
+    @IBOutlet weak var progressNumericView: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var size: UILabel!
     
     var viewModel: PausedCellViewModeling! {
         didSet {
             self.title.text = viewModel.title
-            let progress = viewModel.progress ?? 0
-            self.progressView.angle = Double(360 * (progress / 100))
+            self.progressView.angle = viewModel.progress
+            self.progressNumericView.text = viewModel.progressNumeric
         }
     }
     

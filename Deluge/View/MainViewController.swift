@@ -15,32 +15,30 @@ class MainViewController: UIViewController {
     
     var viewModel: MainViewModeling!
     @IBOutlet weak var tableView: UITableView!
-
+    
     let disposeBag = DisposeBag()
     fileprivate var dataSource = [Torrent]() {
         didSet {
             self.tableView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [unowned self] _ in
-            self.viewModel.torrents.subscribe(onNext: { [unowned self] in
-                self.dataSource = $0
-            }).disposed(by: self.disposeBag)
-        }
+        self.viewModel.torrents.subscribe(onNext: { [unowned self] in
+            self.dataSource = $0
+        }).disposed(by: self.disposeBag)
         
     }
-
+    
 }
 
 extension MainViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let torrent = self.dataSource[indexPath.row]
@@ -68,7 +66,7 @@ extension MainViewController: UITableViewDataSource {
         }
         
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }

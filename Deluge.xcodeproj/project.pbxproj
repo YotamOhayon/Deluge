@@ -17,6 +17,8 @@
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
 		553AC7FC1E959A4200B2A658 /* DelugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* DelugeTests.swift */; };
+		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
+		5566405A1E9A4E71002819B9 /* Unit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit+Extension.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
 		55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */; };
 		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
@@ -53,6 +55,8 @@
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7FB1E959A4200B2A658 /* DelugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelugeTests.swift; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		556640591E9A4E71002819B9 /* Unit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Extension.swift"; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingTableViewCell.swift; sourceTree = "<group>"; };
 		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
@@ -115,12 +119,13 @@
 		553AC7E51E959A4200B2A658 /* Deluge */ = {
 			isa = PBXGroup;
 			children = (
+				556640561E9A4E21002819B9 /* Extensions */,
 				55D5EB671E96113C00F93DE1 /* Resources */,
+				55D5EB6C1E96172400F93DE1 /* Services */,
 				55D5EB661E96113500F93DE1 /* Storyboards */,
 				55D5EB651E96112900F93DE1 /* Supporting Files */,
 				55D5EB681E96114300F93DE1 /* View */,
 				55D5EB691E96163200F93DE1 /* ViewModel */,
-				55D5EB6C1E96172400F93DE1 /* Services */,
 			);
 			path = Deluge;
 			sourceTree = "<group>";
@@ -132,6 +137,16 @@
 				553AC7FD1E959A4200B2A658 /* Info.plist */,
 			);
 			path = DelugeTests;
+			sourceTree = "<group>";
+		};
+		556640561E9A4E21002819B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
+				556640591E9A4E71002819B9 /* Unit+Extension.swift */,
+			);
+			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		55D5EB651E96112900F93DE1 /* Supporting Files */ = {
@@ -163,11 +178,11 @@
 		55D5EB681E96114300F93DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
-				55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */,
-				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
 				550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */,
+				55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */,
 				550514D41E99644100A71543 /* ErrorTableViewCell.swift */,
+				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
+				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,11 +190,11 @@
 		55D5EB691E96163200F93DE1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
-				55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */,
-				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
 				550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */,
+				55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */,
 				550514D61E99648600A71543 /* ErrorCellViewModel.swift */,
+				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
+				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -420,12 +435,14 @@
 			files = (
 				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
+				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
 				550514D91E997E5F00A71543 /* CompletedTableViewCell.swift in Sources */,
 				550514D51E99644100A71543 /* ErrorTableViewCell.swift in Sources */,
 				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
 				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
 				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
+				5566405A1E9A4E71002819B9 /* Unit+Extension.swift in Sources */,
 				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,

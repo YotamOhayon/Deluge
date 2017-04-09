@@ -28,10 +28,14 @@ class DelugionService: DelugionServicing {
 
     var torrents: Observable<ServerResponse<[Torrent]>> {
         return Observable.create { [unowned self] observer -> Disposable in
-            self.delugion.info(filterByState: nil) {
-                observer.onNext($0)
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [unowned self] _ in
+                self.delugion.info(filterByState: nil) {
+                    observer.onNext($0)
+                }
             }
-            return Disposables.create()
+            return Disposables.create {
+                timer.invalidate()
+            }
         }
     }
     

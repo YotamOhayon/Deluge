@@ -22,6 +22,7 @@ class CompletedCellViewModel: CompletedCellViewModeling {
     init(torrent: Torrent) {
         self.title = torrent.name
         let (size, unit) = torrent.totalSize?.inUnits() ?? (0, .byte)
-        self.size = "\(size) \(unit.stringified())"
+        self.size = "\(size) \(unit.stringified)"
     }
+    
 }

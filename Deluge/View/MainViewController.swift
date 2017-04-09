@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.viewModel.torrents.subscribe(onNext: { [unowned self] in
+        self.viewModel.torrents.drive(onNext: { [unowned self] in
             self.dataSource = $0
         }).disposed(by: self.disposeBag)
         

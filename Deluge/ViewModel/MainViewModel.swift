@@ -12,14 +12,14 @@ import RxSwift
 import RxCocoa
 
 protocol MainViewModeling {
-    var torrents: Observable<[Torrent]> { get }
+    var torrents: Driver<[Torrent]> { get }
 }
 
 class MainViewModel: MainViewModeling {
     
     let disposeBag = DisposeBag()
     
-    let torrents: Observable<[Torrent]>
+    let torrents: Driver<[Torrent]>
     
     init(delugionService: DelugionServicing) {
         
@@ -47,7 +47,7 @@ class MainViewModel: MainViewModeling {
                 }
             }.map {
                 $0.associatedValue as! [Torrent]
-        }
+        }.asDriver(onErrorJustReturn: [Torrent]())
         
     }
     

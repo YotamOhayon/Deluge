@@ -24,6 +24,8 @@
 		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
 		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
 		55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModel.swift */; };
+		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
+		55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
 		55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D5EB631E9610DD00F93DE1 /* Gemfile */; };
 		55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */; };
@@ -62,6 +64,8 @@
 		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
 		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
 		55885C091E99184E005A4D3D /* PausedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModel.swift; sourceTree = "<group>"; };
+		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
+		55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		55D5EB631E9610DD00F93DE1 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -145,7 +149,6 @@
 				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
 				556640591E9A4E71002819B9 /* Unit+Extension.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -183,6 +186,7 @@
 				550514D41E99644100A71543 /* ErrorTableViewCell.swift */,
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
 				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
+				55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +199,7 @@
 				550514D61E99648600A71543 /* ErrorCellViewModel.swift */,
 				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
 				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
+				55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
+				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
 				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
@@ -443,6 +449,7 @@
 				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
 				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
 				5566405A1E9A4E71002819B9 /* Unit+Extension.swift in Sources */,
+				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
 				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,

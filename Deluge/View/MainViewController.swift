@@ -26,12 +26,29 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
         self.viewModel.torrents.subscribe(onNext: { [unowned self] in
             self.dataSource = $0
         }).disposed(by: self.disposeBag)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ShowTorrentSegue" {
+            let torrent = sender as! Torrent
+            let viewModel = TorrentModel(torrent: torrent)
+            let vc = segue.destination as! TorrentViewController
+            vc.viewModel = viewModel
+        }
         
     }
     
@@ -74,6 +91,10 @@ extension MainViewController: UITableViewDataSource {
 }
 
 extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowTorrentSegue", sender: self.dataSource[indexPath.row])
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 89.0

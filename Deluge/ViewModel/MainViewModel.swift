@@ -13,6 +13,7 @@ import RxCocoa
 
 protocol MainViewModeling {
     var torrents: Driver<[Torrent]> { get }
+    func viewModel(forTorrent: Torrent) -> TorrentModeling
 }
 
 class MainViewModel: MainViewModeling {
@@ -20,8 +21,11 @@ class MainViewModel: MainViewModeling {
     let disposeBag = DisposeBag()
     
     let torrents: Driver<[Torrent]>
+    let delugionService: DelugionServicing
     
     init(delugionService: DelugionServicing) {
+        
+        self.delugionService = delugionService
         
         delugionService.connection.subscribe(onNext: {
             print($0)
@@ -49,6 +53,10 @@ class MainViewModel: MainViewModeling {
                 $0.associatedValue as! [Torrent]
         }.asDriver(onErrorJustReturn: [Torrent]())
         
+    }
+    
+    func viewModel(forTorrent torrent: Torrent) -> TorrentModeling {
+        return TorrentModel(torrent: torrent, delugionService: self.delugionService)
     }
     
 }

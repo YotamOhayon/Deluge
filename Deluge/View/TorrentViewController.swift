@@ -7,30 +7,28 @@
 //
 
 import UIKit
+import KDCircularProgress
+import RxCocoa
+import RxSwift
 
 class TorrentViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressNumericLabel: UILabel!
+    @IBOutlet weak var circularProgressView: KDCircularProgress!
+    
     var viewModel: TorrentModeling!
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel.text = viewModel.title
+        viewModel.progressNumeric.drive(progressNumericLabel.rx.text).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

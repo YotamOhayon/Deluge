@@ -50,7 +50,9 @@ fileprivate extension AppDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
-        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
+        let storyboard = SwinjectStoryboard.create(name: "Main",
+                                                   bundle: nil,
+                                                   container: container)
         
         window.rootViewController = storyboard.instantiateInitialViewController()
         

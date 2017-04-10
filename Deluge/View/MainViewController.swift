@@ -45,9 +45,8 @@ class MainViewController: UIViewController {
         
         if segue.identifier == "ShowTorrentSegue" {
             let torrent = sender as! Torrent
-            let viewModel = TorrentModel(torrent: torrent)
             let vc = segue.destination as! TorrentViewController
-            vc.viewModel = viewModel
+            vc.viewModel = self.viewModel.viewModel(forTorrent: torrent)
         }
         
     }
@@ -93,7 +92,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowTorrentSegue", sender: self.dataSource[indexPath.row])
+        self.performSegue(withIdentifier: "ShowTorrentSegue",
+                          sender: self.dataSource[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

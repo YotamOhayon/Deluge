@@ -11,8 +11,12 @@ import Delugion
 import RxSwift
 
 protocol DelugionServicing {
+    
     var connection: Observable<ServerResponse<Bool>> { get }
     var torrents: Observable<ServerResponse<[Torrent]>> { get }
+    
+    func torrentInfo(hash: String) -> Observable<ServerResponse<Torrent>>
+    
 }
 
 class DelugionService: DelugionServicing {
@@ -28,7 +32,8 @@ class DelugionService: DelugionServicing {
 
     var torrents: Observable<ServerResponse<[Torrent]>> {
         return Observable.create { [unowned self] observer -> Disposable in
-            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [unowned self] _ in
+            let timer = Timer.scheduledTimer(withTimeInterval: 1,
+                                             repeats: true) { [unowned self] _ in
                 self.delugion.info(filterByState: nil) {
                     observer.onNext($0)
                 }
@@ -43,6 +48,20 @@ class DelugionService: DelugionServicing {
     
     init(delugion: Delugion) {
         self.delugion = delugion
+    }
+    
+    func torrentInfo(hash: String) -> Observable<ServerResponse<Torrent>> {
+        return Observable.create { [unowned self] observer -> Disposable in
+            let timer = Timer.scheduledTimer(withTimeInterval: 1,
+                                             repeats: true) { [unowned self] _ in
+                self.delugion.info(hash: hash) {
+                    observer.onNext($0)
+                }
+            }
+            return Disposables.create {
+                timer.invalidate()
+            }
+        }
     }
     
 }

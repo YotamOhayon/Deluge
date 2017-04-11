@@ -13,14 +13,14 @@ import RxCocoa
 protocol TorrentModeling {
     var title: String? { get }
     var downloadSpeed: Driver<String?> { get }
-    var progressNumeric: Driver<String?> { get }
+    var progress: Driver<ProgressType> { get }
 }
 
 class TorrentModel: TorrentModeling {
     
     let title: String?
     let downloadSpeed: Driver<String?>
-    let progressNumeric: Driver<String?>
+    let progress: Driver<ProgressType>
     
     init(torrent: Torrent, delugionService: DelugionServicing) {
         self.title = torrent.name
@@ -39,7 +39,9 @@ class TorrentModel: TorrentModeling {
         
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
         
-        self.progressNumeric = info.map { String(describing: $0.progress) }.asDriver(onErrorJustReturn: nil)
+        self.progress = info.map {
+            $0.progressView
+        }.asDriver(onErrorJustReturn: .other(#imageLiteral(resourceName: "x")))
         
     }
     

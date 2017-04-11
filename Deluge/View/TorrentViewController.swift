@@ -13,17 +13,16 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var progressNumericLabel: UILabel!
-    @IBOutlet weak var circularProgressView: KDCircularProgress!
-    
     var viewModel: TorrentModeling!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLabel.text = viewModel.title
-        viewModel.progressNumeric.drive(progressNumericLabel.rx.text).disposed(by: disposeBag)
+        
+        viewModel.progress.drive(onNext: { [unowned self] in
+            self.addProgressView($0)
+        }).disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,4 +30,29 @@ class TorrentViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
 
+}
+
+fileprivate extension TorrentViewController {
+    
+    func addProgressView(_ progress: ProgressType) {
+        
+        let addConstraints: (UIView) -> Swift.Void = { [unowned self] progressView in
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(progressView)
+            progressView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            progressView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            progressView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+            progressView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        }
+        
+        switch progress {
+        case .numeric(let view):
+            addConstraints(view)
+        case .other(let image):
+            let imageView = UIImageView(image: image)
+            addConstraints(imageView)
+        }
+    
+    }
+    
 }

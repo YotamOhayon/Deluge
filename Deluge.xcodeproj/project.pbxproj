@@ -24,6 +24,7 @@
 		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
 		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
 		55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModel.swift */; };
+		5598A4521E9CCEDC002D75B3 /* Torrent+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
 		55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
@@ -64,6 +65,7 @@
 		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
 		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
 		55885C091E99184E005A4D3D /* PausedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModel.swift; sourceTree = "<group>"; };
+		5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extensions.swift"; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
 		55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
 				556640591E9A4E71002819B9 /* Unit+Extension.swift */,
+				5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5598A4521E9CCEDC002D75B3 /* Torrent+Extensions.swift in Sources */,
 				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,

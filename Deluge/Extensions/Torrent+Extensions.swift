@@ -18,28 +18,47 @@ enum ProgressType {
 
 extension Torrent {
     
-    var progressView: ProgressType {
+    var progressView: UIView? {
         
         switch self.state {
         case .downloading:
-            let view = KDCircularProgress()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.angle = 90
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "30"
-            view.addSubview(label)
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            return .numeric(view)
+            let progressView = KDCircularProgress()
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            progressView.angle = (self.progress ?? 0).asAngle
+            progressView.progressThickness = 0.3
+            progressView.trackThickness = 0.3
+            progressView.trackColor = .gray
+            progressView.progressColors = [.blue]
+            return progressView
+        case .paused:
+            let progressView = KDCircularProgress()
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            progressView.angle = (self.progress ?? 0).asAngle
+            progressView.progressThickness = 0.3
+            progressView.trackThickness = 0.3
+            progressView.trackColor = .lightGray
+            progressView.progressColors = [.darkGray]
+            return progressView
         case .error:
-            return .other(#imageLiteral(resourceName: "x"))
+            return UIImageView(image: #imageLiteral(resourceName: "x"))
         case .seeding:
-            return .other(#imageLiteral(resourceName: "v"))
+            return UIImageView(image: #imageLiteral(resourceName: "v"))
         default:
-            return .other(#imageLiteral(resourceName: "x"))
+            return nil
         }
         
+    }
+    
+    var progressLabel: UILabel? {
+        switch self.state {
+        case .downloading, .paused:
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = String(describing: (self.progress ?? 0).setPrecision(to: 0))
+            return label
+        default:
+            return nil
+        }
     }
     
 }

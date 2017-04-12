@@ -10,6 +10,10 @@ import Foundation
 
 extension Double {
     
+    var asAngle: Double {
+        return self * 3.6
+    }
+    
     func inUnits() -> (Double, Unit) {
         
         if self >= 1073741824 {

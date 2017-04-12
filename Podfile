@@ -7,6 +7,7 @@ target 'Deluge' do
   pod 'Delugion', :path => '../Delugion/'
   pod 'RxSwift', '~> 3.3'
   pod 'RxCocoa', '~> 3.3'
+  pod 'RxOptional', '~> 3.1'
   pod 'Swinject', '~> 2.0'
   pod 'SwinjectStoryboard', '~> 1.0'
   pod 'KDCircularProgress', :path => '../KDCircularProgress/'

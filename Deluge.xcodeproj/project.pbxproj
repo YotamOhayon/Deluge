@@ -16,9 +16,9 @@
 		553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EA1E959A4200B2A658 /* Main.storyboard */; };
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
-		553AC7FC1E959A4200B2A658 /* DelugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* DelugeTests.swift */; };
+		553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */; };
 		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
-		5566405A1E9A4E71002819B9 /* Unit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit+Extension.swift */; };
+		5566405A1E9A4E71002819B9 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
 		55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */; };
 		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
@@ -56,10 +56,10 @@
 		553AC7F01E959A4200B2A658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		553AC7F21E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		553AC7FB1E959A4200B2A658 /* DelugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelugeTests.swift; sourceTree = "<group>"; };
+		553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions_Spec.swift"; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		556640591E9A4E71002819B9 /* Unit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Extension.swift"; sourceTree = "<group>"; };
+		556640591E9A4E71002819B9 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Unit.swift; path = Unit.swift; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingTableViewCell.swift; sourceTree = "<group>"; };
 		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 				55D5EB6C1E96172400F93DE1 /* Services */,
 				55D5EB661E96113500F93DE1 /* Storyboards */,
 				55D5EB651E96112900F93DE1 /* Supporting Files */,
+				555A34451E9E73EF0056F1A8 /* Types */,
 				55D5EB681E96114300F93DE1 /* View */,
 				55D5EB691E96163200F93DE1 /* ViewModel */,
 			);
@@ -139,19 +140,36 @@
 		553AC7FA1E959A4200B2A658 /* DelugeTests */ = {
 			isa = PBXGroup;
 			children = (
-				553AC7FB1E959A4200B2A658 /* DelugeTests.swift */,
+				55A808A71E9E5B9D00520B9C /* Extensions */,
 				553AC7FD1E959A4200B2A658 /* Info.plist */,
 			);
 			path = DelugeTests;
+			sourceTree = "<group>";
+		};
+		555A34451E9E73EF0056F1A8 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				556640591E9A4E71002819B9 /* Unit.swift */,
+			);
+			name = Types;
+			path = Types;
 			sourceTree = "<group>";
 		};
 		556640561E9A4E21002819B9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
-				556640591E9A4E71002819B9 /* Unit+Extension.swift */,
 				5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */,
 			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		55A808A71E9E5B9D00520B9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */,
+			);
+			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -452,7 +470,7 @@
 				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
 				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
 				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
-				5566405A1E9A4E71002819B9 /* Unit+Extension.swift in Sources */,
+				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
 				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
 				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
@@ -465,7 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553AC7FC1E959A4200B2A658 /* DelugeTests.swift in Sources */,
+				553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,7 +646,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAA9F2ECAC63A2F61C8B8EBB /* Pods-DelugeTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7V77HPPE58;
 				INFOPLIST_FILE = DelugeTests/Info.plist;
@@ -644,7 +661,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9889DDDB0323270F9742AE6F /* Pods-DelugeTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7V77HPPE58;
 				INFOPLIST_FILE = DelugeTests/Info.plist;

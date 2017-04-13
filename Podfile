@@ -17,6 +17,8 @@ target 'Deluge' do
   target 'DelugeTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick', '~> 1.1'
+    pod 'Nimble', '~> 6.1'
   end
 
 end

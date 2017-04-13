@@ -14,32 +14,36 @@ extension Double {
         return self * 3.6
     }
     
-    func inUnits() -> (Double, Unit) {
+    func inUnits(withPrecision precision: Int) -> (Double, Unit) {
         
-        if self >= 1073741824 {
-            let size = (self / 1073741824).setPrecision(to: 1)
-            return (size, .gb)
+        let KiB = 1024.0
+        let MiB = KiB * 1024.0
+        let GiB = MiB * 1024.0
+        
+        if self >= GiB {
+            let size = (self / GiB).setPrecision(to: precision)
+            return (size, .GiB)
         }
             
-        else if self >= 1048576 {
-            let size = (self / 1048576).setPrecision(to: 1)
-            return (size, .mb)
+        else if self >= MiB {
+            let size = (self / MiB).setPrecision(to: precision)
+            return (size, .MiB)
         }
             
-        else if self >= 1024 {
-            let size = (self / 1024).setPrecision(to: 1)
-            return (size, .kb)
+        else if self >= KiB {
+            let size = (self / KiB).setPrecision(to: precision)
+            return (size, .KiB)
         }
             
         else {
-            return (self, .byte)
+            return (self, .B)
         }
         
     }
     
     func setPrecision(to: Int) -> Double {
         
-        let divisor = pow(10.0, Double(1))
+        let divisor = pow(10.0, 1.0)
         return (self * divisor).rounded() / divisor
         
     }

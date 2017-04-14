@@ -41,18 +41,26 @@ extension Double {
         
     }
     
-    func setPrecision(to: Int) -> Double {
+    func setPrecision(to powValue: Int) -> Double {
         
-        let divisor = pow(10.0, 1.0)
-        return (self * divisor).rounded() / divisor
+        let divisor = pow(10.0, Double(powValue))
+        let temp = modf(self * divisor).0
+        return temp / divisor
         
     }
     
     var asHMS: String? {
         
+        let secondsInMinute = 60
+        let secondsInHour = secondsInMinute * 60
+        let secondsInDay = secondsInHour * 24
+        
         let asInt = Int(self)
         
-        let (d, h, m, s) = (asInt / 86400, asInt / 3600, (asInt % 3600) / 60, (asInt % 3600) % 60)
+        let (d, h, m, s) = (asInt / secondsInDay,
+                            (asInt / secondsInHour) % 24,
+                            (asInt % secondsInHour) / secondsInMinute,
+                            (asInt % secondsInHour) % secondsInMinute)
         
         var eta = [String]()
         if d > 0 {
@@ -66,6 +74,9 @@ extension Double {
         }
         if s > 0 {
             eta.append("\(s)s")
+        }
+        if eta.count == 0 && s == 0 {
+            return "0s"
         }
         return eta.joined(separator: " ")
         

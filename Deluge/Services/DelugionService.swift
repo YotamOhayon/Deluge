@@ -13,9 +13,9 @@ import RxSwift
 protocol DelugionServicing {
     
     var connection: Observable<ServerResponse<Bool>> { get }
-    var torrents: Observable<ServerResponse<[Torrent]>> { get }
+    var torrents: Observable<ServerResponse<[TorrentProtocol]>> { get }
     
-    func torrentInfo(hash: String) -> Observable<ServerResponse<Torrent>>
+    func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>>
     
 }
 
@@ -30,7 +30,7 @@ class DelugionService: DelugionServicing {
         }
     }
 
-    var torrents: Observable<ServerResponse<[Torrent]>> {
+    var torrents: Observable<ServerResponse<[TorrentProtocol]>> {
         return Observable.create { [unowned self] observer -> Disposable in
             let timer = Timer.scheduledTimer(withTimeInterval: 1,
                                              repeats: true) { [unowned self] _ in
@@ -50,7 +50,7 @@ class DelugionService: DelugionServicing {
         self.delugion = delugion
     }
     
-    func torrentInfo(hash: String) -> Observable<ServerResponse<Torrent>> {
+    func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>> {
         return Observable.create { [unowned self] observer -> Disposable in
             let timer = Timer.scheduledTimer(withTimeInterval: 1,
                                              repeats: true) { [unowned self] _ in

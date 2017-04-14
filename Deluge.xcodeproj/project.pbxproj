@@ -20,6 +20,7 @@
 		5541746E1EA0A73500BA4332 /* UnitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541746D1EA0A73500BA4332 /* UnitSpec.swift */; };
 		554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */; };
 		554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174721EA0BA0500BA4332 /* TorrentMock.swift */; };
+		554174791EA0C77800BA4332 /* MainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174781EA0C77800BA4332 /* MainViewModelSpec.swift */; };
 		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
 		5566405A1E9A4E71002819B9 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
@@ -28,6 +29,10 @@
 		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
 		55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModel.swift */; };
 		5598A4521E9CCEDC002D75B3 /* Torrent+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */; };
+		55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */; };
+		55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */; };
+		55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */; };
+		55BDA44B1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
 		55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
@@ -64,6 +69,7 @@
 		5541746D1EA0A73500BA4332 /* UnitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSpec.swift; sourceTree = "<group>"; };
 		554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionServiceMock.swift; sourceTree = "<group>"; };
 		554174721EA0BA0500BA4332 /* TorrentMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentMock.swift; sourceTree = "<group>"; };
+		554174781EA0C77800BA4332 /* MainViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelSpec.swift; sourceTree = "<group>"; };
 		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		556640591E9A4E71002819B9 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -72,6 +78,10 @@
 		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
 		55885C091E99184E005A4D3D /* PausedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModel.swift; sourceTree = "<group>"; };
 		5598A4511E9CCEDC002D75B3 /* Torrent+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extensions.swift"; sourceTree = "<group>"; };
+		55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModelSpec.swift; sourceTree = "<group>"; };
+		55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModelSpec.swift; sourceTree = "<group>"; };
+		55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModelSpec.swift; sourceTree = "<group>"; };
+		55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
 		55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +159,7 @@
 				55A808A71E9E5B9D00520B9C /* Extensions */,
 				5541746F1EA0B87B00BA4332 /* Mocks */,
 				5541746C1EA0A72400BA4332 /* Types */,
+				554174771EA0C76800BA4332 /* ViewModel */,
 				553AC7FD1E959A4200B2A658 /* Info.plist */,
 			);
 			path = DelugeTests;
@@ -168,8 +179,19 @@
 				554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */,
 				554174721EA0BA0500BA4332 /* TorrentMock.swift */,
 			);
-			name = Mocks;
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		554174771EA0C76800BA4332 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				554174781EA0C77800BA4332 /* MainViewModelSpec.swift */,
+				55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */,
+				55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */,
+				55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */,
+				55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		555A34451E9E73EF0056F1A8 /* Types */ = {
@@ -507,9 +529,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BDA44B1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift in Sources */,
+				55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */,
 				554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */,
 				554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */,
+				55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */,
+				55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */,
 				5541746E1EA0A73500BA4332 /* UnitSpec.swift in Sources */,
+				554174791EA0C77800BA4332 /* MainViewModelSpec.swift in Sources */,
 				553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

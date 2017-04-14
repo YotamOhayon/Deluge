@@ -17,7 +17,7 @@ class ErrorCellViewModel: ErrorCellViewModeling {
     
     let title: String?
     
-    init(torrent: Torrent) {
+    init(torrent: TorrentProtocol) {
         self.title = torrent.name
     }
     

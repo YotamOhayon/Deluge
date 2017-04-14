@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let disposeBag = DisposeBag()
-    fileprivate var dataSource = [Torrent]() {
+    fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
             self.tableView.reloadData()
         }

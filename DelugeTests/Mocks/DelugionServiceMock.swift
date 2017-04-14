@@ -13,9 +13,9 @@ import Delugion
 
 class DelugionServiceMock: DelugionServicing {
     
-    let connectionResponse: ServerResponse<Bool>
-    let torrentsResponse: ServerResponse<[TorrentProtocol]>
-    let torrentResponse: ServerResponse<TorrentProtocol>
+    var connectionResponse: ServerResponse<Bool>
+    var torrentsResponse: ServerResponse<[TorrentProtocol]>
+    var torrentResponse: ServerResponse<TorrentProtocol>
     
     var connection: Observable<ServerResponse<Bool>> {
         return Observable.just(self.connectionResponse)
@@ -45,6 +45,20 @@ class DelugionServiceMock: DelugionServicing {
                   torrentsResponse: .valid([TorrentMock()]),
                   torrentResponse: .valid(TorrentMock()))
         
+    }
+    
+    convenience init(torrentsResponse: ServerResponse<[TorrentProtocol]>) {
+        
+        self.init(connectionResponse: .valid(true),
+                  torrentsResponse: torrentsResponse,
+                  torrentResponse: .valid(TorrentMock()))
+        
+    }
+    
+    convenience init() {
+        self.init(connectionResponse: .valid(true),
+                  torrentsResponse: .valid([TorrentMock()]),
+                  torrentResponse: .valid(TorrentMock()))
     }
     
 }

@@ -25,7 +25,7 @@ class TorrentModel: TorrentModeling {
     let progress: Driver<UIView>
     let progressLabel: Driver<UILabel>
     
-    init(torrent: Torrent, delugionService: DelugionServicing) {
+    init(torrent: TorrentProtocol, delugionService: DelugionServicing) {
         self.title = torrent.name
         
         let info = delugionService.torrentInfo(hash: torrent.torrentHash)

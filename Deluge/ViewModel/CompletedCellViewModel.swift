@@ -19,10 +19,18 @@ class CompletedCellViewModel: CompletedCellViewModeling {
     let title: String?
     let size: String?
     
-    init(torrent: Torrent) {
-        self.title = torrent.name
-        let (size, unit) = torrent.totalSize?.inUnits(withPrecision: 1) ?? (0, .B)
+    init(torrent: TorrentProtocol) {
+        
+        guard let title = torrent.name, let totalSize = torrent.totalSize else {
+            self.title = nil
+            self.size = nil
+            return
+        }
+        
+        self.title = title
+        let (size, unit) = totalSize.inUnits(withPrecision: 1)
         self.size = "\(size) \(unit.stringified)"
+        
     }
     
 }

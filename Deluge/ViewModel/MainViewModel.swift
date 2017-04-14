@@ -12,15 +12,15 @@ import RxSwift
 import RxCocoa
 
 protocol MainViewModeling {
-    var torrents: Driver<[Torrent]> { get }
-    func viewModel(forTorrent: Torrent) -> TorrentModeling
+    var torrents: Driver<[TorrentProtocol]> { get }
+    func viewModel(forTorrent: TorrentProtocol) -> TorrentModeling
 }
 
 class MainViewModel: MainViewModeling {
     
     let disposeBag = DisposeBag()
     
-    let torrents: Driver<[Torrent]>
+    let torrents: Driver<[TorrentProtocol]>
     let delugionService: DelugionServicing
     
     init(delugionService: DelugionServicing) {
@@ -50,12 +50,12 @@ class MainViewModel: MainViewModeling {
                     return true
                 }
             }.map {
-                $0.associatedValue as! [Torrent]
-        }.asDriver(onErrorJustReturn: [Torrent]())
+                $0.associatedValue as! [TorrentProtocol]
+        }.asDriver(onErrorJustReturn: [TorrentProtocol]())
         
     }
     
-    func viewModel(forTorrent torrent: Torrent) -> TorrentModeling {
+    func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentModeling {
         return TorrentModel(torrent: torrent, delugionService: self.delugionService)
     }
     

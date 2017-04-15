@@ -13,7 +13,11 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
+    
+    @IBOutlet weak var filesContainerView: UIView!
+    @IBOutlet weak var detailsContainerView: UIView!
     @IBOutlet weak var progressView: KDCircularProgress!
+    
     var progressSubview: UIView?
     var viewModel: TorrentModeling!
     let disposeBag = DisposeBag()
@@ -47,6 +51,20 @@ class TorrentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    
+    @IBAction func segmentedValueChanged(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.filesContainerView.alpha = 1
+            self.detailsContainerView.alpha = 0
+        default:
+            self.filesContainerView.alpha = 0
+            self.detailsContainerView.alpha = 1
+        }
+        
     }
     
 }

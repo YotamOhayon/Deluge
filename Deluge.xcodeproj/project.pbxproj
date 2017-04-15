@@ -33,6 +33,7 @@
 		55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */; };
 		55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */; };
 		55BDA44B1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */; };
+		55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
 		55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */; };
 		55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB611E9610A300F93DE1 /* MainViewController.swift */; };
@@ -82,6 +83,7 @@
 		55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModelSpec.swift; sourceTree = "<group>"; };
+		55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesTableViewController.swift; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
 		55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
 		55D5EB611E9610A300F93DE1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
 				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
 				55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */,
+				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
 				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
 				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
+				55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */,

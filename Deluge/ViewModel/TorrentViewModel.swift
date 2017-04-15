@@ -11,21 +11,28 @@ import Delugion
 import RxCocoa
 import RxOptional
 
+struct ProgressInfo {
+    
+    var angle: Double
+    var progressColor: UIColor
+    var view: UIView
+    
+}
+
 protocol TorrentModeling {
     var title: String? { get }
     var downloadSpeed: Driver<String?> { get }
-    var progress: Driver<UIView> { get }
-    var progressLabel: Driver<UILabel> { get }
+    var progress: Driver<ProgressInfo?> { get }
 }
 
 class TorrentModel: TorrentModeling {
     
     let title: String?
     let downloadSpeed: Driver<String?>
-    let progress: Driver<UIView>
-    let progressLabel: Driver<UILabel>
+    let progress: Driver<ProgressInfo?>
     
     init(torrent: TorrentProtocol, delugionService: DelugionServicing) {
+        
         self.title = torrent.name
         
         let info = delugionService.torrentInfo(hash: torrent.torrentHash)
@@ -43,12 +50,8 @@ class TorrentModel: TorrentModeling {
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
         
         self.progress = info.map {
-            $0.progressView
-        }.filterNil().asDriver(onErrorJustReturn: UIImageView(image: #imageLiteral(resourceName: "x")))
-        
-        self.progressLabel = info.map {
-            $0.progressLabel
-            }.filterNil().asDriver(onErrorJustReturn: UILabel())
+            $0.progressInfo
+        }.asDriver(onErrorJustReturn: nil).startWith(torrent.progressInfo)
         
     }
     

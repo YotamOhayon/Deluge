@@ -16,49 +16,52 @@ enum ProgressType {
     case other(UIImage)
 }
 
-extension Torrent {
+extension TorrentProtocol {
     
-    var progressView: UIView? {
+    var progressInfo: ProgressInfo? {
         
-        switch self.state {
-        case .downloading:
-            let progressView = KDCircularProgress()
-            progressView.translatesAutoresizingMaskIntoConstraints = false
-            progressView.angle = (self.progress ?? 0).asAngle
-            progressView.progressThickness = 0.3
-            progressView.trackThickness = 0.3
-            progressView.trackColor = .gray
-            progressView.progressColors = [.blue]
-            return progressView
-        case .paused:
-            let progressView = KDCircularProgress()
-            progressView.translatesAutoresizingMaskIntoConstraints = false
-            progressView.angle = (self.progress ?? 0).asAngle
-            progressView.progressThickness = 0.3
-            progressView.trackThickness = 0.3
-            progressView.trackColor = .lightGray
-            progressView.progressColors = [.darkGray]
-            return progressView
-        case .error:
-            return UIImageView(image: #imageLiteral(resourceName: "x"))
-        case .seeding:
-            return UIImageView(image: #imageLiteral(resourceName: "v"))
-        default:
-            return nil
-        }
-        
-    }
-    
-    var progressLabel: UILabel? {
-        switch self.state {
-        case .downloading, .paused:
+        let labelWithColor: (UIColor) -> UILabel = { color in
             let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = String(describing: (self.progress ?? 0).setPrecision(to: 0))
+            label.textColor = color
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
             return label
-        default:
-            return nil
         }
+        
+        let view = { () -> UIView in
+            switch self.state {
+            case .downloading:
+                return labelWithColor(.blue)
+            case .paused:
+                return labelWithColor(.gray)
+            case .seeding:
+                return UIImageView(image: #imageLiteral(resourceName: "v"))
+            default:
+                return UIImageView(image: #imageLiteral(resourceName: "x"))
+            }
+        }()
+        
+        let progressColor = { () -> UIColor in
+         
+            switch self.state {
+            case .downloading:
+                return .blue
+            case .paused:
+                return .lightGray
+            case .error:
+                return .red
+            case .seeding:
+                return .green
+            default:
+                return .red
+            }
+            
+        }()
+        
+        let angle = (self.progress ?? 0).asAngle
+        
+        return ProgressInfo(angle: angle, progressColor: progressColor, view: view)
+        
     }
     
 }

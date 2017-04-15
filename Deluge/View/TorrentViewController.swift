@@ -13,8 +13,8 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
-    var progressView: UIView?
-    var progressLabel: UILabel?
+    @IBOutlet weak var progressView: KDCircularProgress!
+    var progressSubview: UIView?
     var viewModel: TorrentModeling!
     let disposeBag = DisposeBag()
     
@@ -22,17 +22,24 @@ class TorrentViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.progress.drive(onNext: { [unowned self] in
-            if let progressView = self.progressView {
-                progressView.removeFromSuperview()
+            
+            guard let progressInfo = $0 else {
+                return
             }
-            self.addProgressView($0)
-        }).disposed(by: disposeBag)
-        
-        viewModel.progressLabel.drive(onNext: { [unowned self] in
-            if let progressLabel = self.progressLabel {
-                progressLabel.removeFromSuperview()
+            self.progressView.angle = progressInfo.angle
+            self.progressView.progressColors = [progressInfo.progressColor]
+            
+            if let progressSubview = self.progressSubview {
+                progressSubview.removeFromSuperview()
             }
-            self.addProgressLabel($0)
+            
+            let view = progressInfo.view
+            view.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(view)
+            self.progressSubview = view
+            view.centerXAnchor.constraint(equalTo: self.progressView.centerXAnchor).isActive = true
+            view.centerYAnchor.constraint(equalTo: self.progressView.centerYAnchor).isActive = true
+            
         }).disposed(by: disposeBag)
         
     }
@@ -40,36 +47,6 @@ class TorrentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-    }
-    
-}
-
-fileprivate extension TorrentViewController {
-    
-    func addProgressView(_ progressView: UIView) {
-        
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(progressView)
-        progressView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        progressView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        progressView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        progressView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        self.progressView = progressView
-        
-    }
-    
-    func addProgressLabel(_ label: UILabel) {
-        
-        guard let progressView = self.progressView else {
-            return
-        }
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(label)
-        label.centerXAnchor.constraint(equalTo: progressView.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: progressView.centerYAnchor).isActive = true
-        self.progressLabel = label
-        
     }
     
 }

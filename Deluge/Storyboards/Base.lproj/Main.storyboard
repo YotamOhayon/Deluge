@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -461,12 +462,81 @@
                     <view key="view" contentMode="scaleToFill" id="yzF-Tc-Sg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECK-OT-M8K" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                                <rect key="frame" x="27" y="84" width="78" height="78"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="5Pt-Dm-5qh"/>
+                                    <constraint firstAttribute="width" constant="78" id="phF-TL-wG7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.396078431372549" green="0.63529411764705879" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BitTorrent-Fly-Or-Die-Dree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeV-D6-PL7">
+                                <rect key="frame" x="119" y="84" width="235.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="umb-uZ-eqv">
+                                <rect key="frame" x="16" y="182" width="343" height="29"/>
+                                <segments>
+                                    <segment title="FILES"/>
+                                    <segment title="DETAILS"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ECK-OT-M8K" firstAttribute="top" secondItem="ohN-86-dFP" secondAttribute="bottom" constant="20" id="8N1-Ag-wN6"/>
+                            <constraint firstItem="umb-uZ-eqv" firstAttribute="leading" secondItem="yzF-Tc-Sg0" secondAttribute="leadingMargin" id="9WC-H2-Rzn"/>
+                            <constraint firstItem="QeV-D6-PL7" firstAttribute="leading" secondItem="ECK-OT-M8K" secondAttribute="trailing" constant="14" id="FQe-Wk-5ep"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QeV-D6-PL7" secondAttribute="trailing" id="N1n-DS-Idv"/>
+                            <constraint firstItem="ECK-OT-M8K" firstAttribute="leading" secondItem="yzF-Tc-Sg0" secondAttribute="leading" constant="27" id="NWD-Fu-QM3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="umb-uZ-eqv" secondAttribute="trailing" id="SdJ-84-eQh"/>
+                            <constraint firstItem="umb-uZ-eqv" firstAttribute="top" secondItem="ECK-OT-M8K" secondAttribute="bottom" constant="20" id="bsP-ju-Cmg"/>
+                            <constraint firstItem="QeV-D6-PL7" firstAttribute="top" secondItem="ECK-OT-M8K" secondAttribute="top" id="f1A-NG-imY"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="DXq-ZK-7tu">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="pause" id="cXl-yY-sOR"/>
+                            <barButtonItem systemItem="trash" id="e4I-1D-cf6"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="progressView" destination="ECK-OT-M8K" id="UXm-P5-qH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0b-yD-tqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="103"/>
+            <point key="canvasLocation" x="1816.8" y="102.99850074962519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rg4-fM-Jae">

@@ -1,6 +1,6 @@
 {
   "name": "Delugion",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "summary": "A simple iOS client framework for Deluge.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/yotamoo/Delugion",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yotamo/Delugion.git",
-    "tag": "0.2.0"
+    "tag": "0.2.2"
   },
   "platforms": {
     "ios": "8.0"
@@ -22,6 +22,9 @@
   "dependencies": {
     "Alamofire": [
       "~> 4.2"
+    ],
+    "Himotoki": [
+      "~> 3.0"
     ]
   }
 }

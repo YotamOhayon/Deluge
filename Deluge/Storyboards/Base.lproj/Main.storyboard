@@ -516,7 +516,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2a-WR-gI3" userLabel="FILES Container View">
                                 <rect key="frame" x="16" y="218" width="343" height="441"/>
                                 <connections>
-                                    <segue destination="L2N-ax-uKA" kind="embed" id="ESb-QF-JPL"/>
+                                    <segue destination="L2N-ax-uKA" kind="embed" identifier="TorrentFilesSegue" id="ESb-QF-JPL"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJQ-As-UW6" userLabel="DETAILS Container View">
@@ -585,6 +585,10 @@
         <scene sceneID="ndd-A6-L3f">
             <objects>
                 <viewController id="L2N-ax-uKA" customClass="TorrentFilesTableViewController" customModule="Deluge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z7G-1q-z7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="ePo-z1-2yp"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gsj-wp-AxQ">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="441"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -625,6 +629,10 @@
         <scene sceneID="bbp-sw-DMh">
             <objects>
                 <viewController id="VTa-xU-mCj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qV3-bE-Kiv"/>
+                        <viewControllerLayoutGuide type="bottom" id="iaV-df-Bmo"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hkc-83-cnz">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="441"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

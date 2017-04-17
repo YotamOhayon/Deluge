@@ -13,7 +13,6 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
-    
     @IBOutlet weak var filesContainerView: UIView!
     @IBOutlet weak var detailsContainerView: UIView!
     @IBOutlet weak var progressView: KDCircularProgress!
@@ -65,6 +64,13 @@ class TorrentViewController: UIViewController {
             self.detailsContainerView.alpha = 1
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TorrentFilesSegue" {
+            let vc = segue.destination as! TorrentFilesTableViewController
+            vc.viewModel = viewModel.torrentFilesViewModel
+        }
     }
     
 }

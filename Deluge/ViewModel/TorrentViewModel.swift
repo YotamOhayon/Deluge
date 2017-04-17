@@ -23,6 +23,7 @@ protocol TorrentModeling {
     var title: String? { get }
     var downloadSpeed: Driver<String?> { get }
     var progress: Driver<ProgressInfo?> { get }
+    var torrentFilesViewModel: TorrentFilesViewModeling { get }
 }
 
 class TorrentModel: TorrentModeling {
@@ -31,7 +32,13 @@ class TorrentModel: TorrentModeling {
     let downloadSpeed: Driver<String?>
     let progress: Driver<ProgressInfo?>
     
+    let torrent: TorrentProtocol
+    let delugion: DelugionServicing
+    
     init(torrent: TorrentProtocol, delugionService: DelugionServicing) {
+        
+        self.torrent = torrent
+        self.delugion = delugionService
         
         self.title = torrent.name
         
@@ -53,6 +60,10 @@ class TorrentModel: TorrentModeling {
             $0.progressInfo
         }.asDriver(onErrorJustReturn: nil).startWith(torrent.progressInfo)
         
+    }
+    
+    var torrentFilesViewModel: TorrentFilesViewModeling {
+        return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash, delugionService: self.delugion)
     }
     
 }

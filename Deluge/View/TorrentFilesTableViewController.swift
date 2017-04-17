@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class TorrentFilesTableViewController: UIViewController {
     
-    let dataSource = ["yotam", "ohayon", "gil", "ram"]
+    var viewModel: TorrentFilesViewModeling!
+    var dataSource = [String]()
+    let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        viewModel.torrentFiles.drive(onNext: {
+            self.dataSource = $0 ?? [String]()
+            self.tableView.reloadData()
+        }).disposed(by: disposeBag)
 
     }
 

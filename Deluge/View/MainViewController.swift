@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     var viewModel: MainViewModeling!
     @IBOutlet weak var tableView: UITableView!
+    var torrentsDisposable: Disposable!
     
     let disposeBag = DisposeBag()
     fileprivate var dataSource = [TorrentProtocol]() {
@@ -30,15 +31,22 @@ class MainViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.viewModel.torrents.drive(onNext: { [unowned self] in
-            self.dataSource = $0
-        }).disposed(by: self.disposeBag)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
+            self.dataSource = $0
+        })
+        self.torrentsDisposable.disposed(by: self.disposeBag)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.torrentsDisposable.dispose()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

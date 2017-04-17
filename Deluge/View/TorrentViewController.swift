@@ -19,12 +19,20 @@ class TorrentViewController: UIViewController {
     
     var progressSubview: UIView?
     var viewModel: TorrentModeling!
+    var progressDisposable: Disposable!
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.progress.drive(onNext: { [unowned self] in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        
+        self.progressDisposable = viewModel.progress.drive(onNext: { [unowned self] in
             
             guard let progressInfo = $0 else {
                 return
@@ -43,15 +51,15 @@ class TorrentViewController: UIViewController {
             view.centerXAnchor.constraint(equalTo: self.progressView.centerXAnchor).isActive = true
             view.centerYAnchor.constraint(equalTo: self.progressView.centerYAnchor).isActive = true
             
-        }).disposed(by: disposeBag)
+        })
+        self.progressDisposable.disposed(by: disposeBag)
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.progressDisposable.dispose()
     }
-    
     
     @IBAction func segmentedValueChanged(_ sender: UISegmentedControl) {
         

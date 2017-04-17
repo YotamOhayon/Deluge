@@ -13,6 +13,7 @@ import RxSwift
 class TorrentFilesTableViewController: UIViewController {
     
     var viewModel: TorrentFilesViewModeling!
+    var torrentFilesDisposable: Disposable!
     var dataSource = [String]()
     let disposeBag = DisposeBag()
 
@@ -21,11 +22,23 @@ class TorrentFilesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
-        viewModel.torrentFiles.drive(onNext: {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        self.torrentFilesDisposable = viewModel.torrentFiles.drive(onNext: {
             self.dataSource = $0 ?? [String]()
             self.tableView.reloadData()
-        }).disposed(by: disposeBag)
-
+        })
+        self.torrentFilesDisposable.disposed(by: disposeBag)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.torrentFilesDisposable.dispose()
     }
 
 }

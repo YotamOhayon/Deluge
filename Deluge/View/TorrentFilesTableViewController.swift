@@ -14,7 +14,7 @@ class TorrentFilesTableViewController: UIViewController {
     
     var viewModel: TorrentFilesViewModeling!
     var torrentFilesDisposable: Disposable!
-    var dataSource = [String]()
+    var dataSource: [FilePresentation]? = [FilePresentation]()
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +22,7 @@ class TorrentFilesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +30,7 @@ class TorrentFilesTableViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.torrentFilesDisposable = viewModel.torrentFiles.drive(onNext: {
-            self.dataSource = $0 ?? [String]()
+            self.dataSource = $0
             self.tableView.reloadData()
         })
         self.torrentFilesDisposable.disposed(by: disposeBag)
@@ -53,14 +54,15 @@ extension TorrentFilesTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.dataSource.count
+        return self.dataSource?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier",
                                                  for: indexPath)
         
-        cell.textLabel?.text = self.dataSource[indexPath.row]
+        let filePresentation = self.dataSource![indexPath.row]
+        cell.textLabel?.text = filePresentation.fileName
         
         return cell
     }

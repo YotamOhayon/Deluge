@@ -11,12 +11,12 @@ import RxCocoa
 import Delugion
 
 protocol TorrentFilesViewModeling {
-    var torrentFiles: Driver<[String]?> { get }
+    var torrentFiles: Driver<[FilePresentation]?> { get }
 }
 
 class TorrentFilesViewModel: TorrentFilesViewModeling {
     
-    let torrentFiles: Driver<[String]?>
+    let torrentFiles: Driver<[FilePresentation]?>
     
     init(torrentHash: String, delugionService: DelugionServicing) {
         
@@ -26,7 +26,7 @@ class TorrentFilesViewModel: TorrentFilesViewModeling {
                 case .error(_):
                     return nil
                 case .valid(let contents):
-                    return contents.printFiles()
+                    return contents.orderFiles()
                 }
             }.asDriver(onErrorJustReturn: nil)
         
@@ -36,37 +36,37 @@ class TorrentFilesViewModel: TorrentFilesViewModeling {
 
 extension TorrentContent {
     
-    func printFiles() -> [String] {
-        
-        var result = [String]()
-        
-        self.contents.forEach { (key, value) in
-            if value.type == "file" {
-                result.append(key)
-            }
-            else {
-                result.append(contentsOf: printFiles(inDir: value))
-            }
+    func orderFiles() -> [FilePresentation] {
+        guard let a = self.contents.first else {
+            return [FilePresentation]()
         }
-        
-        return result
-        
+        return self.orderFilesHelper(node: a.1, array: [FilePresentation](), level: 0)
     }
     
-    func printFiles(inDir dir: TorrentFile) -> [String] {
+    func orderFilesHelper(node: TorrentFile,
+                          array: [FilePresentation],
+                          level: Int) -> [FilePresentation] {
         
-        var result = [String]()
-        
-        dir.contents?.forEach { (key, value) in
-            if value.type == "file" {
-                result.append(key)
+        var array = array
+        array.append(FilePresentation(fileName: node.path, level: level))
+        node.contents?.forEach{ (key, value) in
+            if value.type == "dir" {
+                array.append(contentsOf: self.orderFilesHelper(node: value, array: array, level: level + 1))
             }
             else {
-                result.append(contentsOf: printFiles(inDir: value))
+                array.append(FilePresentation(fileName: value.path, level: level + 1))
             }
         }
-        
-        return result
+        return array.sorted(by: { (a, b) -> Bool in
+            a.fileName < b.fileName
+        })
     }
+    
+}
+
+struct FilePresentation {
+    
+    let fileName: String
+    let level: Int
     
 }

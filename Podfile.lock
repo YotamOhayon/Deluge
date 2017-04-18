@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
-  - Delugion (0.2.2):
+  - Delugion (0.2.5):
     - Alamofire (~> 4.2)
     - Himotoki (~> 3.0)
   - Himotoki (3.0.1)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Delugion: c2dccae009060d1f27a2ea0b87a200db2068ec0c
+  Delugion: 837242eb9311ad90ff389aa2c17c0a933019e7db
   Himotoki: 85fda41d4d0e14f7228317a3b474175cdfb8f515
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59

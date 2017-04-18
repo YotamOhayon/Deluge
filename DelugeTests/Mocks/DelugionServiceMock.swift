@@ -16,6 +16,7 @@ class DelugionServiceMock: DelugionServicing {
     var connectionResponse: ServerResponse<Bool>
     var torrentsResponse: ServerResponse<[TorrentProtocol]>
     var torrentResponse: ServerResponse<TorrentProtocol>
+    var torrentFilesResponse: ServerResponse<TorrentContent>
     
     var connection: Observable<ServerResponse<Bool>> {
         return Observable.just(self.connectionResponse)
@@ -29,13 +30,19 @@ class DelugionServiceMock: DelugionServicing {
         return Observable.just(self.torrentResponse)
     }
     
+    func torrentFiles(hash: String) -> Observable<ServerResponse<TorrentContent>> {
+        return Observable.just(self.torrentFilesResponse)
+    }
+    
     init(connectionResponse: ServerResponse<Bool>,
          torrentsResponse: ServerResponse<[TorrentProtocol]>,
-         torrentResponse: ServerResponse<TorrentProtocol>) {
+         torrentResponse: ServerResponse<TorrentProtocol>,
+         torrentFilesResponse: ServerResponse<TorrentContent>) {
         
         self.connectionResponse = connectionResponse
         self.torrentsResponse = torrentsResponse
         self.torrentResponse = torrentResponse
+        self.torrentFilesResponse = torrentFilesResponse
         
     }
     
@@ -43,7 +50,8 @@ class DelugionServiceMock: DelugionServicing {
         
         self.init(connectionResponse: connectionResponse,
                   torrentsResponse: .valid([TorrentMock()]),
-                  torrentResponse: .valid(TorrentMock()))
+                  torrentResponse: .valid(TorrentMock()),
+                  torrentFilesResponse: .valid(DelugionServiceMock.torrenContent))
         
     }
     
@@ -51,14 +59,33 @@ class DelugionServiceMock: DelugionServicing {
         
         self.init(connectionResponse: .valid(true),
                   torrentsResponse: torrentsResponse,
-                  torrentResponse: .valid(TorrentMock()))
+                  torrentResponse: .valid(TorrentMock()),
+                  torrentFilesResponse: .valid(DelugionServiceMock.torrenContent))
         
     }
     
     convenience init() {
+        
         self.init(connectionResponse: .valid(true),
                   torrentsResponse: .valid([TorrentMock()]),
-                  torrentResponse: .valid(TorrentMock()))
+                  torrentResponse: .valid(TorrentMock()),
+                  torrentFilesResponse: .valid(DelugionServiceMock.torrenContent))
+    }
+    
+    static var torrentFileMock: TorrentFile {
+        return TorrentFile(priority: 1,
+                           index: 1,
+                           offset: 1,
+                           path: "path",
+                           progress: 1.0,
+                           size: 1,
+                           type: "file",
+                           progresses: nil,
+                           contents: nil)
+    }
+    
+    static var torrenContent: TorrentContent {
+        return TorrentContent(contents: ["file": DelugionServiceMock.torrentFileMock])
     }
     
 }

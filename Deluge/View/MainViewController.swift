@@ -38,7 +38,10 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
-            self.dataSource = $0
+            // TODO: bring back after having one cell for all
+//            if self.shouldReloadData(current: self.dataSource, new: $0) {
+                self.dataSource = $0
+//            }
         })
         self.torrentsDisposable.disposed(by: self.disposeBag)
         
@@ -58,6 +61,19 @@ class MainViewController: UIViewController {
         }
         
     }
+    
+//    func shouldReloadData(current: [TorrentProtocol],
+//                          new: [TorrentProtocol]) -> Bool {
+//        
+//        let currentHashes = current.map { return $0.torrentHash }
+//        let newHashes = new.map { return $0.torrentHash }
+//        
+//        let notInNew = currentHashes.filter { !newHashes.contains($0) }
+//        let notInCurrent = newHashes.filter { !currentHashes.contains($0) }
+//        
+//        return notInNew.isNotEmpty || notInCurrent.isNotEmpty
+//        
+//    }
     
 }
 

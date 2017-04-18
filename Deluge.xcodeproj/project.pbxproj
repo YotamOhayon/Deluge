@@ -318,6 +318,7 @@
 				553AC7E11E959A4200B2A658 /* Resources */,
 				2EE7DF68A84A6DBB51BB5DC1 /* [CP] Embed Pods Frameworks */,
 				567872F89E7DFD8A3EB6D1CB /* [CP] Copy Pods Resources */,
+				5579EB5E1EA4A9EE00557808 /* Run Script - Warnings */,
 			);
 			buildRules = (
 			);
@@ -443,6 +444,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deluge/Pods-Deluge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5579EB5E1EA4A9EE00557808 /* Run Script - Warnings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - Warnings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}/Deluge\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
 		567872F89E7DFD8A3EB6D1CB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

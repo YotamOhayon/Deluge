@@ -58,11 +58,17 @@ extension TorrentFilesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier",
-                                                 for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FileNameCell",
+                                                 for: indexPath) as! FileNameTableViewCell
         
         let filePresentation = self.dataSource![indexPath.row]
-        cell.textLabel?.text = filePresentation.fileName
+        cell.titleLabel.text = filePresentation.fileName
+        
+        let constant = CGFloat(integerLiteral: 10 * filePresentation.level)
+        cell.titleLabel.leadingAnchor.constraint(equalTo: cell.iconImageView.trailingAnchor,
+                                                 constant: constant).isActive = true
+        
+        cell.iconImageView.image = filePresentation.isDir ? #imageLiteral(resourceName: "folder") : nil
         
         return cell
     }

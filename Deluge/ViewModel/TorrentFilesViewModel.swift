@@ -48,13 +48,21 @@ extension TorrentContent {
                           level: Int) -> [FilePresentation] {
         
         var array = array
-        array.append(FilePresentation(fileName: node.path, level: level))
+
+        array.append(FilePresentation(fileName: node.path,
+                                      level: level,
+                                      isDir: node.type == "dir"))
+        
         node.contents?.forEach{ (key, value) in
             if value.type == "dir" {
-                array.append(contentsOf: self.orderFilesHelper(node: value, array: array, level: level + 1))
+                array.append(contentsOf: self.orderFilesHelper(node: value,
+                                                               array: array,
+                                                               level: level + 1))
             }
             else {
-                array.append(FilePresentation(fileName: value.path, level: level + 1))
+                array.append(FilePresentation(fileName: value.path,
+                                              level: level + 1,
+                                              isDir: value.type == "dir"))
             }
         }
         return array.sorted(by: { (a, b) -> Bool in
@@ -68,5 +76,6 @@ struct FilePresentation {
     
     let fileName: String
     let level: Int
+    let isDir: Bool
     
 }

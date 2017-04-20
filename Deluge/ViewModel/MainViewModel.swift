@@ -51,7 +51,10 @@ class MainViewModel: MainViewModeling {
                 }
             }.map {
                 $0.associatedValue as! [TorrentProtocol]
-        }.asDriver(onErrorJustReturn: [TorrentProtocol]())
+            }.map { torrents in
+                torrents.filter { $0.state != .checking }
+            }
+            .asDriver(onErrorJustReturn: [TorrentProtocol]())
         
     }
     

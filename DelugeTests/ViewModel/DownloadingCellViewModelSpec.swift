@@ -19,28 +19,6 @@ class DownloadingCellViewModelSpec: QuickSpec {
     
     override func spec() {
         
-        context("nil values") {
-            
-            it("returns nil") {
-                
-                let torrent = TorrentMock()
-                torrent.name = nil
-                torrent.progress = nil
-                torrent.downloadPayloadrate = nil
-                torrent.eta = nil
-                
-                let viewModel: DownloadingCellViewModeling = DownloadingCellViewModel(torrent: torrent)
-                
-                expect(viewModel.title).to(beNil())
-                expect(viewModel.progress).to(equal(0))
-                expect(viewModel.progressNumeric).to(beNil())
-                expect(viewModel.downloadSpeed).to(beNil())
-                expect(viewModel.eta).to(beNil())
-                
-            }
-            
-        }
-        
         context("non-nil values") {
             
             it("returns correct values") {

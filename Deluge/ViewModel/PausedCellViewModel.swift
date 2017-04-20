@@ -23,14 +23,9 @@ class PausedCellViewModel: PausedCellViewModeling {
     
     init(torrent: TorrentProtocol) {
         self.title = torrent.name
-        if let progress = torrent.progress {
-            self.progress = Double(3.6 * progress)
-            self.progressNumeric = String(describing: progress.setPrecision(to: 0))
-        }
-        else {
-            self.progress = 0
-            self.progressNumeric = nil
-        }
+        
+        self.progress = Double(3.6 * torrent.progress)
+        self.progressNumeric = String(describing: torrent.progress.setPrecision(to: 0))
         
     }
 }

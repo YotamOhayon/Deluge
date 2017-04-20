@@ -13,6 +13,9 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
+    @IBOutlet weak var pausePlayButton: UIBarButtonItem!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var filesContainerView: UIView!
     @IBOutlet weak var detailsContainerView: UIView!
     @IBOutlet weak var progressView: KDCircularProgress!
@@ -23,7 +26,20 @@ class TorrentViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        self.titleLabel.text = viewModel.title
+        
+        viewModel.shouldHidePlayPauseButton.drive(onNext: { [weak self] in
+            self?.pausePlayButton.isEnabled = $0
+        }).disposed(by: disposeBag)
+        
+        viewModel.didRemoveTorrent.subscribe(onNext: { [weak self] in
+            if $0 {
+                _ = self?.navigationController?.popViewController(animated: true)
+            }
+        }).disposed(by: disposeBag)
         
     }
     
@@ -80,5 +96,10 @@ class TorrentViewController: UIViewController {
             vc.viewModel = viewModel.torrentFilesViewModel
         }
     }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        viewModel.deleteButtonTapped(withData: false)
+    }
+    
     
 }

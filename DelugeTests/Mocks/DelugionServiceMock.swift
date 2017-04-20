@@ -34,6 +34,10 @@ class DelugionServiceMock: DelugionServicing {
         return Observable.just(self.torrentFilesResponse)
     }
     
+    func removeTorrent(hash: String, withData shouldRemoveData: Bool, completion: @escaping (ServerResponse<Void>) -> Void) {
+        
+    }
+    
     init(connectionResponse: ServerResponse<Void>,
          torrentsResponse: ServerResponse<[TorrentProtocol]>,
          torrentResponse: ServerResponse<TorrentProtocol>,

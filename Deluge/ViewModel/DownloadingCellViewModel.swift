@@ -27,26 +27,15 @@ class DownloadingCellViewModel: DownloadingCellViewModeling {
     
     init(torrent: TorrentProtocol) {
         self.title = torrent.name
-        if let progress = torrent.progress {
-            self.progress = Double(3.6 * progress)
-            self.progressNumeric = String(describing: progress.setPrecision(to: 0))
-        }
-        else {
-            self.progress = 0
-            self.progressNumeric = nil
-        }
-        if let downloadSpeed = torrent.downloadPayloadrate {
-            let (speed, unit) = downloadSpeed.inUnits(withPrecision: 1)
-            self.downloadSpeed = "\(speed) \(unit.stringifiedAsSpeed)"
-        }
-        else {
-            self.downloadSpeed = nil
-        }
-        if let torrentEta = torrent.eta {
-            self.eta = (torrentEta > 0) ? torrentEta.asHMS : nil
-        }
-        else {
-            self.eta = nil
-        }
+        
+        self.progress = Double(3.6 * torrent.progress)
+        self.progressNumeric = String(describing: torrent.progress.setPrecision(to: 0))
+        
+        
+        let (speed, unit) = torrent.downloadPayloadrate.inUnits(withPrecision: 1)
+        self.downloadSpeed = "\(speed) \(unit.stringifiedAsSpeed)"
+        
+        self.eta = (torrent.eta > 0) ? torrent.eta.asHMS : nil
+        
     }
 }

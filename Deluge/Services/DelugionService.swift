@@ -17,6 +17,7 @@ protocol DelugionServicing {
     
     func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>>
     func torrentFiles(hash: String) -> Observable<ServerResponse<TorrentContent>>
+    func removeTorrent(hash: String, withData shouldRemoveData: Bool, completion: @escaping (ServerResponse<Void>) -> Void)
     
 }
 
@@ -78,6 +79,12 @@ class DelugionService: DelugionServicing {
             return Disposables.create {
                 timer.invalidate()
             }
+        }
+    }
+    
+    func removeTorrent(hash: String, withData shouldRemoveData: Bool, completion: @escaping (ServerResponse<Void>) -> Void) {
+        self.delugion.remove(hash: hash, withData: shouldRemoveData) {
+            completion($0)
         }
     }
     

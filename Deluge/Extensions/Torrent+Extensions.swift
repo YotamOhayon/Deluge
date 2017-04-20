@@ -22,7 +22,7 @@ extension TorrentProtocol {
         
         let labelWithColor: (UIColor) -> UILabel = { color in
             let label = UILabel()
-            label.text = String(describing: (self.progress ?? 0).setPrecision(to: 0))
+            label.text = String(describing: self.progress.setPrecision(to: 0))
             label.textColor = color
             label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
             return label
@@ -58,7 +58,7 @@ extension TorrentProtocol {
             
         }()
         
-        let angle = (self.progress ?? 0).asAngle
+        let angle = self.progress.asAngle
         
         return ProgressInfo(angle: angle, progressColor: progressColor, view: view)
         

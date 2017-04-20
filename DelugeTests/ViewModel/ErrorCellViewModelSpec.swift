@@ -19,24 +19,6 @@ class ErrorCellViewModelSpec: QuickSpec {
     
     override func spec() {
         
-        context("nil values") {
-            
-            it("returns nil") {
-                
-                let torrent = TorrentMock()
-                torrent.name = nil
-                torrent.progress = nil
-                torrent.downloadPayloadrate = nil
-                torrent.eta = nil
-                
-                let viewModel: ErrorCellViewModeling = ErrorCellViewModel(torrent: torrent)
-                
-                expect(viewModel.title).to(beNil())
-                
-            }
-            
-        }
-        
         context("non-nil values") {
             
             it("returns correct values") {

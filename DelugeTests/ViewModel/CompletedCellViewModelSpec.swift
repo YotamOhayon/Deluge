@@ -19,22 +19,6 @@ class CompletedCellViewModelSpec: QuickSpec {
     
     override func spec() {
         
-        context("nil values") {
-            
-            it("returns nil") {
-                
-                let torrent = TorrentMock()
-                torrent.name = nil
-                torrent.totalSize = nil
-                let viewModel: CompletedCellViewModeling = CompletedCellViewModel(torrent: torrent)
-                
-                expect(viewModel.title).to(beNil())
-                expect(viewModel.size).to(beNil())
-                
-            }
-            
-        }
-        
         context("non-nil values") {
             
             it("returns correct values") {

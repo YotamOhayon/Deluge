@@ -100,9 +100,10 @@ extension MainViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedCell") as! CompletedTableViewCell
             cell.viewModel = CompletedCellViewModel(torrent: torrent)
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-            cell.textLabel?.text = self.dataSource[indexPath.row].name
+        case .queued, .checking:
+            // TODO: ADD NEW CELL TYPES!!!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedCell") as! CompletedTableViewCell
+            cell.viewModel = CompletedCellViewModel(torrent: torrent)
             return cell
         }
         

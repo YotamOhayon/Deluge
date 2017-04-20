@@ -13,12 +13,12 @@ import Delugion
 
 class DelugionServiceMock: DelugionServicing {
     
-    var connectionResponse: ServerResponse<Bool>
+    var connectionResponse: ServerResponse<Void>
     var torrentsResponse: ServerResponse<[TorrentProtocol]>
     var torrentResponse: ServerResponse<TorrentProtocol>
     var torrentFilesResponse: ServerResponse<TorrentContent>
     
-    var connection: Observable<ServerResponse<Bool>> {
+    var connection: Observable<ServerResponse<Void>> {
         return Observable.just(self.connectionResponse)
     }
     
@@ -34,7 +34,7 @@ class DelugionServiceMock: DelugionServicing {
         return Observable.just(self.torrentFilesResponse)
     }
     
-    init(connectionResponse: ServerResponse<Bool>,
+    init(connectionResponse: ServerResponse<Void>,
          torrentsResponse: ServerResponse<[TorrentProtocol]>,
          torrentResponse: ServerResponse<TorrentProtocol>,
          torrentFilesResponse: ServerResponse<TorrentContent>) {
@@ -46,7 +46,7 @@ class DelugionServiceMock: DelugionServicing {
         
     }
     
-    convenience init(connectionResponse: ServerResponse<Bool>) {
+    convenience init(connectionResponse: ServerResponse<Void>) {
         
         self.init(connectionResponse: connectionResponse,
                   torrentsResponse: .valid([TorrentMock()]),
@@ -57,7 +57,7 @@ class DelugionServiceMock: DelugionServicing {
     
     convenience init(torrentsResponse: ServerResponse<[TorrentProtocol]>) {
         
-        self.init(connectionResponse: .valid(true),
+        self.init(connectionResponse: .valid(),
                   torrentsResponse: torrentsResponse,
                   torrentResponse: .valid(TorrentMock()),
                   torrentFilesResponse: .valid(DelugionServiceMock.torrenContent))
@@ -66,7 +66,7 @@ class DelugionServiceMock: DelugionServicing {
     
     convenience init() {
         
-        self.init(connectionResponse: .valid(true),
+        self.init(connectionResponse: .valid(),
                   torrentsResponse: .valid([TorrentMock()]),
                   torrentResponse: .valid(TorrentMock()),
                   torrentFilesResponse: .valid(DelugionServiceMock.torrenContent))

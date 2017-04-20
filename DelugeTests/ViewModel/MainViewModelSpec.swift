@@ -31,7 +31,7 @@ class MainViewModelSpec: QuickSpec {
             
             it("") {
                 
-                delugion.connectionResponse = .valid(true)
+                delugion.connectionResponse = .valid()
                 delugion.torrentsResponse = .valid([TorrentMock()])
                 
                 var torrents: [TorrentProtocol]? = nil

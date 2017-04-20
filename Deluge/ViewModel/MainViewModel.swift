@@ -33,8 +33,8 @@ class MainViewModel: MainViewModeling {
         
         let connected = delugionService.connection.filter {
             switch $0 {
-            case .valid(let val):
-                return val
+            case .valid:
+                return true
             default:
                 return false
             }

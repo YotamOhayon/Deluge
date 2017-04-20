@@ -30,7 +30,7 @@ fileprivate extension AppDelegate {
     func setupContainer() {
         
         container.register(DelugionServicing.self) { _ in
-            let delugion = DelugeSDK(hostname: "yotamoo.zapto.org", port: 8112, password: "Y6412257")
+            let delugion = try! Delugion(hostname: "yotamoo.zapto.org", port: 8112)
             return DelugionService(delugion: delugion)
         }.inObjectScope(.container)
         

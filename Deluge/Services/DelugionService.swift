@@ -12,7 +12,7 @@ import RxSwift
 
 protocol DelugionServicing {
     
-    var connection: Observable<ServerResponse<Bool>> { get }
+    var connection: Observable<ServerResponse<Void>> { get }
     var torrents: Observable<ServerResponse<[TorrentProtocol]>> { get }
     
     func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>>
@@ -22,9 +22,9 @@ protocol DelugionServicing {
 
 class DelugionService: DelugionServicing {
     
-    var connection: Observable<ServerResponse<Bool>> {
+    var connection: Observable<ServerResponse<Void>> {
         return Observable.create { [unowned self] observer -> Disposable in
-            self.delugion.connect {
+            self.delugion.connect(withPassword: "Y6412257") {
                 observer.onNext($0)
             }
             return Disposables.create()

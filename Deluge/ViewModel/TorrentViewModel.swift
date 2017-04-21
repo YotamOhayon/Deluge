@@ -27,12 +27,9 @@ protocol TorrentModeling {
     var progress: Driver<ProgressInfo?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
     var shouldHidePlayPauseButton: Driver<Bool> { get }
-    var didRemoveTorrent: Observable<Bool> { get }
-    var didPauseTorrent: Observable<Void> { get }
-    var didResumeTorrent: Observable<Void> { get }
-    
-    func deleteButtonTapped(withData shouldRemoveData: Bool)
-    func pauseOrResumeButtonTapped()
+    var didRemoveTorrentSubject: PublishSubject<Bool> { get }
+    var didRemoveTorrentTapped: PublishSubject<Void> { get }
+    var didTapPlayPauseButton: PublishSubject<Void> { get }
     
 }
 
@@ -43,19 +40,8 @@ class TorrentModel: TorrentModeling {
     let progress: Driver<ProgressInfo?>
     let shouldHidePlayPauseButton: Driver<Bool>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
-    var didRemoveTorrent: Observable<Bool> {
-        return self.didRemoveTorrentSubject.asObservable()
-    }
-    
-    let didPauseTorrentSubject = PublishSubject<Void>()
-    var didPauseTorrent: Observable<Void> {
-        return self.didPauseTorrentSubject.asObservable()
-    }
-    
-    let didResumeTorrentSubject = PublishSubject<Void>()
-    var didResumeTorrent: Observable<Void> {
-        return self.didResumeTorrentSubject.asObservable()
-    }
+    let didRemoveTorrentTapped = PublishSubject<Void>()
+    let didTapPlayPauseButton = PublishSubject<Void>()
     
     let torrent: TorrentProtocol
     let delugion: DelugionServicing
@@ -90,33 +76,38 @@ class TorrentModel: TorrentModeling {
             .asDriver(onErrorJustReturn: false)
             .startWith(torrent.state == .paused || torrent.state == .downloading)
         
+        self.didTapPlayPauseButton.withLatestFrom(info) {
+            $1
+            }.subscribe(onNext: { [unowned self] in
+                switch $0.state {
+                case .downloading:
+                    self.delugion.pauseTorrent(hash: $0.torrentHash)
+                case .paused:
+                    self.delugion.resumeTorrent(hash: $0.torrentHash)
+                default:
+                    return
+                }
+            }).disposed(by: disposeBag)
+        
+        self.didRemoveTorrentTapped.withLatestFrom(info) {
+            $1
+            }.subscribe(onNext: { [unowned self] in
+                self.delugion.removeTorrent(hash: $0.torrentHash,
+                                            withData: true)
+                {
+                    switch $0 {
+                    case .valid:
+                        self.didRemoveTorrentSubject.onNext(true)
+                    case .error:
+                        self.didRemoveTorrentSubject.onNext(false)
+                    }
+                }
+            }).disposed(by: disposeBag)
+        
     }
     
     var torrentFilesViewModel: TorrentFilesViewModeling {
         return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash, delugionService: self.delugion)
-    }
-    
-    func deleteButtonTapped(withData shouldRemoveData: Bool) {
-        self.delugion.removeTorrent(hash: torrent.torrentHash,
-                                    withData: shouldRemoveData)
-        {
-            switch $0 {
-            case .valid:
-                self.didRemoveTorrentSubject.onNext(true)
-            case .error:
-                self.didRemoveTorrentSubject.onNext(false)
-            }
-        }
-    }
-    func pauseOrResumeButtonTapped() {
-        
-//        switch <#value#> {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-        
     }
     
 }

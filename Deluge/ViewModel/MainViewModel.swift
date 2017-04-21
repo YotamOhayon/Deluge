@@ -19,19 +19,10 @@ protocol MainViewModeling {
 class MainViewModel: MainViewModeling {
     
     let disposeBag = DisposeBag()
-    
-    let torrents: Driver<[TorrentProtocol]>
     let delugionService: DelugionServicing
     
-    init(delugionService: DelugionServicing) {
-        
-        self.delugionService = delugionService
-        
-        delugionService.connection.subscribe(onNext: {
-            print($0)
-        }).disposed(by: disposeBag)
-        
-        let connected = delugionService.connection.filter {
+    var connected: Observable<ServerResponse<Void>> {
+        return delugionService.connection.filter {
             switch $0 {
             case .valid:
                 return true
@@ -39,8 +30,10 @@ class MainViewModel: MainViewModeling {
                 return false
             }
         }
-        
-        self.torrents =  Observable.combineLatest(connected, delugionService.torrents) {
+    }
+    
+    var torrents: Driver<[TorrentProtocol]> {
+        return Observable.combineLatest(connected, delugionService.torrents) {
             ($1)
             }.filter {
                 switch $0 {
@@ -55,6 +48,11 @@ class MainViewModel: MainViewModeling {
                 torrents.filter { $0.state != .checking }
             }
             .asDriver(onErrorJustReturn: [TorrentProtocol]())
+    }
+    
+    init(delugionService: DelugionServicing) {
+        
+        self.delugionService = delugionService
         
     }
     

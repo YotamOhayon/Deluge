@@ -548,16 +548,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="DXq-ZK-7tu">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="pause" id="cXl-yY-sOR">
-                                <connections>
-                                    <action selector="pausePlayButtonTapped:" destination="qvR-Nx-f6B" id="WcA-Xq-e1Y"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="trash" id="e4I-1D-cf6">
-                                <connections>
-                                    <action selector="deleteButtonTapped:" destination="qvR-Nx-f6B" id="aHr-Oo-PgF"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="pause" id="cXl-yY-sOR"/>
+                            <barButtonItem systemItem="trash" id="e4I-1D-cf6"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -612,7 +604,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nG3-mp-Yn7" id="bV9-Wl-izK">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-zF-hHC">

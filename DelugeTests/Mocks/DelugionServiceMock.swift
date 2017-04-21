@@ -38,6 +38,14 @@ class DelugionServiceMock: DelugionServicing {
         
     }
     
+    func resumeTorrent(hash: String) {
+        
+    }
+    
+    func pauseTorrent(hash: String) {
+        
+    }
+    
     init(connectionResponse: ServerResponse<Void>,
          torrentsResponse: ServerResponse<[TorrentProtocol]>,
          torrentResponse: ServerResponse<TorrentProtocol>,

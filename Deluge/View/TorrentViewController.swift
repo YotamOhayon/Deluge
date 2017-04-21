@@ -35,11 +35,25 @@ class TorrentViewController: UIViewController {
             self?.pausePlayButton.isEnabled = $0
         }).disposed(by: disposeBag)
         
-        viewModel.didRemoveTorrent.subscribe(onNext: { [weak self] in
+        viewModel.didRemoveTorrentSubject
+            .asObservable()
+            .subscribe(onNext: { [weak self] in
             if $0 {
                 _ = self?.navigationController?.popViewController(animated: true)
             }
         }).disposed(by: disposeBag)
+        
+        self.pausePlayButton
+            .rx
+            .tap
+            .bindTo(viewModel.didTapPlayPauseButton)
+            .disposed(by: disposeBag)
+        
+        self.deleteButton
+            .rx
+            .tap
+            .bindTo(viewModel.didRemoveTorrentTapped)
+            .disposed(by: disposeBag)
         
     }
     
@@ -96,14 +110,5 @@ class TorrentViewController: UIViewController {
             vc.viewModel = viewModel.torrentFilesViewModel
         }
     }
-    
-    @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
-        viewModel.deleteButtonTapped(withData: false)
-    }
-    
-    
-    @IBAction func pausePlayButtonTapped(_ sender: UIBarButtonItem) {
-    }
-    
     
 }

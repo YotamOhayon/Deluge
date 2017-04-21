@@ -28,8 +28,11 @@ protocol TorrentModeling {
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
     var shouldHidePlayPauseButton: Driver<Bool> { get }
     var didRemoveTorrent: Observable<Bool> { get }
+    var didPauseTorrent: Observable<Void> { get }
+    var didResumeTorrent: Observable<Void> { get }
     
     func deleteButtonTapped(withData shouldRemoveData: Bool)
+    func pauseOrResumeButtonTapped()
     
 }
 
@@ -42,6 +45,16 @@ class TorrentModel: TorrentModeling {
     let didRemoveTorrentSubject = PublishSubject<Bool>()
     var didRemoveTorrent: Observable<Bool> {
         return self.didRemoveTorrentSubject.asObservable()
+    }
+    
+    let didPauseTorrentSubject = PublishSubject<Void>()
+    var didPauseTorrent: Observable<Void> {
+        return self.didPauseTorrentSubject.asObservable()
+    }
+    
+    let didResumeTorrentSubject = PublishSubject<Void>()
+    var didResumeTorrent: Observable<Void> {
+        return self.didResumeTorrentSubject.asObservable()
     }
     
     let torrent: TorrentProtocol
@@ -94,6 +107,16 @@ class TorrentModel: TorrentModeling {
                 self.didRemoveTorrentSubject.onNext(false)
             }
         }
+    }
+    func pauseOrResumeButtonTapped() {
+        
+        switch <#value#> {
+        case <#pattern#>:
+            <#code#>
+        default:
+            <#code#>
+        }
+        
     }
     
 }

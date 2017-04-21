@@ -548,7 +548,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="DXq-ZK-7tu">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="pause" id="cXl-yY-sOR"/>
+                            <barButtonItem systemItem="pause" id="cXl-yY-sOR">
+                                <connections>
+                                    <action selector="pausePlayButtonTapped:" destination="qvR-Nx-f6B" id="WcA-Xq-e1Y"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="trash" id="e4I-1D-cf6">
                                 <connections>
                                     <action selector="deleteButtonTapped:" destination="qvR-Nx-f6B" id="aHr-Oo-PgF"/>

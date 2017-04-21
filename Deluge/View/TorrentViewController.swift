@@ -102,4 +102,8 @@ class TorrentViewController: UIViewController {
     }
     
     
+    @IBAction func pausePlayButtonTapped(_ sender: UIBarButtonItem) {
+    }
+    
+    
 }

@@ -1,6 +1,6 @@
 {
   "name": "Delugion",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "summary": "A simple iOS client framework for Deluge.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/yotamoo/Delugion",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yotamo/Delugion.git",
-    "tag": "0.2.6"
+    "tag": "0.2.7"
   },
   "platforms": {
     "ios": "8.0"

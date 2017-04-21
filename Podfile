@@ -11,6 +11,8 @@ target 'Deluge' do
   pod 'Swinject', '~> 2.0'
   pod 'SwinjectStoryboard', '~> 1.0'
   pod 'KDCircularProgress', :path => '../KDCircularProgress/'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # Pods for Deluge
 

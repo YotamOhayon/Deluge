@@ -322,6 +322,7 @@
 				2EE7DF68A84A6DBB51BB5DC1 /* [CP] Embed Pods Frameworks */,
 				567872F89E7DFD8A3EB6D1CB /* [CP] Copy Pods Resources */,
 				5579EB5E1EA4A9EE00557808 /* Run Script - Warnings */,
+				554580D91EAA83B00078FCE6 /* Carshlytics */,
 			);
 			buildRules = (
 			);
@@ -447,6 +448,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deluge/Pods-Deluge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		554580D91EAA83B00078FCE6 /* Carshlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Carshlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d113c2eda6386476fd2ceb92d063486759b9c993 bea8621c22b83d7fdcf5531d363c751a88819590dea9bed482bcd99950b8aa88";
 		};
 		5579EB5E1EA4A9EE00557808 /* Run Script - Warnings */ = {
 			isa = PBXShellScriptBuildPhase;

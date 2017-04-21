@@ -110,12 +110,12 @@ class TorrentModel: TorrentModeling {
     }
     func pauseOrResumeButtonTapped() {
         
-        switch <#value#> {
-        case <#pattern#>:
-            <#code#>
-        default:
-            <#code#>
-        }
+//        switch <#value#> {
+//        case <#pattern#>:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
         
     }
     

@@ -1,8 +1,11 @@
 PODS:
   - Alamofire (4.4.0)
-  - Delugion (0.2.6):
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Delugion (0.2.7):
     - Alamofire (~> 4.2)
     - Himotoki (~> 3.0)
+  - Fabric (1.6.11)
   - Himotoki (3.0.1)
   - KDCircularProgress (1.5.2)
   - Nimble (6.1.0)
@@ -18,7 +21,9 @@ PODS:
     - Swinject (= 2.0.0)
 
 DEPENDENCIES:
+  - Crashlytics
   - Delugion (from `../Delugion/`)
+  - Fabric
   - KDCircularProgress (from `../KDCircularProgress/`)
   - Nimble (~> 6.1)
   - Quick (~> 1.1)
@@ -36,7 +41,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Delugion: 4c4636f6731970a130987fd4ebc509ae0bf01590
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Delugion: 4546f7e7c58841d7875cbe1b2246473ea42c8a88
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Himotoki: 85fda41d4d0e14f7228317a3b474175cdfb8f515
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
@@ -47,6 +54,6 @@ SPEC CHECKSUMS:
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
 
-PODFILE CHECKSUM: 72e3b46e6143e183332a82752e514aa9ec16d79f
+PODFILE CHECKSUM: 8b57e82693c38bc65d9d10bd4b9afee403e410c9
 
 COCOAPODS: 1.2.0

@@ -17,9 +17,11 @@ protocol DelugionServicing {
     
     func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>>
     func torrentFiles(hash: String) -> Observable<ServerResponse<TorrentContent>>
-    func removeTorrent(hash: String, withData shouldRemoveData: Bool, completion: @escaping (ServerResponse<Void>) -> Void)
-    func resumeTorrent(hash: String)
-    func pauseTorrent(hash: String)
+    func removeTorrent(hash: String, withData
+        shouldRemoveData: Bool,
+                       completion: @escaping (ServerResponse<Void>) -> Void)
+    func resumeTorrent(hash: String, completion: @escaping () -> Void)
+    func pauseTorrent(hash: String, completion: @escaping () -> Void)
     
 }
 
@@ -37,10 +39,11 @@ class DelugionService: DelugionServicing {
     var torrents: Observable<ServerResponse<[TorrentProtocol]>> {
         return Observable.create { [unowned self] observer -> Disposable in
             let timer = Timer.scheduledTimer(withTimeInterval: 1,
-                                             repeats: true) { [unowned self] _ in
-                                                self.delugion.info(filterByState: nil) {
-                                                    observer.onNext($0)
-                                                }
+                                             repeats: true)
+            { [unowned self] _ in
+                self.delugion.info(filterByState: nil) {
+                    observer.onNext($0)
+                }
             }
             return Disposables.create {
                 timer.invalidate()
@@ -90,12 +93,12 @@ class DelugionService: DelugionServicing {
         }
     }
     
-    func resumeTorrent(hash: String) {
-        self.delugion.resume(hash: hash)
+    func resumeTorrent(hash: String, completion: @escaping () -> Void) {
+        self.delugion.resume(hash: hash, completion: completion)
     }
     
-    func pauseTorrent(hash: String) {
-        self.delugion.pasue(hash: hash)
+    func pauseTorrent(hash: String, completion: @escaping () -> Void) {
+        self.delugion.pasue(hash: hash, completion: completion)
     }
     
 }

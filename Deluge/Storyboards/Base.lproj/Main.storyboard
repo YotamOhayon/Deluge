@@ -554,10 +554,8 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="deleteButton" destination="e4I-1D-cf6" id="vuE-ga-JUC"/>
                         <outlet property="detailsContainerView" destination="ZJQ-As-UW6" id="CPL-hS-cdo"/>
                         <outlet property="filesContainerView" destination="b2a-WR-gI3" id="cby-Xa-HyM"/>
-                        <outlet property="pausePlayButton" destination="cXl-yY-sOR" id="Tju-bZ-v2e"/>
                         <outlet property="progressView" destination="ECK-OT-M8K" id="UXm-P5-qH7"/>
                         <outlet property="titleLabel" destination="QeV-D6-PL7" id="JfU-qp-Lwt"/>
                     </connections>

@@ -13,8 +13,6 @@ import RxSwift
 
 class TorrentViewController: UIViewController {
     
-    @IBOutlet weak var pausePlayButton: UIBarButtonItem!
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var filesContainerView: UIView!
     @IBOutlet weak var detailsContainerView: UIView!
@@ -25,35 +23,66 @@ class TorrentViewController: UIViewController {
     var progressDisposable: Disposable!
     let disposeBag = DisposeBag()
     
+    var resumeButton: UIBarButtonItem!
+    var pauseButton: UIBarButtonItem!
+    var deleteButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         self.titleLabel.text = viewModel.title
         
-        viewModel.shouldHidePlayPauseButton.drive(onNext: { [weak self] in
-            self?.pausePlayButton.isEnabled = $0
-        }).disposed(by: disposeBag)
+        self.deleteButton = {
+            let trash = UIBarButtonItem(barButtonSystemItem: .trash,
+                                        target: nil,
+                                        action: nil)
+            trash.rx
+                .tap
+                .bindTo(self.viewModel.didRemoveTorrentTapped)
+                .disposed(by: self.disposeBag)
+            return trash
+        }()
         
-        viewModel.didRemoveTorrentSubject
-            .asObservable()
+        self.resumeButton = {
+            let resume = UIBarButtonItem(barButtonSystemItem: .play,
+                                         target: nil,
+                                         action: nil)
+            resume.rx
+                .tap
+                .bindTo(self.viewModel.didResumeTorrentTapped)
+                .disposed(by: self.disposeBag)
+            return resume
+        }()
+        
+        self.pauseButton = {
+            let pause = UIBarButtonItem(barButtonSystemItem: .pause,
+                                        target: nil,
+                                        action: nil)
+            pause.rx
+                .tap
+                .bindTo(self.viewModel.didPauseTorrentTapped)
+                .disposed(by: self.disposeBag)
+            return pause
+        }()
+        
+        viewModel.didRemoveTorrent
             .subscribe(onNext: { [weak self] in
-            if $0 {
-                _ = self?.navigationController?.popViewController(animated: true)
+                if $0 {
+                    _ = self?.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
+        
+        viewModel.barButtonItems.drive(onNext: { [unowned self] item in
+            switch item {
+            case UIBarButtonSystemItem.play:
+                self.navigationItem.setRightBarButtonItems([self.deleteButton, self.resumeButton], animated: true)
+            case UIBarButtonSystemItem.pause:
+                self.navigationItem.setRightBarButtonItems([self.deleteButton, self.pauseButton], animated: true)
+            default:
+                self.navigationItem.setRightBarButtonItems([self.deleteButton], animated: true)
             }
         }).disposed(by: disposeBag)
-        
-        self.pausePlayButton
-            .rx
-            .tap
-            .bindTo(viewModel.didTapPlayPauseButton)
-            .disposed(by: disposeBag)
-        
-        self.deleteButton
-            .rx
-            .tap
-            .bindTo(viewModel.didRemoveTorrentTapped)
-            .disposed(by: disposeBag)
         
     }
     

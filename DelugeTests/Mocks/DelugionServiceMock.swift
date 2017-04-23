@@ -38,11 +38,11 @@ class DelugionServiceMock: DelugionServicing {
         
     }
     
-    func resumeTorrent(hash: String) {
+    func resumeTorrent(hash: String, completion: @escaping () -> Void) {
         
     }
     
-    func pauseTorrent(hash: String) {
+    func pauseTorrent(hash: String, completion: @escaping () -> Void) {
         
     }
     

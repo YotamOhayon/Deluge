@@ -11,6 +11,7 @@ import Delugion
 import RxCocoa
 import RxSwift
 import RxOptional
+import UIKit
 
 struct ProgressInfo {
     
@@ -26,10 +27,13 @@ protocol TorrentModeling {
     var downloadSpeed: Driver<String?> { get }
     var progress: Driver<ProgressInfo?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
-    var shouldHidePlayPauseButton: Driver<Bool> { get }
-    var didRemoveTorrentSubject: PublishSubject<Bool> { get }
+    var didRemoveTorrent: Observable<Bool> { get }
     var didRemoveTorrentTapped: PublishSubject<Void> { get }
-    var didTapPlayPauseButton: PublishSubject<Void> { get }
+    var didResumeTorrentTapped: PublishSubject<Void> { get }
+    var didPauseTorrentTapped: PublishSubject<Void> { get }
+    var didPauseTorrent: Observable<Void> { get }
+    var didResumeTorrent: Observable<Void> { get }
+    var barButtonItems: Driver<UIBarButtonSystemItem> { get }
     
 }
 
@@ -38,10 +42,24 @@ class TorrentModel: TorrentModeling {
     let title: String?
     let downloadSpeed: Driver<String?>
     let progress: Driver<ProgressInfo?>
-    let shouldHidePlayPauseButton: Driver<Bool>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
+    var didRemoveTorrent: Observable<Bool> {
+        return self.didRemoveTorrentSubject.asObservable()
+    }
+    
     let didRemoveTorrentTapped = PublishSubject<Void>()
-    let didTapPlayPauseButton = PublishSubject<Void>()
+    let didResumeTorrentTapped = PublishSubject<Void>()
+    let didPauseTorrentTapped = PublishSubject<Void>()
+    
+    let didPauseTorrentSubject = PublishSubject<Void>()
+    var didPauseTorrent: Observable<Void> {
+        return self.didPauseTorrentSubject.asObservable()
+    }
+    let didResumeTorrentSubject = PublishSubject<Void>()
+    var didResumeTorrent: Observable<Void> {
+        return self.didResumeTorrentSubject.asObservable()
+    }
+    let barButtonItems: Driver<UIBarButtonSystemItem>
     
     let torrent: TorrentProtocol
     let delugion: DelugionServicing
@@ -66,27 +84,44 @@ class TorrentModel: TorrentModeling {
                 return $0.associatedValue as! Torrent
         }
         
+        self.barButtonItems = info
+            .map { $0.state }
+            .distinctUntilChanged()
+            .map { state -> UIBarButtonSystemItem in
+                return TorrentFilesViewModel.button(forState: state)
+        }.asDriver(onErrorJustReturn: UIBarButtonSystemItem.fixedSpace)
+            .startWith(TorrentFilesViewModel.button(forState: torrent.state))
+        
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
         
         self.progress = info.map {
             $0.progressInfo
             }.asDriver(onErrorJustReturn: nil).startWith(torrent.progressInfo)
         
-        self.shouldHidePlayPauseButton = info.map { $0.state == .paused || torrent.state == .downloading }
-            .asDriver(onErrorJustReturn: false)
-            .startWith(torrent.state == .paused || torrent.state == .downloading)
-        
-        self.didTapPlayPauseButton.withLatestFrom(info) {
+        self.didResumeTorrentTapped.withLatestFrom(info) {
             $1
             }.subscribe(onNext: { [unowned self] in
-                switch $0.state {
-                case .downloading:
-                    self.delugion.pauseTorrent(hash: $0.torrentHash)
-                case .paused:
-                    self.delugion.resumeTorrent(hash: $0.torrentHash)
-                default:
+                
+                guard $0.state == .paused else {
                     return
                 }
+                self.delugion.resumeTorrent(hash: $0.torrentHash) {
+                    self.didResumeTorrentSubject.onNext()
+                }
+                
+            }).disposed(by: disposeBag)
+        
+        self.didPauseTorrentTapped.withLatestFrom(info) {
+            $1
+            }.subscribe(onNext: { [unowned self] in
+                
+                guard $0.state == .downloading else {
+                    return
+                }
+                self.delugion.pauseTorrent(hash: $0.torrentHash) {
+                    self.didPauseTorrentSubject.onNext()
+                }
+                
             }).disposed(by: disposeBag)
         
         self.didRemoveTorrentTapped.withLatestFrom(info) {
@@ -108,6 +143,21 @@ class TorrentModel: TorrentModeling {
     
     var torrentFilesViewModel: TorrentFilesViewModeling {
         return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash, delugionService: self.delugion)
+    }
+    
+}
+
+fileprivate extension TorrentFilesViewModel {
+    
+    class func button(forState state: TorrentState) -> UIBarButtonSystemItem {
+        switch state {
+        case .downloading:
+            return UIBarButtonSystemItem.pause
+        case .paused:
+            return UIBarButtonSystemItem.play
+        default:
+            return UIBarButtonSystemItem.fixedSpace
+        }
     }
     
 }

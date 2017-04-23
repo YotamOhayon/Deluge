@@ -28,12 +28,15 @@ protocol TorrentModeling {
     var progress: Driver<ProgressInfo?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
     var didRemoveTorrent: Observable<Bool> { get }
+    var showDeleteConfirmation: Observable<(String, String, String, String)> { get }
     var didRemoveTorrentTapped: PublishSubject<Void> { get }
     var didResumeTorrentTapped: PublishSubject<Void> { get }
     var didPauseTorrentTapped: PublishSubject<Void> { get }
     var didPauseTorrent: Observable<Void> { get }
     var didResumeTorrent: Observable<Void> { get }
     var barButtonItems: Driver<UIBarButtonSystemItem> { get }
+    
+    func removeTorrent(withData shouldRemoveData: Bool)
     
 }
 
@@ -47,6 +50,7 @@ class TorrentModel: TorrentModeling {
         return self.didRemoveTorrentSubject.asObservable()
     }
     
+    let showDeleteConfirmation: Observable<(String, String, String, String)>
     let didRemoveTorrentTapped = PublishSubject<Void>()
     let didResumeTorrentTapped = PublishSubject<Void>()
     let didPauseTorrentTapped = PublishSubject<Void>()
@@ -61,9 +65,9 @@ class TorrentModel: TorrentModeling {
     }
     let barButtonItems: Driver<UIBarButtonSystemItem>
     
-    let torrent: TorrentProtocol
-    let delugion: DelugionServicing
-    let disposeBag = DisposeBag()
+    fileprivate let torrent: TorrentProtocol
+    fileprivate let delugion: DelugionServicing
+    fileprivate let disposeBag = DisposeBag()
     
     init(torrent: TorrentProtocol, delugionService: DelugionServicing) {
         
@@ -98,6 +102,10 @@ class TorrentModel: TorrentModeling {
             $0.progressInfo
             }.asDriver(onErrorJustReturn: nil).startWith(torrent.progressInfo)
         
+        self.showDeleteConfirmation = didRemoveTorrentTapped.map {
+            return ("are you sure", "with data", "without data", "no")
+        }
+        
         self.didResumeTorrentTapped.withLatestFrom(info) {
             $1
             }.subscribe(onNext: { [unowned self] in
@@ -124,25 +132,23 @@ class TorrentModel: TorrentModeling {
                 
             }).disposed(by: disposeBag)
         
-        self.didRemoveTorrentTapped.withLatestFrom(info) {
-            $1
-            }.subscribe(onNext: { [unowned self] in
-                self.delugion.removeTorrent(hash: $0.torrentHash,
-                                            withData: true)
-                {
-                    switch $0 {
-                    case .valid:
-                        self.didRemoveTorrentSubject.onNext(true)
-                    case .error:
-                        self.didRemoveTorrentSubject.onNext(false)
-                    }
-                }
-            }).disposed(by: disposeBag)
-        
     }
     
     var torrentFilesViewModel: TorrentFilesViewModeling {
         return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash, delugionService: self.delugion)
+    }
+    
+    func removeTorrent(withData shouldRemoveData: Bool) {
+        self.delugion.removeTorrent(hash: self.torrent.torrentHash,
+                                    withData: shouldRemoveData)
+        {
+            switch $0 {
+            case .valid:
+                self.didRemoveTorrentSubject.onNext(true)
+            case .error:
+                self.didRemoveTorrentSubject.onNext(false)
+            }
+        }
     }
     
 }

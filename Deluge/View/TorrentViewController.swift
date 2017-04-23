@@ -84,6 +84,29 @@ class TorrentViewController: UIViewController {
             }
         }).disposed(by: disposeBag)
         
+        viewModel.showDeleteConfirmation.subscribe(onNext:
+            { [unowned self] message, withData, withoutData, no in
+                
+                let alert = UIAlertController(title: nil,
+                                              message: message,
+                                              preferredStyle: .actionSheet)
+                
+                let withData = UIAlertAction(title: withData, style: .default) { _ in
+                    self.viewModel.removeTorrent(withData: true)
+                }
+                
+                let withoutData = UIAlertAction(title: withoutData, style: .default) { _ in
+                    self.viewModel.removeTorrent(withData: false)
+                }
+                
+                let no = UIAlertAction(title: no, style: .cancel, handler: nil)
+                
+                alert.addAction(withData)
+                alert.addAction(withoutData)
+                alert.addAction(no)
+                self.present(alert, animated: true, completion: nil)
+        }).disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -588,7 +588,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="102.99850074962519"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings-->
         <scene sceneID="wXh-we-AUw">
             <objects>
                 <tableViewController id="E4y-9O-CZS" customClass="SettingsTableViewController" customModule="Deluge" customModuleProvider="target" sceneMemberID="viewController">
@@ -690,6 +690,18 @@
                             <outlet property="delegate" destination="E4y-9O-CZS" id="ty9-AE-NdB"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="4Rv-Wn-UhX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sZm-lL-Rzt">
+                            <connections>
+                                <segue destination="Aum-BH-hWP" kind="unwind" identifier="SettingsCancelSegue" unwindAction="unwindToMainViewControllerWithSegue:" id="2D0-V7-v2y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="a32-4r-H5Y">
+                            <connections>
+                                <segue destination="Aum-BH-hWP" kind="unwind" identifier="SettingsDoneSegue" unwindAction="unwindToMainViewControllerWithSegue:" id="MFs-wx-Te0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="connectionStatusLabel" destination="Bq3-nN-Kmn" id="P3h-QW-0bk"/>
                         <outlet property="hostnameTextField" destination="SW6-Pe-RcO" id="rg8-Ef-LSf"/>
@@ -698,6 +710,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQS-Ad-04P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Aum-BH-hWP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="591" y="985"/>
         </scene>

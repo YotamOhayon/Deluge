@@ -79,6 +79,21 @@ class MainViewController: UIViewController {
 //        
 //    }
     
+    @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {
+        
+        guard let s = Segue(segue: segue) else {
+            return
+        }
+        
+        switch s {
+        case .settingsCancel:
+            print("cancel")
+        case .settingsDone:
+            print("done")
+        }
+        
+    }
+    
 }
 
 extension MainViewController: UITableViewDataSource {

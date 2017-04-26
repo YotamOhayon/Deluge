@@ -60,7 +60,7 @@ extension TorrentContent {
                                                                level: level + 1))
             }
             else {
-                array.append(FilePresentation(fileName: value.path,
+                array.append(FilePresentation(fileName: key,
                                               level: level + 1,
                                               isDir: value.type == "dir"))
             }

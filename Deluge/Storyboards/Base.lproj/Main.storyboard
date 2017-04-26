@@ -602,7 +602,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nG3-mp-Yn7" id="bV9-Wl-izK">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-zF-hHC">
@@ -612,7 +612,7 @@
                                                         <constraint firstAttribute="width" constant="29" id="wAJ-Bt-jzs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppg-qW-56K">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ppg-qW-56K">
                                                     <rect key="frame" x="60" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -623,6 +623,7 @@
                                                 <constraint firstItem="nvL-zF-hHC" firstAttribute="centerY" secondItem="bV9-Wl-izK" secondAttribute="centerY" id="C6w-iF-kH0"/>
                                                 <constraint firstItem="ppg-qW-56K" firstAttribute="leading" secondItem="nvL-zF-hHC" secondAttribute="trailing" constant="8" placeholder="YES" id="Gcj-tI-wv9"/>
                                                 <constraint firstItem="nvL-zF-hHC" firstAttribute="leading" secondItem="bV9-Wl-izK" secondAttribute="leadingMargin" constant="15" id="gLF-8K-J8y"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ppg-qW-56K" secondAttribute="trailing" constant="8" id="vpr-wP-Xd7"/>
                                                 <constraint firstItem="ppg-qW-56K" firstAttribute="centerY" secondItem="bV9-Wl-izK" secondAttribute="centerY" id="yPK-pV-L86"/>
                                             </constraints>
                                         </tableViewCellContentView>

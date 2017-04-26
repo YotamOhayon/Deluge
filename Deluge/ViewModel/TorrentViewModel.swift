@@ -24,6 +24,7 @@ struct ProgressInfo {
 protocol TorrentModeling {
     
     var title: String? { get }
+    var subtitle: Driver<UIView> { get }
     var downloadSpeed: Driver<String?> { get }
     var progress: Driver<ProgressInfo?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
@@ -43,6 +44,7 @@ protocol TorrentModeling {
 class TorrentModel: TorrentModeling {
     
     let title: String?
+    let subtitle: Driver<UIView>
     let downloadSpeed: Driver<String?>
     let progress: Driver<ProgressInfo?>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
@@ -87,6 +89,10 @@ class TorrentModel: TorrentModeling {
             }.map {
                 return $0.associatedValue as! Torrent
         }
+        
+        self.subtitle = info.map { torrent in
+            return torrent.subtitle
+        }.asDriver(onErrorJustReturn: UIView()).startWith(torrent.subtitle)
         
         self.barButtonItems = info
             .map { $0.state }
@@ -164,6 +170,99 @@ fileprivate extension TorrentFilesViewModel {
         default:
             return UIBarButtonSystemItem.fixedSpace
         }
+    }
+    
+}
+
+fileprivate extension TorrentProtocol {
+    
+    var subtitle: UIView {
+        
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        switch self.state {
+        case .downloading:
+            let downloadLabel = UILabel()
+            downloadLabel.translatesAutoresizingMaskIntoConstraints = false
+            var (speed, unit) = self.downloadPayloadrate.inUnits(withPrecision: 1)
+            downloadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
+            container.addSubview(downloadLabel)
+            downloadLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            downloadLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+            let circleSeparator = CircleSeparator()
+            container.addSubview(circleSeparator)
+            circleSeparator.leadingAnchor.constraint(equalTo: downloadLabel.trailingAnchor, constant: 8).isActive = true
+            circleSeparator.centerYAnchor.constraint(equalTo: downloadLabel.centerYAnchor).isActive = true
+            let uploadLabel = UILabel()
+            uploadLabel.translatesAutoresizingMaskIntoConstraints = false
+            (speed, unit) = self.uploadPayloadrate.inUnits(withPrecision: 1)
+            uploadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
+            container.addSubview(uploadLabel)
+            uploadLabel.leadingAnchor.constraint(equalTo: circleSeparator.trailingAnchor, constant: 8.0).isActive = true
+            uploadLabel.lastBaselineAnchor.constraint(equalTo: downloadLabel.lastBaselineAnchor).isActive = true
+            container.addSubview(circleSeparator)
+        case .error:
+            let label = UILabel()
+            label.text = "Error"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(label)
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        case .paused:
+            let label = UILabel()
+            label.text = "Paused"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(label)
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        case .seeding:
+            let label = UILabel()
+            label.text = "Seeding"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(label)
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+            let circleSeparator = CircleSeparator()
+            container.addSubview(circleSeparator)
+            circleSeparator.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 8).isActive = true
+            circleSeparator.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
+            let uploadLabel = UILabel()
+            uploadLabel.translatesAutoresizingMaskIntoConstraints = false
+            let (speed, unit) = self.uploadPayloadrate.inUnits(withPrecision: 1)
+            uploadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
+            container.addSubview(uploadLabel)
+            uploadLabel.leadingAnchor.constraint(equalTo: circleSeparator.trailingAnchor, constant: 8.0).isActive = true
+            uploadLabel.lastBaselineAnchor.constraint(equalTo: label.lastBaselineAnchor).isActive = true
+            container.addSubview(circleSeparator)
+        default:
+            let label = UILabel()
+            label.text = "To do"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(label)
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        }
+        
+        return container
+        
+    }
+    
+}
+
+class CircleSeparator: UIView {
+    
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
+        self.backgroundColor = .gray
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: 5).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        self.layer.cornerRadius = 2.5
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

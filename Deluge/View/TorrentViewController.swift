@@ -18,6 +18,7 @@ class TorrentViewController: UIViewController {
     @IBOutlet weak var detailsContainerView: UIView!
     @IBOutlet weak var progressView: KDCircularProgress!
     
+    var subtitle: UIView?
     var progressSubview: UIView?
     var viewModel: TorrentModeling!
     var progressDisposable: Disposable!
@@ -32,6 +33,17 @@ class TorrentViewController: UIViewController {
         super.viewDidLoad()
         
         self.titleLabel.text = viewModel.title
+        
+        viewModel.subtitle.drive(onNext: { [unowned self] container in
+            if let subtitle = self.subtitle {
+                subtitle.removeFromSuperview()
+            }
+            self.view.addSubview(container)
+            self.subtitle = container
+            container.leadingAnchor.constraint(equalTo: self.titleLabel.leadingAnchor).isActive = true
+            container.bottomAnchor.constraint(equalTo: self.progressView.bottomAnchor).isActive = true
+            container.trailingAnchor.constraint(equalTo: self.titleLabel.trailingAnchor).isActive = true
+        }).disposed(by: self.disposeBag)
         
         self.deleteButton = {
             let trash = UIBarButtonItem(barButtonSystemItem: .trash,

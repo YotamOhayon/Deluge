@@ -37,12 +37,20 @@ fileprivate extension AppDelegate {
             return DelugionService(delugion: delugion)
         }.inObjectScope(.container)
         
+        container.register(SettingsViewModeling.self) { _ in
+            SettingsViewModel()
+        }
+        
         container.register(MainViewModeling.self) { r in
             MainViewModel(delugionService: r.resolve(DelugionServicing.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in
             c.viewModel = r.resolve(MainViewModeling.self)
+        }
+        
+        container.storyboardInitCompleted(SettingsTableViewController.self) { r, c in
+            c.viewModel = r.resolve(SettingsViewModeling.self)
         }
         
     }

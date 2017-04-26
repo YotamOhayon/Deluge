@@ -20,6 +20,9 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
+            if self.tableView.isHidden {
+                self.tableView.isHidden = false
+            }
             self.tableView.reloadData()
         }
     }
@@ -36,8 +39,8 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
         
+        self.tableView.isHidden = true
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
             // TODO: bring back after having one cell for all
 //            if self.shouldReloadData(current: self.dataSource, new: $0) {

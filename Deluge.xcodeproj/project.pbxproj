@@ -12,6 +12,8 @@
 		550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514D61E99648600A71543 /* ErrorCellViewModel.swift */; };
 		550514D91E997E5F00A71543 /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */; };
 		550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */; };
+		552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */; };
+		552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439521EB078A700FDDDB4 /* SettingsViewModel.swift */; };
 		553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7E61E959A4200B2A658 /* AppDelegate.swift */; };
 		553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EA1E959A4200B2A658 /* Main.storyboard */; };
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		550514D61E99648600A71543 /* ErrorCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModel.swift; sourceTree = "<group>"; };
 		550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
 		550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModel.swift; sourceTree = "<group>"; };
+		552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		552439521EB078A700FDDDB4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		553AC7E31E959A4200B2A658 /* Deluge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deluge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7E61E959A4200B2A658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		553AC7EB1E959A4200B2A658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */,
 				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
+				552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
 				55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */,
 				5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */,
+				552439521EB078A700FDDDB4 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -563,7 +569,9 @@
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */,
+				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
 				550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */,
+				552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

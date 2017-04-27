@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Delugion
 import RxCocoa
+import RxSwift
 
 enum Segue: String {
     
@@ -33,11 +33,38 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var connectionStatusLabel: UILabel!
     
+    let disposeBag = DisposeBag()
     var viewModel: SettingsViewModeling!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
+        
+        self.hostnameTextField
+            .rx
+            .text
+            .bindTo(viewModel.hostname)
+            .disposed(by: disposeBag)
+        
+        self.portTextField
+            .rx
+            .text
+            .bindTo(viewModel.port)
+            .disposed(by: disposeBag)
+        
+        self.passwordTextField
+            .rx
+            .text
+            .bindTo(viewModel.password)
+            .disposed(by: disposeBag)
+        
+        viewModel.connectionLabel
+            .bindTo(self.connectionStatusLabel.rx.attributedText)
+            .disposed(by: disposeBag)
+        
+        viewModel.connectionLabel.subscribe(onNext: { [unowned self] text in
+            self.connectionStatusLabel.attributedText = text
+        }).disposed(by: disposeBag)
 
     }
     

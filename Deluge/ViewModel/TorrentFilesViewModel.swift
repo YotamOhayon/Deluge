@@ -56,7 +56,7 @@ extension TorrentContent {
         node.contents?.forEach{ (key, value) in
             if value.type == "dir" {
                 array.append(contentsOf: self.orderFilesHelper(node: value,
-                                                               array: array,
+                                                               array: [],
                                                                level: level + 1))
             }
             else {
@@ -66,7 +66,7 @@ extension TorrentContent {
             }
         }
         return array.sorted(by: { (a, b) -> Bool in
-            a.fileName < b.fileName
+            a.level < b.level &&  a.fileName < b.fileName
         })
     }
     

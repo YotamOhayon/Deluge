@@ -43,23 +43,23 @@ class SettingsTableViewController: UITableViewController {
         self.hostnameTextField
             .rx
             .text
-            .bindTo(viewModel.hostname)
+            .bind(to: viewModel.hostname)
             .disposed(by: disposeBag)
         
         self.portTextField
             .rx
             .text
-            .bindTo(viewModel.port)
+            .bind(to: viewModel.port)
             .disposed(by: disposeBag)
         
         self.passwordTextField
             .rx
             .text
-            .bindTo(viewModel.password)
+            .bind(to: viewModel.password)
             .disposed(by: disposeBag)
         
         viewModel.connectionLabel
-            .bindTo(self.connectionStatusLabel.rx.attributedText)
+            .bind(to: self.connectionStatusLabel.rx.attributedText)
             .disposed(by: disposeBag)
         
         viewModel.connectionLabel.subscribe(onNext: { [unowned self] text in

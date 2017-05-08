@@ -51,7 +51,7 @@ class TorrentViewController: UIViewController {
                                         action: nil)
             trash.rx
                 .tap
-                .bindTo(self.viewModel.didRemoveTorrentTapped)
+                .bind(to: self.viewModel.didRemoveTorrentTapped)
                 .disposed(by: self.disposeBag)
             return trash
         }()
@@ -62,7 +62,7 @@ class TorrentViewController: UIViewController {
                                          action: nil)
             resume.rx
                 .tap
-                .bindTo(self.viewModel.didResumeTorrentTapped)
+                .bind(to: self.viewModel.didResumeTorrentTapped)
                 .disposed(by: self.disposeBag)
             return resume
         }()
@@ -73,7 +73,7 @@ class TorrentViewController: UIViewController {
                                         action: nil)
             pause.rx
                 .tap
-                .bindTo(self.viewModel.didPauseTorrentTapped)
+                .bind(to: self.viewModel.didPauseTorrentTapped)
                 .disposed(by: self.disposeBag)
             return pause
         }()

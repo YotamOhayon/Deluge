@@ -43,22 +43,22 @@ class SettingsViewModel: SettingsViewModeling {
                 return NSAttributedString(string: "GOOD!", attributes: nil)
         }
         
-        Observable.combineLatest(hostname, port).map { hostname, port -> Delugion? in
-            
-            guard let hostname = hostname,
-                let port = port,
-                let portInt = Int(port) else {
-                return nil
-            }
-            
-            do {
-                return try Delugion(hostname: hostname, port: portInt)
-            }
-            catch {
-                return nil
-            }
-            
-        }
+//        Observable.combineLatest(hostname, port).map { hostname, port -> Delugion? in
+//            
+//            guard let hostname = hostname,
+//                let port = port,
+//                let portInt = Int(port) else {
+//                return nil
+//            }
+//            
+//            do {
+//                return try Delugion(hostname: hostname, port: portInt)
+//            }
+//            catch {
+//                return nil
+//            }
+//            
+//        }
         
     }
     

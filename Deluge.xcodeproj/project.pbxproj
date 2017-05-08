@@ -727,6 +727,7 @@
 			baseConfigurationReference = E7263B7AAF78990851B838C2 /* Pods-Deluge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7V77HPPE58;
 				INFOPLIST_FILE = "Deluge/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

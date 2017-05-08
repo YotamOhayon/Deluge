@@ -25,35 +25,52 @@ class SettingsViewModel: SettingsViewModeling {
     let connectionLabel: Observable<NSAttributedString>
     
     init() {
+        
         self.connectionLabel = Observable.combineLatest(hostname, port, password) {
             ($0, $1, $2)
             }.map { hostname, port, password in
                 
-                guard let hostname = hostname else {
+                guard hostname.hasCharacters else {
                     return NSAttributedString(string: "missing hostname", attributes: nil)
                 }
-                guard let p = port, let port = Int(p) else {
+                guard port.hasCharacters else {
                     return NSAttributedString(string: "invalid port!", attributes: nil)
                 }
-                guard let password = password else {
+                guard password.hasCharacters else {
                     return NSAttributedString(string: "missing password", attributes: nil)
-                }
-                do {
-//                    let delugion = try Delugion(hostname: hostname, port: port)
-//                    delugion.connect(withPassword: password) {
-//                        switch $0 {
-//                        case .error(let error):
-//                            
-//                        }
-//                    }
-                }
-                catch {
-                    return NSAttributedString(string: "Could not connect", attributes: nil)
                 }
                 
                 return NSAttributedString(string: "GOOD!", attributes: nil)
-        }.startWith(NSAttributedString(string: "GOOD!", attributes: nil))
+        }
+        
+        Observable.combineLatest(hostname, port).map { hostname, port -> Delugion? in
+            
+            guard let hostname = hostname,
+                let port = port,
+                let portInt = Int(port) else {
+                return nil
+            }
+            
+            do {
+                return try Delugion(hostname: hostname, port: portInt)
+            }
+            catch {
+                return nil
+            }
+            
+        }
         
     }
     
+}
+
+extension Optional where Wrapped == String {
+    var hasCharacters: Bool {
+        switch self {
+        case .none:
+            return false
+        case .some(let wrapped):
+            return wrapped.characters.count > 0
+        }
+    }
 }

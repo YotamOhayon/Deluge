@@ -14,6 +14,7 @@
 		550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */; };
 		552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */; };
 		552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439521EB078A700FDDDB4 /* SettingsViewModel.swift */; };
+		5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528EFAC1EB2181000839501 /* SettingsService.swift */; };
 		553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7E61E959A4200B2A658 /* AppDelegate.swift */; };
 		553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EA1E959A4200B2A658 /* Main.storyboard */; };
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModel.swift; sourceTree = "<group>"; };
 		552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		552439521EB078A700FDDDB4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5528EFAC1EB2181000839501 /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		553AC7E31E959A4200B2A658 /* Deluge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deluge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7E61E959A4200B2A658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		553AC7EB1E959A4200B2A658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				555A34451E9E73EF0056F1A8 /* Types */,
 				55D5EB681E96114300F93DE1 /* View */,
 				55D5EB691E96163200F93DE1 /* ViewModel */,
+				5528EFAC1EB2181000839501 /* SettingsService.swift */,
 			);
 			path = Deluge;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */,
 				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
+				5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */,
 				550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */,
 				552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */,
 			);

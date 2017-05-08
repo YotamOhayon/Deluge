@@ -52,9 +52,11 @@ class DelugionService: DelugionServicing {
     }
     
     let delugion: Delugion
+    let settings: SettingsServicing
     
-    init(delugion: Delugion) {
-        self.delugion = delugion
+    init(settings: SettingsServicing) {
+        self.settings = settings
+        self.delugion = try! Delugion(hostname: "yotamoo.zapto.org", port: 8112)
     }
     
     func torrentInfo(hash: String) -> Observable<ServerResponse<TorrentProtocol>> {

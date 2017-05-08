@@ -32,9 +32,12 @@ fileprivate extension AppDelegate {
     
     func setupContainer() {
         
-        container.register(DelugionServicing.self) { _ in
-            let delugion = try! Delugion(hostname: "yotamoo.zapto.org", port: 8112)
-            return DelugionService(delugion: delugion)
+        container.register(SettingsServicing.self) { _ in
+            return SettingsService()
+            }.inObjectScope(.container)
+        
+        container.register(DelugionServicing.self) { r in
+            return DelugionService(settings: r.resolve(SettingsServicing.self)!)
         }.inObjectScope(.container)
         
         container.register(SettingsViewModeling.self) { _ in

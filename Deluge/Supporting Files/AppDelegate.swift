@@ -32,16 +32,29 @@ fileprivate extension AppDelegate {
     
     func setupContainer() {
         
-        container.register(SettingsServicing.self) { _ in
-            return SettingsService()
-            }.inObjectScope(.container)
+        container.register(UserDefaults.self) { _ in
+            UserDefaults.standard
+        }
+        
+        container.register(Settings.self) { r in
+            Settings(userDefaults: r.resolve(UserDefaults.self)!)
+        }.inObjectScope(.container)
+        
+        container.register(SettingsServicing.self) { r in
+            r.resolve(Settings.self)!
+        }
+        
+        container.register(SettingsModeling.self) { r in
+            r.resolve(Settings.self)!
+        }
         
         container.register(DelugionServicing.self) { r in
             return DelugionService(settings: r.resolve(SettingsServicing.self)!)
         }.inObjectScope(.container)
         
-        container.register(SettingsViewModeling.self) { _ in
-            SettingsViewModel()
+        container.register(SettingsViewModeling.self) { r in
+            let settingsModel = r.resolve(SettingsModeling.self)!
+            return SettingsViewModel(settingsModel: settingsModel)
         }
         
         container.register(MainViewModeling.self) { r in

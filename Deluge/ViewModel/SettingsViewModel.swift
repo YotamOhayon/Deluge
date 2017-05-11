@@ -23,8 +23,9 @@ class SettingsViewModel: SettingsViewModeling {
     let port = PublishSubject<String?>()
     let password = PublishSubject<String?>()
     let connectionLabel: Observable<NSAttributedString>
+    let disposeBag = DisposeBag()
     
-    init() {
+    init(settingsModel: SettingsModeling) {
         
         self.connectionLabel = Observable.combineLatest(hostname, port, password) {
             ($0, $1, $2)
@@ -41,24 +42,30 @@ class SettingsViewModel: SettingsViewModeling {
                 }
                 
                 return NSAttributedString(string: "GOOD!", attributes: nil)
-        }
+            }
+
+        let settings = Observable.just(settingsModel)
         
-//        Observable.combineLatest(hostname, port).map { hostname, port -> Delugion? in
-//            
-//            guard let hostname = hostname,
-//                let port = port,
-//                let portInt = Int(port) else {
-//                return nil
-//            }
-//            
-//            do {
-//                return try Delugion(hostname: hostname, port: portInt)
-//            }
-//            catch {
-//                return nil
-//            }
-//            
-//        }
+        hostname.withLatestFrom(settings) { $0 }.subscribe(onNext: {
+            let host = $0.0
+            let settings = $0.1
+            settings.host = host
+        }).disposed(by: disposeBag)
+        
+        port.withLatestFrom(settings) { $0 }.subscribe(onNext: {
+            let settings = $0.1
+            guard let p = $0.0, let port = Int(p) else {
+                settings.port = nil
+                return
+            }
+            settings.port = port
+        }).disposed(by: disposeBag)
+        
+        password.withLatestFrom(settings) { $0 }.subscribe(onNext: {
+            let password = $0.0
+            let settings = $0.1
+            settings.password = password
+        }).disposed(by: disposeBag)
         
     }
     

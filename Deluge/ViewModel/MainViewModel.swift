@@ -20,9 +20,14 @@ class MainViewModel: MainViewModeling {
     
     let disposeBag = DisposeBag()
     let delugionService: DelugionServicing
+    let connected: Observable<ServerResponse<Void>>
+    let torrents: Driver<[TorrentProtocol]>
     
-    var connected: Observable<ServerResponse<Void>> {
-        return delugionService.connection.filter {
+    init(delugionService: DelugionServicing) {
+        
+        self.delugionService = delugionService
+        
+        self.connected = delugionService.connection.filter {
             switch $0 {
             case .valid:
                 return true
@@ -30,10 +35,8 @@ class MainViewModel: MainViewModeling {
                 return false
             }
         }
-    }
-    
-    var torrents: Driver<[TorrentProtocol]> {
-        return Observable.combineLatest(connected, delugionService.torrents) {
+        
+        self.torrents = Observable.combineLatest(connected, delugionService.torrents) {
             ($1)
             }.filter {
                 switch $0 {
@@ -48,11 +51,6 @@ class MainViewModel: MainViewModeling {
                 torrents.filter { $0.state != .checking }
             }
             .asDriver(onErrorJustReturn: [TorrentProtocol]())
-    }
-    
-    init(delugionService: DelugionServicing) {
-        
-        self.delugionService = delugionService
         
     }
     

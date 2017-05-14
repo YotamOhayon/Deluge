@@ -1,5 +1,5 @@
 //
-//  Torrent+Extensions.swift
+//  Torrent+Extension.swift
 //  Deluge
 //
 //  Created by Yotam Ohayon on 11/04/2017.

@@ -26,6 +26,7 @@ protocol SettingsViewModeling {
 
 class SettingsViewModel: SettingsViewModeling {
     
+    let settingsModel: SettingsModeling
     let hostnameObservable: Observable<String?>
     let portObservable: Observable<String?>
     let passwordObservable: Observable<String?>
@@ -35,7 +36,13 @@ class SettingsViewModel: SettingsViewModeling {
     let connectionLabel: Observable<NSAttributedString>
     let disposeBag = DisposeBag()
     
+    var newHost: String?
+    var newPort: Int?
+    var newPassword: String?
+    
     init(settingsModel: SettingsModeling, settingsService: SettingsServicing) {
+        
+        self.settingsModel = settingsModel
         
         self.hostnameObservable = settingsService.hostObservable
         self.portObservable = settingsService.portObservable.map {
@@ -62,45 +69,29 @@ class SettingsViewModel: SettingsViewModeling {
                 
                 return NSAttributedString(string: "GOOD!", attributes: nil)
             }
-
-        let settings = Observable.just(settingsModel)
         
-        hostname.withLatestFrom(settings) { $0 }.subscribe(onNext: {
-            let host = $0.0
-            let settings = $0.1
-            settings.host = host
+        hostname.subscribe(onNext: { [unowned self] in
+            self.newHost = $0
         }).disposed(by: disposeBag)
         
-        port.withLatestFrom(settings) { $0 }.subscribe(onNext: {
-            let settings = $0.1
-            guard let p = $0.0, let port = Int(p) else {
-                settings.port = nil
+        port.subscribe(onNext: { [unowned self] in
+            guard let p = $0, let port = Int(p) else {
+                self.newPort = nil
                 return
             }
-            settings.port = port
+            self.newPort = port
         }).disposed(by: disposeBag)
         
-        password.withLatestFrom(settings) { $0 }.subscribe(onNext: {
-            let password = $0.0
-            let settings = $0.1
-            settings.password = password
+        password.subscribe(onNext: { [unowned self] in
+            self.newPassword = $0
         }).disposed(by: disposeBag)
         
     }
     
     func done() {
-        
+        self.settingsModel.host ?= self.newHost
+        self.settingsModel.port ?= self.newPort
+        self.settingsModel.password ?= self.newPassword
     }
     
-}
-
-extension Optional where Wrapped == String {
-    var hasCharacters: Bool {
-        switch self {
-        case .none:
-            return false
-        case .some(let wrapped):
-            return wrapped.characters.count > 0
-        }
-    }
 }

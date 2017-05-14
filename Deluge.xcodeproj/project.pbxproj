@@ -35,6 +35,8 @@
 		5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */; };
 		55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */; };
 		55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */; };
+		55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */; };
+		55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */; };
 		55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */; };
 		55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */; };
 		55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */; };
@@ -91,6 +93,8 @@
 		5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extension.swift"; sourceTree = "<group>"; };
 		55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNameTableViewCell.swift; sourceTree = "<group>"; };
 		55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Exntension.swift"; sourceTree = "<group>"; };
+		55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTorrentViewController.swift; sourceTree = "<group>"; };
+		55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTorrentViewModel.swift; sourceTree = "<group>"; };
 		55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModelSpec.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
 				552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */,
+				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */,
 				5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */,
 				552439521EB078A700FDDDB4 /* SettingsViewModel.swift */,
+				55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				550514D91E997E5F00A71543 /* CompletedTableViewCell.swift in Sources */,
 				550514D51E99644100A71543 /* ErrorTableViewCell.swift in Sources */,
 				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
+				55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */,
 				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
 				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
 				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
@@ -576,6 +583,7 @@
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */,
+				55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */,
 				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
 				5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */,
 				550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */,

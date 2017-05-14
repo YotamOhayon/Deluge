@@ -22,6 +22,8 @@ protocol DelugionServicing {
                        completion: @escaping (ServerResponse<Void>) -> Void)
     func resumeTorrent(hash: String, completion: @escaping () -> Void)
     func pauseTorrent(hash: String, completion: @escaping () -> Void)
+    func getMagnetInfo(url: URL, completion: @escaping (ServerResponse<MagnetInfo>) -> Void)
+    func addTorrent(url: URL, completion: @escaping () -> Void)
     
 }
 
@@ -127,6 +129,18 @@ class DelugionService: DelugionServicing {
     func pauseTorrent(hash: String, completion: @escaping () -> Void) {
         self.delugion.subscribe(onNext: { delugion in
             delugion?.pasue(hash: hash, completion: completion)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func getMagnetInfo(url: URL, completion: @escaping (ServerResponse<MagnetInfo>) -> Void) {
+        self.delugion.subscribe(onNext: { delugion in
+            delugion?.getMagnetInfo(url: url, completion: completion)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func addTorrent(url: URL, completion: @escaping () -> Void) {
+        self.delugion.subscribe(onNext: { delugion in
+            delugion?.add(url: url)
         }).disposed(by: self.disposeBag)
     }
     

@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
             // TODO: bring back after having one cell for all
 //            if self.shouldReloadData(current: self.dataSource, new: $0) {
-                self.dataSource = $0
+            self.dataSource = $0.sorted(by: { $0.0.downloadPayloadrate >= $0.1.downloadPayloadrate })
 //            }
         })
         self.torrentsDisposable.disposed(by: self.disposeBag)
@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.torrentsDisposable.dispose()
+//        self.torrentsDisposable.dispose()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

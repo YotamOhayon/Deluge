@@ -29,8 +29,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print(url)
+        
+        guard let vc = self.window?.rootViewController else {
+            return false
+        }
+        
+        let storyboard = SwinjectStoryboard.create(name: "Main",
+                                                   bundle: nil,
+                                                   container: container)
+        
+        let addTorrentViewController = storyboard.instantiateViewController(withIdentifier: "AddTorrentViewController") as! AddTorrentViewController
+        
+        let delugion = container.resolve(DelugionServicing.self)!
+        addTorrentViewController.viewModel = AddTorrentViewModel(magnetURL: url,
+                                                                 delugionService: delugion)
+        
+        vc.present(addTorrentViewController, animated: false, completion: nil)
+        
         return true
+        
     }
 
 }

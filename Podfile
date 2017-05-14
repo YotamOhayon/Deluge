@@ -14,6 +14,7 @@ target 'Deluge' do
   #pod 'RxNimble', '~> 2.0'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
   # Pods for Deluge
 

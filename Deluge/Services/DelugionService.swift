@@ -45,9 +45,12 @@ class DelugionService: DelugionServicing {
             return try? Delugion(hostname: hostname, port: port)
             }.shareReplay(1)
         
-        self.connection = delugion.flatMap { delugion in
+        self.connection = Observable.combineLatest(settings.passwordObservable, delugion).flatMap { password, delugion in
             Observable.create { observer in
-                delugion?.connect(withPassword: "Y6412257") {
+                guard let delugion = delugion, let password = password else {
+                    return Disposables.create()
+                }
+                delugion.connect(withPassword: password) {
                     observer.onNext($0)
                     observer.onCompleted()
                 }

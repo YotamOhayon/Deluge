@@ -40,6 +40,21 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
         
+        self.viewModel
+            .hostnameObservable
+            .bind(to: self.hostnameTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        self.viewModel
+            .portObservable
+            .bind(to: self.portTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        self.viewModel
+            .passwordObservable
+            .bind(to: self.passwordTextField.rx.text)
+            .disposed(by: disposeBag)
+        
         self.hostnameTextField
             .rx
             .text
@@ -76,9 +91,9 @@ class SettingsTableViewController: UITableViewController {
         
         switch s {
         case .settingsCancel:
-            print("cancel")
+            return
         case .settingsDone:
-            print("done")
+            self.viewModel.done()
         }
         
     }

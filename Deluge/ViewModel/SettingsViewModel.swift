@@ -11,21 +11,40 @@ import RxSwift
 import Delugion
 
 protocol SettingsViewModeling {
+    
+    var hostnameObservable: Observable<String?> { get }
+    var portObservable: Observable<String?> { get }
+    var passwordObservable: Observable<String?> { get }
     var hostname: PublishSubject<String?> { get }
     var port: PublishSubject<String?> { get }
     var password: PublishSubject<String?> { get }
     var connectionLabel: Observable<NSAttributedString> { get }
+    
+    func done()
+    
 }
 
 class SettingsViewModel: SettingsViewModeling {
     
+    let hostnameObservable: Observable<String?>
+    let portObservable: Observable<String?>
+    let passwordObservable: Observable<String?>
     let hostname = PublishSubject<String?>()
     let port = PublishSubject<String?>()
     let password = PublishSubject<String?>()
     let connectionLabel: Observable<NSAttributedString>
     let disposeBag = DisposeBag()
     
-    init(settingsModel: SettingsModeling) {
+    init(settingsModel: SettingsModeling, settingsService: SettingsServicing) {
+        
+        self.hostnameObservable = settingsService.hostObservable
+        self.portObservable = settingsService.portObservable.map {
+            guard let port = $0 else {
+                return ""
+            }
+            return String(describing: port)
+        }
+        self.passwordObservable = settingsService.passwordObservable
         
         self.connectionLabel = Observable.combineLatest(hostname, port, password) {
             ($0, $1, $2)
@@ -66,6 +85,10 @@ class SettingsViewModel: SettingsViewModeling {
             let settings = $0.1
             settings.password = password
         }).disposed(by: disposeBag)
+        
+    }
+    
+    func done() {
         
     }
     

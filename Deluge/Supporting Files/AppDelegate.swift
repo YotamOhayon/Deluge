@@ -54,7 +54,9 @@ fileprivate extension AppDelegate {
         
         container.register(SettingsViewModeling.self) { r in
             let settingsModel = r.resolve(SettingsModeling.self)!
-            return SettingsViewModel(settingsModel: settingsModel)
+            let settingsService = r.resolve(SettingsServicing.self)!
+            return SettingsViewModel(settingsModel: settingsModel,
+                                     settingsService: settingsService)
         }
         
         container.register(MainViewModeling.self) { r in

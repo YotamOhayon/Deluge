@@ -24,12 +24,18 @@
 		554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */; };
 		554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174721EA0BA0500BA4332 /* TorrentMock.swift */; };
 		554174791EA0C77800BA4332 /* MainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174781EA0C77800BA4332 /* MainViewModelSpec.swift */; };
+		5542036F1ECAD98F00B05CAF /* DownloadSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */; };
+		554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */; };
+		554203751ECAE94400B05CAF /* PausedSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554203741ECAE94400B05CAF /* PausedSubtitleView.xib */; };
+		554203771ECAE9D800B05CAF /* PausedSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */; };
+		5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */; };
+		5542037C1ECAECCC00B05CAF /* SeedingSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */; };
 		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
 		5566405A1E9A4E71002819B9 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
 		5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */; };
-		55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */; };
-		55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */; };
+		55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */; };
+		55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */; };
 		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
 		55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModel.swift */; };
 		5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */; };
@@ -86,12 +92,18 @@
 		554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionServiceMock.swift; sourceTree = "<group>"; };
 		554174721EA0BA0500BA4332 /* TorrentMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentMock.swift; sourceTree = "<group>"; };
 		554174781EA0C77800BA4332 /* MainViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelSpec.swift; sourceTree = "<group>"; };
+		5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadSubtitleView.xib; sourceTree = "<group>"; };
+		554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadSubtitleView.swift; sourceTree = "<group>"; };
+		554203741ECAE94400B05CAF /* PausedSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PausedSubtitleView.xib; sourceTree = "<group>"; };
+		554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedSubtitleView.swift; sourceTree = "<group>"; };
+		554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeedingSubtitleView.xib; sourceTree = "<group>"; };
+		5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedingSubtitleView.swift; sourceTree = "<group>"; };
 		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		556640591E9A4E71002819B9 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesViewModel.swift; sourceTree = "<group>"; };
-		55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingTableViewCell.swift; sourceTree = "<group>"; };
-		55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModel.swift; sourceTree = "<group>"; };
+		55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
+		55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModel.swift; sourceTree = "<group>"; };
 		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
 		55885C091E99184E005A4D3D /* PausedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModel.swift; sourceTree = "<group>"; };
 		5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extension.swift"; sourceTree = "<group>"; };
@@ -221,6 +233,42 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		554203721ECAE8D900B05CAF /* Download Cell Subtitle */ = {
+			isa = PBXGroup;
+			children = (
+				554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */,
+				5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */,
+			);
+			name = "Download Cell Subtitle";
+			sourceTree = "<group>";
+		};
+		554203731ECAE8F100B05CAF /* Progress View */ = {
+			isa = PBXGroup;
+			children = (
+				55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */,
+				55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */,
+			);
+			name = "Progress View";
+			sourceTree = "<group>";
+		};
+		554203781ECAEB1900B05CAF /* Paused Cell Subtitle */ = {
+			isa = PBXGroup;
+			children = (
+				554203741ECAE94400B05CAF /* PausedSubtitleView.xib */,
+				554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */,
+			);
+			name = "Paused Cell Subtitle";
+			sourceTree = "<group>";
+		};
+		5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */ = {
+			isa = PBXGroup;
+			children = (
+				5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */,
+				554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */,
+			);
+			name = "Seeding Cell Subtitle";
+			sourceTree = "<group>";
+		};
 		555A34451E9E73EF0056F1A8 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,11 +326,13 @@
 		55D5EB681E96114300F93DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */,
-				55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */,
+				5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */,
+				554203781ECAEB1900B05CAF /* Paused Cell Subtitle */,
+				554203731ECAE8F100B05CAF /* Progress View */,
+				554203721ECAE8D900B05CAF /* Download Cell Subtitle */,
 				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
 				550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */,
-				55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */,
+				55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */,
 				550514D41E99644100A71543 /* ErrorTableViewCell.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
@@ -299,7 +349,7 @@
 			children = (
 				55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */,
 				550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */,
-				55885C051E99159F005A4D3D /* DownloadingCellViewModel.swift */,
+				55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */,
 				550514D61E99648600A71543 /* ErrorCellViewModel.swift */,
 				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
 				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
@@ -431,9 +481,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554203751ECAE94400B05CAF /* PausedSubtitleView.xib in Resources */,
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
 				55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */,
+				5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */,
+				5542036F1ECAD98F00B05CAF /* DownloadSubtitleView.xib in Resources */,
 				55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */,
 				556B847B1E959AB000C37034 /* Podfile in Resources */,
 				553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */,
@@ -578,6 +631,7 @@
 				55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */,
 				5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */,
 				5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */,
+				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
 				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
@@ -590,15 +644,17 @@
 				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
 				55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */,
 				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
-				55885C041E99148E005A4D3D /* DownloadingTableViewCell.swift in Sources */,
+				55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */,
 				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
 				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
-				55885C061E99159F005A4D3D /* DownloadingCellViewModel.swift in Sources */,
+				55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */,
 				55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */,
 				55AEA8F81EC9D9F600E0CABF /* Array+Extension.swift in Sources */,
+				554203771ECAE9D800B05CAF /* PausedSubtitleView.swift in Sources */,
+				5542037C1ECAECCC00B05CAF /* SeedingSubtitleView.swift in Sources */,
 				55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */,
 				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
 				5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */,

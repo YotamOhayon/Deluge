@@ -107,7 +107,7 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.torrentsDisposable.dispose()
+        self.torrentsDisposable.dispose()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

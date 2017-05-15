@@ -11,48 +11,6 @@ import Delugion
 import RxSwift
 import RxCocoa
 
-extension Array where Element == TorrentProtocol {
-    
-    func sorted(by sortBy: SortBy) -> [Element] {
-        switch sortBy {
-        case .priority:
-            return self.sorted(by: { $0.0.queue > $0.1.queue })
-        case .downloadSpeed:
-            return self.sorted(by: { $0.0.downloadPayloadrate > $0.1.downloadPayloadrate })
-        case .uploadSpeed:
-            return self.sorted(by: { $0.0.uploadPayloadrate > $0.1.uploadPayloadrate })
-        }
-    }
-    
-}
-
-enum SortBy: Int, CustomStringConvertible {
-    
-    case priority, downloadSpeed, uploadSpeed
-    
-    var description: String {
-        switch self {
-        case .priority:
-            return "Priority"
-        case .downloadSpeed:
-            return "Download Speed"
-        case .uploadSpeed:
-            return "Upload Speed"
-        }
-    }
-    
-    static var allValues: [SortBy] {
-        var values = [SortBy]()
-        var i = 0
-        while let newVal = SortBy(rawValue: i) {
-            values.append(newVal)
-            i += 1
-        }
-        return values
-    }
-    
-}
-
 typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?)
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 

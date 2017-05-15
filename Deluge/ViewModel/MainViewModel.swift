@@ -17,6 +17,7 @@ protocol MainViewModeling {
     var torrents: Driver<[TorrentProtocol]> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
     var showFilterAlertController: Driver<filterAlertData> { get }
+    var filterStatus: Driver<String?> { get }
     func viewModel(forTorrent: TorrentProtocol) -> TorrentModeling
 }
 
@@ -29,6 +30,7 @@ class MainViewModel: MainViewModeling {
     let filterButtonTapped = PublishSubject<Void>()
     let showFilterAlertController: Driver<filterAlertData>
     let filter: BehaviorSubject<TorrentState?>
+    let filterStatus: Driver<String?>
     
     init(delugionService: DelugionServicing) {
         
@@ -73,6 +75,10 @@ class MainViewModel: MainViewModeling {
             let allBlock: () -> Void = { filter.onNext(nil) }
             return (message, actions, block, allBlock)
             }.asDriver(onErrorJustReturn: (nil, nil, nil, nil))
+        
+        self.filterStatus = filter.map {
+            $0?.rawValue ?? "All"
+        }.asDriver(onErrorJustReturn: nil)
         
     }
     

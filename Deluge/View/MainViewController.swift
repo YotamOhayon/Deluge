@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterButtonTapped: UIBarButtonItem!
+    @IBOutlet weak var filterStatusLabel: UILabel!
     
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
@@ -43,7 +44,16 @@ class MainViewController: UIViewController {
             .bind(to: viewModel.filterButtonTapped)
             .disposed(by: self.disposeBag)
         
-        self.viewModel.showFilterAlertController.asObservable().subscribe(onNext: {
+        self.viewModel
+            .filterStatus
+            .asObservable()
+            .bind(to: self.filterStatusLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        self.viewModel
+            .showFilterAlertController
+            .asObservable()
+            .subscribe(onNext: {
             
             guard let message = $0,
                 let actions = $1,

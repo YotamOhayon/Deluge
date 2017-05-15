@@ -442,13 +442,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zdB-o9-Fwc">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wj2-vJ-tea">
-                            <connections>
-                                <segue destination="E4y-9O-CZS" kind="show" id="P8M-S9-lqj"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Settings" id="wj2-vJ-tea">
+                                <connections>
+                                    <segue destination="E4y-9O-CZS" kind="show" id="P8M-S9-lqj"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Filter" id="ye9-3p-Buy"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterButtonTapped" destination="ye9-3p-Buy" id="n0r-11-NZQ"/>
                         <outlet property="tableView" destination="sF0-et-pdm" id="g68-XN-gmS"/>
                         <segue destination="qvR-Nx-f6B" kind="show" identifier="ShowTorrentSegue" id="Mge-WT-doo"/>
                     </connections>

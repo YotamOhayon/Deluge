@@ -11,8 +11,12 @@ import Delugion
 import RxSwift
 import RxCocoa
 
+typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?)
+
 protocol MainViewModeling {
     var torrents: Driver<[TorrentProtocol]> { get }
+    var filterButtonTapped: PublishSubject<Void> { get }
+    var showFilterAlertController: Driver<filterAlertData> { get }
     func viewModel(forTorrent: TorrentProtocol) -> TorrentModeling
 }
 
@@ -22,6 +26,9 @@ class MainViewModel: MainViewModeling {
     let delugionService: DelugionServicing
     let connected: Observable<ServerResponse<Void>>
     let torrents: Driver<[TorrentProtocol]>
+    let filterButtonTapped = PublishSubject<Void>()
+    let showFilterAlertController: Driver<filterAlertData>
+    let filter: BehaviorSubject<TorrentState?>
     
     init(delugionService: DelugionServicing) {
         
@@ -36,21 +43,36 @@ class MainViewModel: MainViewModeling {
             }
         }
         
-        self.torrents = Observable.combineLatest(connected, delugionService.torrents) {
-            ($1)
+        let filter = BehaviorSubject<TorrentState?>(value: nil)
+        self.filter = filter
+        
+        self.torrents = Observable.combineLatest(connected, delugionService.torrents, filter) {
+            ($1, $2)
             }.filter {
-                switch $0 {
+                switch $0.0 {
                 case .error:
                     return false
                 default:
                     return true
                 }
             }.map {
-                $0.associatedValue as! [TorrentProtocol]
-            }.map { torrents in
-                torrents.filter { $0.state != .checking }
+                ($0.associatedValue as! [TorrentProtocol], $1)
+            }.map { torrents, filter in
+                var torrents = torrents.filter { $0.state != .checking }
+                if let filter = filter {
+                    torrents = torrents.filter { $0.state == filter }
+                }
+                return torrents
             }
             .asDriver(onErrorJustReturn: [TorrentProtocol]())
+        
+        self.showFilterAlertController = self.filterButtonTapped.map {
+            let message = "Filter by"
+            let actions: [TorrentState] = [.seeding, .paused, .error, .downloading, .queued, .checking]
+            let block: (TorrentState) -> Void = { filter.onNext($0) }
+            let allBlock: () -> Void = { filter.onNext(nil) }
+            return (message, actions, block, allBlock)
+            }.asDriver(onErrorJustReturn: (nil, nil, nil, nil))
         
     }
     

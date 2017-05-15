@@ -13,11 +13,13 @@ import Delugion
 
 class MainViewController: UIViewController {
     
-    var viewModel: MainViewModeling!
     @IBOutlet weak var tableView: UITableView!
-    var torrentsDisposable: Disposable!
+    @IBOutlet weak var filterButtonTapped: UIBarButtonItem!
     
+    var viewModel: MainViewModeling!
+    var torrentsDisposable: Disposable!
     let disposeBag = DisposeBag()
+    
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
             if self.tableView.isHidden {
@@ -34,6 +36,48 @@ class MainViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
+        
+        self.filterButtonTapped
+            .rx
+            .tap
+            .bind(to: viewModel.filterButtonTapped)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.showFilterAlertController.asObservable().subscribe(onNext: {
+            
+            guard let message = $0,
+                let actions = $1,
+                let block = $2,
+                let allBlock = $3 else {
+                return
+            }
+            
+            let alert = UIAlertController(title: nil,
+                                          message: message,
+                                          preferredStyle: .actionSheet)
+            
+            actions.forEach { action in
+                let filterAction = UIAlertAction(title: action.rawValue,
+                                                 style: .default) { _ in
+                    block(action)
+                }
+                alert.addAction(filterAction)
+            }
+            
+            let allAction = UIAlertAction(title: "All",
+                                          style: .default) { _ in
+                    allBlock()
+            }
+            alert.addAction(allAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel",
+                                             style: .cancel,
+                                             handler: nil)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }).disposed(by: disposeBag)
         
     }
     

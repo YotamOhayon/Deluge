@@ -46,6 +46,14 @@ class DelugionServiceMock: DelugionServicing {
         
     }
     
+    func getMagnetInfo(url: URL, completion: @escaping (ServerResponse<MagnetInfo>) -> Void) {
+        
+    }
+    
+    func addTorrent(url: URL, completion: @escaping () -> Void) {
+        
+    }
+    
     init(connectionResponse: ServerResponse<Void>,
          torrentsResponse: ServerResponse<[TorrentProtocol]>,
          torrentResponse: ServerResponse<TorrentProtocol>,

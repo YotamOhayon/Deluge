@@ -14,7 +14,8 @@ import Delugion
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var filterButtonTapped: UIBarButtonItem!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBOutlet weak var filterStatusLabel: UILabel!
     
     var viewModel: MainViewModeling!
@@ -38,11 +39,17 @@ class MainViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
         
-        self.filterButtonTapped
+        self.filterButton
             .rx
             .tap
             .bind(to: viewModel.filterButtonTapped)
             .disposed(by: self.disposeBag)
+        
+        self.sortButton
+            .rx
+            .tap
+            .bind(to: viewModel.sortButtonTapped)
+            .disposed(by: disposeBag)
         
         self.viewModel
             .filterStatus
@@ -54,12 +61,48 @@ class MainViewController: UIViewController {
             .showFilterAlertController
             .asObservable()
             .subscribe(onNext: {
+                
+                guard let message = $0,
+                    let actions = $1,
+                    let block = $2,
+                    let allBlock = $3 else {
+                        return
+                }
+                
+                let alert = UIAlertController(title: nil,
+                                              message: message,
+                                              preferredStyle: .actionSheet)
+                
+                actions.forEach { action in
+                    let filterAction = UIAlertAction(title: action.rawValue,
+                                                     style: .default) { _ in
+                                                        block(action)
+                    }
+                    alert.addAction(filterAction)
+                }
+                
+                let allAction = UIAlertAction(title: "All",
+                                              style: .default)
+                { _ in
+                    allBlock()
+                }
+                alert.addAction(allAction)
+                
+                let cancelAction = UIAlertAction(title: "Cancel",
+                                                 style: .cancel,
+                                                 handler: nil)
+                alert.addAction(cancelAction)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }).disposed(by: disposeBag)
+        
+        viewModel.showSortAlertController.asObservable().subscribe(onNext: {
             
             guard let message = $0,
                 let actions = $1,
-                let block = $2,
-                let allBlock = $3 else {
-                return
+                let block = $2 else {
+                    return
             }
             
             let alert = UIAlertController(title: nil,
@@ -67,18 +110,13 @@ class MainViewController: UIViewController {
                                           preferredStyle: .actionSheet)
             
             actions.forEach { action in
-                let filterAction = UIAlertAction(title: action.rawValue,
-                                                 style: .default) { _ in
+                let filterAction = UIAlertAction(title: action.description,
+                                                 style: .default)
+                { _ in
                     block(action)
                 }
                 alert.addAction(filterAction)
             }
-            
-            let allAction = UIAlertAction(title: "All",
-                                          style: .default) { _ in
-                    allBlock()
-            }
-            alert.addAction(allAction)
             
             let cancelAction = UIAlertAction(title: "Cancel",
                                              style: .cancel,
@@ -89,6 +127,7 @@ class MainViewController: UIViewController {
             
         }).disposed(by: disposeBag)
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,9 +136,9 @@ class MainViewController: UIViewController {
         self.tableView.isHidden = true
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
             // TODO: bring back after having one cell for all
-//            if self.shouldReloadData(current: self.dataSource, new: $0) {
-            self.dataSource = $0.sorted(by: { $0.0.downloadPayloadrate >= $0.1.downloadPayloadrate })
-//            }
+            //            if self.shouldReloadData(current: self.dataSource, new: $0) {
+            self.dataSource = $0
+            //            }
         })
         self.torrentsDisposable.disposed(by: self.disposeBag)
         
@@ -120,18 +159,18 @@ class MainViewController: UIViewController {
         
     }
     
-//    func shouldReloadData(current: [TorrentProtocol],
-//                          new: [TorrentProtocol]) -> Bool {
-//        
-//        let currentHashes = current.map { return $0.torrentHash }
-//        let newHashes = new.map { return $0.torrentHash }
-//        
-//        let notInNew = currentHashes.filter { !newHashes.contains($0) }
-//        let notInCurrent = newHashes.filter { !currentHashes.contains($0) }
-//        
-//        return notInNew.isNotEmpty || notInCurrent.isNotEmpty
-//        
-//    }
+    //    func shouldReloadData(current: [TorrentProtocol],
+    //                          new: [TorrentProtocol]) -> Bool {
+    //
+    //        let currentHashes = current.map { return $0.torrentHash }
+    //        let newHashes = new.map { return $0.torrentHash }
+    //
+    //        let notInNew = currentHashes.filter { !newHashes.contains($0) }
+    //        let notInCurrent = newHashes.filter { !currentHashes.contains($0) }
+    //
+    //        return notInNew.isNotEmpty || notInCurrent.isNotEmpty
+    //
+    //    }
     
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {
         

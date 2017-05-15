@@ -421,11 +421,13 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Filter" id="ye9-3p-Buy"/>
+                            <barButtonItem title="Sort" id="Qk2-cx-6Id"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="filterButtonTapped" destination="ye9-3p-Buy" id="n0r-11-NZQ"/>
+                        <outlet property="filterButton" destination="ye9-3p-Buy" id="cMz-cy-0q5"/>
                         <outlet property="filterStatusLabel" destination="San-OV-3mU" id="uxf-5G-ALs"/>
+                        <outlet property="sortButton" destination="Qk2-cx-6Id" id="efO-8f-1gV"/>
                         <outlet property="tableView" destination="sF0-et-pdm" id="g68-XN-gmS"/>
                         <segue destination="qvR-Nx-f6B" kind="show" identifier="ShowTorrentSegue" id="Mge-WT-doo"/>
                     </connections>

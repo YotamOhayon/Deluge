@@ -39,6 +39,8 @@
 		55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */; };
 		55AEA8F81EC9D9F600E0CABF /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8F71EC9D9F600E0CABF /* Array+Extension.swift */; };
 		55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8F91EC9DA1600E0CABF /* SortBy.swift */; };
+		55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */; };
+		55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */; };
 		55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */; };
 		55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */; };
 		55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */; };
@@ -99,6 +101,8 @@
 		55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTorrentViewModel.swift; sourceTree = "<group>"; };
 		55AEA8F71EC9D9F600E0CABF /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		55AEA8F91EC9DA1600E0CABF /* SortBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
+		55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModelSpec.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		55D5EB681E96114300F93DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */,
+				55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */,
 				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
 				550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */,
 				55885C031E99148E005A4D3D /* DownloadingTableViewCell.swift */,
@@ -428,6 +434,7 @@
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
 				55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */,
+				55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */,
 				556B847B1E959AB000C37034 /* Podfile in Resources */,
 				553AC7EC1E959A4200B2A658 /* Main.storyboard in Resources */,
 			);
@@ -574,6 +581,7 @@
 				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
+				55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */,
 				55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */,
 				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,

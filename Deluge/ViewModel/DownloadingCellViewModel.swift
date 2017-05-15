@@ -12,7 +12,7 @@ import Delugion
 protocol DownloadingCellViewModeling {
     var title: String? { get }
     var progress: Double { get }
-    var progressNumeric: String? { get }
+    var progressNumeric: Double? { get }
     var downloadSpeed: String? { get }
     var eta: String? { get }
 }
@@ -21,7 +21,7 @@ class DownloadingCellViewModel: DownloadingCellViewModeling {
     
     let title: String?
     let progress: Double
-    let progressNumeric: String?
+    let progressNumeric: Double?
     let downloadSpeed: String?
     let eta: String?
     
@@ -29,7 +29,7 @@ class DownloadingCellViewModel: DownloadingCellViewModeling {
         self.title = torrent.name
         
         self.progress = Double(3.6 * torrent.progress)
-        self.progressNumeric = String(describing: torrent.progress.setPrecision(to: 0))
+        self.progressNumeric = torrent.progress.setPrecision(to: 0)
         
         
         let (speed, unit) = torrent.downloadPayloadrate.inUnits(withPrecision: 1)

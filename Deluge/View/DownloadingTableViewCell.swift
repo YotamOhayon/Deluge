@@ -11,8 +11,7 @@ import KDCircularProgress
 
 class DownloadingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var progressView: KDCircularProgress!
-    @IBOutlet weak var progressNumericView: UILabel!
+    @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var downloadSpeedLabel: UILabel!
     @IBOutlet weak var etaLabel: UILabel!
@@ -21,7 +20,7 @@ class DownloadingTableViewCell: UITableViewCell {
         didSet {
             self.title.text = viewModel.title
             self.progressView.angle = viewModel.progress
-            self.progressNumericView.text = viewModel.progressNumeric
+            self.progressView.progress = viewModel.progressNumeric
             self.downloadSpeedLabel.text = viewModel.downloadSpeed
             self.etaLabel.text = viewModel.eta
         }

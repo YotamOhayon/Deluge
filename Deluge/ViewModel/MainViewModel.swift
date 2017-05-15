@@ -54,7 +54,7 @@ class MainViewModel: MainViewModeling {
         let filter = BehaviorSubject<TorrentState?>(value: nil)
         self.filter = filter
         
-        let sort = BehaviorSubject<SortBy>(value: SortBy.downloadSpeed)
+        let sort = BehaviorSubject<SortBy>(value: SortBy.priority)
         self.sort = sort
         
         self.torrents = Observable.combineLatest(connected, delugionService.torrents, filter, sort) {

@@ -12,11 +12,13 @@ class CompletedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var size: UILabel!
+    @IBOutlet weak var progressView: ProgressView!
     
     var viewModel: CompletedCellViewModeling! {
         didSet {
             self.title.text = viewModel.title
             self.size.text = viewModel.size
+            self.progressView.progressLabel.text = "100"
         }
     }
 

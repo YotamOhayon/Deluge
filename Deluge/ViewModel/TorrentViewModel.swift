@@ -13,20 +13,11 @@ import RxSwift
 import RxOptional
 import UIKit
 
-struct ProgressInfo {
-    
-    var angle: Double
-    var progressColor: UIColor
-    var view: UIView
-    
-}
-
 protocol TorrentModeling {
     
     var title: String? { get }
     var subtitle: Driver<UIView> { get }
     var downloadSpeed: Driver<String?> { get }
-    var progress: Driver<ProgressInfo?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
     var didRemoveTorrent: Observable<Bool> { get }
     var showDeleteConfirmation: Observable<(String, String, String, String)> { get }
@@ -46,7 +37,6 @@ class TorrentModel: TorrentModeling {
     let title: String?
     let subtitle: Driver<UIView>
     let downloadSpeed: Driver<String?>
-    let progress: Driver<ProgressInfo?>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
     var didRemoveTorrent: Observable<Bool> {
         return self.didRemoveTorrentSubject.asObservable()
@@ -103,10 +93,6 @@ class TorrentModel: TorrentModeling {
             .startWith(TorrentFilesViewModel.button(forState: torrent.state))
         
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
-        
-        self.progress = info.map {
-            $0.progressInfo
-            }.asDriver(onErrorJustReturn: nil).startWith(torrent.progressInfo)
         
         self.showDeleteConfirmation = didRemoveTorrentTapped.map {
             return ("are you sure", "with data", "without data", "no")

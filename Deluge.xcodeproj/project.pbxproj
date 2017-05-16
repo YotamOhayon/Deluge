@@ -32,7 +32,6 @@
 		5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */; };
 		55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */; };
 		55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */; };
-		5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */; };
 		55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */; };
 		55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */; };
 		55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */; };
@@ -91,7 +90,6 @@
 		5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesViewModel.swift; sourceTree = "<group>"; };
 		55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
 		55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModel.swift; sourceTree = "<group>"; };
-		5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extension.swift"; sourceTree = "<group>"; };
 		55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNameTableViewCell.swift; sourceTree = "<group>"; };
 		55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Exntension.swift"; sourceTree = "<group>"; };
 		55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTorrentViewController.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				55AEA8F71EC9D9F600E0CABF /* Array+Extension.swift */,
 				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
 				55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */,
-				5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -603,7 +600,6 @@
 			files = (
 				55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */,
 				5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */,
-				5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */,
 				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,

@@ -21,6 +21,8 @@ protocol TorrentCellViewModeling {
 
 class TorrentCellViewModel: TorrentCellViewModeling {
     
+    static let reuseIdentifier = "TorrentCell"
+    
     let title: String?
     let progress: Double
     let themeColor: UIColor

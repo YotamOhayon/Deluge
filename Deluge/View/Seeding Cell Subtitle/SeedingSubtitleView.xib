@@ -26,7 +26,7 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-PP-IvC">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-PP-IvC" customClass="CircleSeparator" customModule="Deluge" customModuleProvider="target">
                     <rect key="frame" x="67.5" y="7" width="5" height="5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

@@ -26,6 +26,7 @@
 		554203771ECAE9D800B05CAF /* PausedSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */; };
 		5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */; };
 		5542037C1ECAECCC00B05CAF /* SeedingSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */; };
+		554203881ECB215200B05CAF /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203871ECB215200B05CAF /* ThemeService.swift */; };
 		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
 		5566405A1E9A4E71002819B9 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640591E9A4E71002819B9 /* Unit.swift */; };
 		556B847B1E959AB000C37034 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 556B847A1E959AB000C37034 /* Podfile */; };
@@ -84,6 +85,7 @@
 		554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedSubtitleView.swift; sourceTree = "<group>"; };
 		554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeedingSubtitleView.xib; sourceTree = "<group>"; };
 		5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedingSubtitleView.swift; sourceTree = "<group>"; };
+		554203871ECB215200B05CAF /* ThemeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		556640591E9A4E71002819B9 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		556B847A1E959AB000C37034 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -334,6 +336,7 @@
 			children = (
 				55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */,
 				5528EFAC1EB2181000839501 /* SettingsService.swift */,
+				554203871ECB215200B05CAF /* ThemeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
+				554203881ECB215200B05CAF /* ThemeService.swift in Sources */,
 				55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */,
 				55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */,
 				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,

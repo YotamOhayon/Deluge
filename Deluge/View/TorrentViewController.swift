@@ -44,6 +44,18 @@ class TorrentViewController: UIViewController {
             container.trailingAnchor.constraint(equalTo: self.titleLabel.trailingAnchor).isActive = true
         }).disposed(by: self.disposeBag)
         
+        viewModel.progressColor.drive(onNext: { [unowned self] in
+            self.progressView.progressColor = $0
+        }).disposed(by: self.disposeBag)
+        
+        viewModel.progressNumeric.drive(onNext: { [unowned self] in
+            self.progressView.progress = $0
+        }).disposed(by: self.disposeBag)
+        
+        viewModel.progressAngle.filterNil().drive(onNext: { [unowned self] in
+            self.progressView.angle = $0
+        }).disposed(by: self.disposeBag)
+        
         self.deleteButton = {
             let trash = UIBarButtonItem(barButtonSystemItem: .trash,
                                         target: nil,

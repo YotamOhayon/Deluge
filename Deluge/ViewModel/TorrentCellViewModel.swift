@@ -29,21 +29,12 @@ class TorrentCellViewModel: TorrentCellViewModeling {
     let progressNumeric: Double?
     let torrent: TorrentProtocol
     
-    init(torrent: TorrentProtocol) {
+    init(torrent: TorrentProtocol, themeManager: ThemeManaging) {
         
         self.title = torrent.name
         
         self.progress = Double(3.6 * torrent.progress)
-        self.themeColor = { () -> UIColor in
-            switch torrent.state {
-            case .seeding: return .green
-            case .paused: return .gray
-            case .error: return .red
-            case .downloading: return .blue
-            case .queued: return .green
-            case .checking: return .green
-            }
-        }()
+        self.themeColor = themeManager.color(forTorrentState: torrent.state)
         self.progressNumeric = torrent.progress.setPrecision(to: 0)
         self.torrent = torrent
         

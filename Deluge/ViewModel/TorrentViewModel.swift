@@ -19,6 +19,9 @@ protocol TorrentModeling {
     var subtitle: Driver<UIView> { get }
     var downloadSpeed: Driver<String?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
+    var progressColor: Driver<UIColor> { get }
+    var progressNumeric: Driver<Double?> { get }
+    var progressAngle: Driver<Double?> { get }
     var didRemoveTorrent: Observable<Bool> { get }
     var showDeleteConfirmation: Observable<(String, String, String, String)> { get }
     var didRemoveTorrentTapped: PublishSubject<Void> { get }
@@ -37,6 +40,9 @@ class TorrentModel: TorrentModeling {
     let title: String?
     let subtitle: Driver<UIView>
     let downloadSpeed: Driver<String?>
+    let progressColor: Driver<UIColor>
+    let progressNumeric: Driver<Double?>
+    let progressAngle: Driver<Double?>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
     var didRemoveTorrent: Observable<Bool> {
         return self.didRemoveTorrentSubject.asObservable()
@@ -61,7 +67,7 @@ class TorrentModel: TorrentModeling {
     fileprivate let delugion: DelugionServicing
     fileprivate let disposeBag = DisposeBag()
     
-    init(torrent: TorrentProtocol, delugionService: DelugionServicing) {
+    init(torrent: TorrentProtocol, delugionService: DelugionServicing, themeManager: ThemeManaging) {
         
         self.torrent = torrent
         self.delugion = delugionService
@@ -93,6 +99,18 @@ class TorrentModel: TorrentModeling {
             .startWith(TorrentFilesViewModel.button(forState: torrent.state))
         
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
+        
+        self.progressColor = info.map { themeManager.color(forTorrentState: $0.state) }
+            .asDriver(onErrorJustReturn: .gray)
+            .startWith(themeManager.color(forTorrentState: torrent.state))
+        
+        self.progressNumeric = info.map { $0.progress }
+            .asDriver(onErrorJustReturn: nil)
+            .startWith(torrent.progress)
+        
+        self.progressAngle = info.map { $0.progress * 3.6 }
+            .asDriver(onErrorJustReturn: nil)
+            .startWith(torrent.progress * 3.6)
         
         self.showDeleteConfirmation = didRemoveTorrentTapped.map {
             return ("are you sure", "with data", "without data", "no")
@@ -240,15 +258,25 @@ class CircleSeparator: UIView {
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
-        self.backgroundColor = .gray
         self.translatesAutoresizingMaskIntoConstraints = false
         self.widthAnchor.constraint(equalToConstant: 5).isActive = true
         self.heightAnchor.constraint(equalToConstant: 5).isActive = true
-        self.layer.cornerRadius = 2.5
+        self.makeLayout()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.makeLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.makeLayout()
+    }
+    
+    func makeLayout() {
+        self.backgroundColor = .lightGray
+        self.layer.cornerRadius = 2.5
     }
     
 }

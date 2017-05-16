@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBOutlet weak var filterStatusLabel: UILabel!
     
+    var themeManager: ThemeManaging!
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
     let disposeBag = DisposeBag()
@@ -81,7 +82,7 @@ class MainViewController: UIViewController {
                     alert.addAction(filterAction)
                 }
                 
-                let allAction = UIAlertAction(title: "All",
+                let allAction = UIAlertAction(title: "Show all",
                                               style: .default)
                 { _ in
                     allBlock()
@@ -135,10 +136,7 @@ class MainViewController: UIViewController {
         
         self.tableView.isHidden = true
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
-            // TODO: bring back after having one cell for all
-            //            if self.shouldReloadData(current: self.dataSource, new: $0) {
             self.dataSource = $0
-            //            }
         })
         self.torrentsDisposable.disposed(by: self.disposeBag)
         
@@ -182,7 +180,7 @@ extension MainViewController: UITableViewDataSource {
         
         let torrent = self.dataSource[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell") as! TorrentTableViewCell
-        cell.viewModel = TorrentCellViewModel(torrent: torrent)
+        cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
         return cell
         
     }

@@ -83,11 +83,17 @@ fileprivate extension AppDelegate {
                                      settingsService: settingsService)
         }
         
+        container.register(ThemeManaging.self) { _ in
+            ThemeManager()
+        }
+        
         container.register(MainViewModeling.self) { r in
-            MainViewModel(delugionService: r.resolve(DelugionServicing.self)!)
+            MainViewModel(delugionService: r.resolve(DelugionServicing.self)!,
+                          themeManager: r.resolve(ThemeManaging.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in
+            c.themeManager = r.resolve(ThemeManaging.self)
             c.viewModel = r.resolve(MainViewModeling.self)
         }
         

@@ -28,6 +28,7 @@ class MainViewModel: MainViewModeling {
     
     let disposeBag = DisposeBag()
     let delugionService: DelugionServicing
+    let themeManager: ThemeManaging
     let connected: Observable<ServerResponse<Void>>
     let torrents: Driver<[TorrentProtocol]>
     let filterButtonTapped = PublishSubject<Void>()
@@ -38,9 +39,10 @@ class MainViewModel: MainViewModeling {
     let sort: BehaviorSubject<SortBy>
     let filterStatus: Driver<String?>
     
-    init(delugionService: DelugionServicing) {
+    init(delugionService: DelugionServicing, themeManager: ThemeManaging) {
         
         self.delugionService = delugionService
+        self.themeManager = themeManager
         
         self.connected = delugionService.connection.filter {
             switch $0 {
@@ -100,7 +102,7 @@ class MainViewModel: MainViewModeling {
     }
     
     func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentModeling {
-        return TorrentModel(torrent: torrent, delugionService: self.delugionService)
+        return TorrentModel(torrent: torrent, delugionService: self.delugionService, themeManager: self.themeManager)
     }
     
 }

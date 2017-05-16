@@ -159,19 +159,6 @@ class MainViewController: UIViewController {
         
     }
     
-    //    func shouldReloadData(current: [TorrentProtocol],
-    //                          new: [TorrentProtocol]) -> Bool {
-    //
-    //        let currentHashes = current.map { return $0.torrentHash }
-    //        let newHashes = new.map { return $0.torrentHash }
-    //
-    //        let notInNew = currentHashes.filter { !newHashes.contains($0) }
-    //        let notInCurrent = newHashes.filter { !currentHashes.contains($0) }
-    //
-    //        return notInNew.isNotEmpty || notInCurrent.isNotEmpty
-    //
-    //    }
-    
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {
         
         guard let s = Segue(segue: segue) else {

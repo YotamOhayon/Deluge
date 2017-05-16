@@ -1,5 +1,5 @@
 //
-//  PausedCellViewModelSpec.swift
+//  TorrentCellViewModelSpec.swift
 //  Deluge
 //
 //  Created by Yotam Ohayon on 14/04/2017.
@@ -13,7 +13,7 @@ import RxSwift
 import Delugion
 @testable import Deluge
 
-class PausedCellViewModelSpec: QuickSpec {
+class TorrentCellViewModelSpec: QuickSpec {
     
     let disposeBag = DisposeBag()
     
@@ -25,13 +25,15 @@ class PausedCellViewModelSpec: QuickSpec {
                 
                 let torrent = TorrentMock()
                 torrent.name = "name"
-                torrent.progress = 50
+                torrent.progress = 90
+                torrent.downloadPayloadrate = 1024
+                torrent.eta = 60
                 
-                let viewModel: PausedCellViewModeling = PausedCellViewModel(torrent: torrent)
+                let viewModel: TorrentCellViewModeling = TorrentCellViewModel(torrent: torrent)
                 
                 expect(viewModel.title).to(equal("name"))
-                expect(viewModel.progress).to(equal(50 * 3.6))
-                expect(viewModel.progressNumeric).to(equal("50.0"))
+                expect(viewModel.progress).to(equal(90.0 * 3.6))
+                expect(viewModel.progressNumeric).to(equal(90.0))
                 
             }
             

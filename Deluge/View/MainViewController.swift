@@ -198,30 +198,6 @@ extension MainViewController: UITableViewDataSource {
         cell.viewModel = TorrentCellViewModel(torrent: torrent)
         return cell
         
-//        switch torrent.state {
-//        case .downloading:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell") as! TorrentTableViewCell
-//            cell.viewModel = TorrentCellViewModel(torrent: torrent)
-//            return cell
-//        case .paused:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "PausedCell") as! PausedTableViewCell
-//            cell.viewModel = PausedCellViewModel(torrent: torrent)
-//            return cell
-//        case .error:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorCell") as! ErrorTableViewCell
-//            cell.viewModel = ErrorCellViewModel(torrent: torrent)
-//            return cell
-//        case .seeding:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedCell") as! CompletedTableViewCell
-//            cell.viewModel = CompletedCellViewModel(torrent: torrent)
-//            return cell
-//        case .queued, .checking:
-//            // TODO: ADD NEW CELL TYPES!!!
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedCell") as! CompletedTableViewCell
-//            cell.viewModel = CompletedCellViewModel(torrent: torrent)
-//            return cell
-//        }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

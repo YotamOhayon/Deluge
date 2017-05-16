@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E4EC9AA30195AB93E3353E1 /* Pods_DelugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */; };
-		550514D51E99644100A71543 /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514D41E99644100A71543 /* ErrorTableViewCell.swift */; };
-		550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514D61E99648600A71543 /* ErrorCellViewModel.swift */; };
-		550514D91E997E5F00A71543 /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */; };
-		550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */; };
 		552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */; };
 		552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552439521EB078A700FDDDB4 /* SettingsViewModel.swift */; };
 		5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528EFAC1EB2181000839501 /* SettingsService.swift */; };
@@ -36,8 +32,6 @@
 		5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */; };
 		55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */; };
 		55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */; };
-		55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */; };
-		55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55885C091E99184E005A4D3D /* PausedCellViewModel.swift */; };
 		5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */; };
 		55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */; };
 		55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */; };
@@ -47,10 +41,7 @@
 		55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8F91EC9DA1600E0CABF /* SortBy.swift */; };
 		55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */; };
 		55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */; };
-		55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */; };
-		55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */; };
-		55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */; };
-		55BDA44B1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */; };
+		55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */; };
 		55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
 		55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */; };
@@ -72,10 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		550514D41E99644100A71543 /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
-		550514D61E99648600A71543 /* ErrorCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModel.swift; sourceTree = "<group>"; };
-		550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
-		550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModel.swift; sourceTree = "<group>"; };
 		552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		552439521EB078A700FDDDB4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5528EFAC1EB2181000839501 /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
@@ -104,8 +91,6 @@
 		5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesViewModel.swift; sourceTree = "<group>"; };
 		55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
 		55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModel.swift; sourceTree = "<group>"; };
-		55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedTableViewCell.swift; sourceTree = "<group>"; };
-		55885C091E99184E005A4D3D /* PausedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModel.swift; sourceTree = "<group>"; };
 		5598A4511E9CCEDC002D75B3 /* Torrent+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Torrent+Extension.swift"; sourceTree = "<group>"; };
 		55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNameTableViewCell.swift; sourceTree = "<group>"; };
 		55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Exntension.swift"; sourceTree = "<group>"; };
@@ -115,10 +100,7 @@
 		55AEA8F91EC9DA1600E0CABF /* SortBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
 		55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
-		55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModelSpec.swift; sourceTree = "<group>"; };
-		55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingCellViewModelSpec.swift; sourceTree = "<group>"; };
-		55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellViewModelSpec.swift; sourceTree = "<group>"; };
-		55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedCellViewModelSpec.swift; sourceTree = "<group>"; };
+		55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesTableViewController.swift; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
 		55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
@@ -187,7 +169,6 @@
 				555A34451E9E73EF0056F1A8 /* Types */,
 				55D5EB681E96114300F93DE1 /* View */,
 				55D5EB691E96163200F93DE1 /* ViewModel */,
-				5528EFAC1EB2181000839501 /* SettingsService.swift */,
 			);
 			path = Deluge;
 			sourceTree = "<group>";
@@ -224,11 +205,8 @@
 		554174771EA0C76800BA4332 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				55BDA4441EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift */,
-				55BDA4461EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift */,
-				55BDA4481EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift */,
 				554174781EA0C77800BA4332 /* MainViewModelSpec.swift */,
-				55BDA44A1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift */,
+				55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,7 +217,7 @@
 				554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */,
 				5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */,
 			);
-			name = "Download Cell Subtitle";
+			path = "Download Cell Subtitle";
 			sourceTree = "<group>";
 		};
 		554203731ECAE8F100B05CAF /* Progress View */ = {
@@ -248,16 +226,16 @@
 				55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */,
 				55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */,
 			);
-			name = "Progress View";
+			path = "Progress View";
 			sourceTree = "<group>";
 		};
 		554203781ECAEB1900B05CAF /* Paused Cell Subtitle */ = {
 			isa = PBXGroup;
 			children = (
-				554203741ECAE94400B05CAF /* PausedSubtitleView.xib */,
 				554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */,
+				554203741ECAE94400B05CAF /* PausedSubtitleView.xib */,
 			);
-			name = "Paused Cell Subtitle";
+			path = "Paused Cell Subtitle";
 			sourceTree = "<group>";
 		};
 		5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */ = {
@@ -266,7 +244,7 @@
 				5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */,
 				554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */,
 			);
-			name = "Seeding Cell Subtitle";
+			path = "Seeding Cell Subtitle";
 			sourceTree = "<group>";
 		};
 		555A34451E9E73EF0056F1A8 /* Types */ = {
@@ -326,19 +304,16 @@
 		55D5EB681E96114300F93DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */,
+				554203721ECAE8D900B05CAF /* Download Cell Subtitle */,
 				554203781ECAEB1900B05CAF /* Paused Cell Subtitle */,
 				554203731ECAE8F100B05CAF /* Progress View */,
-				554203721ECAE8D900B05CAF /* Download Cell Subtitle */,
+				5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */,
 				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
-				550514D81E997E5F00A71543 /* CompletedTableViewCell.swift */,
-				55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */,
-				550514D41E99644100A71543 /* ErrorTableViewCell.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
-				55885C071E9917FB005A4D3D /* PausedTableViewCell.swift */,
 				552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */,
 				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
+				55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */,
 				55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */,
 			);
 			path = View;
@@ -348,12 +323,9 @@
 			isa = PBXGroup;
 			children = (
 				55ADB1171EC88F0C00094A48 /* AddTorrentViewModel.swift */,
-				550514DA1E997E7800A71543 /* CompletedCellViewModel.swift */,
-				55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */,
-				550514D61E99648600A71543 /* ErrorCellViewModel.swift */,
 				55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */,
-				55885C091E99184E005A4D3D /* PausedCellViewModel.swift */,
 				552439521EB078A700FDDDB4 /* SettingsViewModel.swift */,
+				55885C051E99159F005A4D3D /* TorrentCellViewModel.swift */,
 				5579EB5B1EA4089400557808 /* TorrentFilesViewModel.swift */,
 				55BFA57D1E9A509A00963B2C /* TorrentViewModel.swift */,
 			);
@@ -364,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */,
+				5528EFAC1EB2181000839501 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -632,18 +605,13 @@
 				5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */,
 				5598A4521E9CCEDC002D75B3 /* Torrent+Extension.swift in Sources */,
 				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
-				550514DB1E997E7800A71543 /* CompletedCellViewModel.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
 				55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */,
 				55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */,
 				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
-				550514D91E997E5F00A71543 /* CompletedTableViewCell.swift in Sources */,
-				550514D51E99644100A71543 /* ErrorTableViewCell.swift in Sources */,
-				55885C081E9917FB005A4D3D /* PausedTableViewCell.swift in Sources */,
 				55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */,
-				55885C0A1E99184E005A4D3D /* PausedCellViewModel.swift in Sources */,
 				55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */,
 				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
 				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
@@ -658,7 +626,6 @@
 				55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */,
 				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
 				5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */,
-				550514D71E99648600A71543 /* ErrorCellViewModel.swift in Sources */,
 				552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,12 +634,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BDA44B1EA11F2400FB9E46 /* PausedCellViewModelSpec.swift in Sources */,
-				55BDA4491EA11EE000FB9E46 /* ErrorCellViewModelSpec.swift in Sources */,
 				554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */,
 				554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */,
-				55BDA4471EA117F700FB9E46 /* DownloadingCellViewModelSpec.swift in Sources */,
-				55BDA4451EA10F3100FB9E46 /* CompletedCellViewModelSpec.swift in Sources */,
+				55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */,
 				5541746E1EA0A73500BA4332 /* UnitSpec.swift in Sources */,
 				554174791EA0C77800BA4332 /* MainViewModelSpec.swift in Sources */,
 				553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */,

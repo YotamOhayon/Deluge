@@ -24,7 +24,7 @@ class MainViewModelSpec: QuickSpec {
         
         beforeEach {
             delugion = DelugionServiceMock()
-            viewModel = MainViewModel(delugionService: delugion)
+            viewModel = MainViewModel(delugionService: delugion, themeManager: ThemeManagerMock())
         }
         
         describe("") {

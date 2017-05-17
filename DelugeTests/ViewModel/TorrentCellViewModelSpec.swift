@@ -29,7 +29,7 @@ class TorrentCellViewModelSpec: QuickSpec {
                 torrent.downloadPayloadrate = 1024
                 torrent.eta = 60
                 
-                let viewModel: TorrentCellViewModeling = TorrentCellViewModel(torrent: torrent)
+                let viewModel: TorrentCellViewModeling = TorrentCellViewModel(torrent: torrent, themeManager: ThemeManagerMock())
                 
                 expect(viewModel.title).to(equal("name"))
                 expect(viewModel.progress).to(equal(90.0 * 3.6))

@@ -11,6 +11,7 @@ import Quick
 import Nimble
 import RxSwift
 import Delugion
+import ReachabilitySwift
 @testable import Deluge
 
 class MainViewModelSpec: QuickSpec {
@@ -24,7 +25,9 @@ class MainViewModelSpec: QuickSpec {
         
         beforeEach {
             delugion = DelugionServiceMock()
-            viewModel = MainViewModel(delugionService: delugion, themeManager: ThemeManagerMock())
+            viewModel = MainViewModel(delugionService: delugion,
+                                      themeManager: ThemeManagerMock(),
+                                      reachability: Reachability())
         }
         
         describe("") {

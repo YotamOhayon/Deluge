@@ -21,8 +21,8 @@ class MainViewController: UIViewController {
     var themeManager: ThemeManaging!
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
+    var noInternetView: NotReachableView!
     let disposeBag = DisposeBag()
-    var noInternetView: NotReachableView?
     
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
@@ -129,20 +129,23 @@ class MainViewController: UIViewController {
             
         }).disposed(by: disposeBag)
         
-        viewModel.isReachable.subscribe(onNext: {
-            self.noInternetView?.removeFromSuperview()
-            if !$0 {
-                let view = NotReachableView()
-                view.translatesAutoresizingMaskIntoConstraints = false
-                self.view.addSubview(view)
-                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-                view.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
-                view.heightAnchor.constraint(equalToConstant: 30).isActive = true
-                self.noInternetView = view
-            }
-        }).disposed(by: disposeBag)
+        self.noInternetView = { [unowned self] in
+            
+            let view = NotReachableView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.isHidden = true
+            self.view.addSubview(view)
+            view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+            view.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            return view
+            
+        }()
         
+        viewModel.isReachable.subscribe(onNext: { [weak self] in
+            self?.noInternetView.isHidden = $0
+        }).disposed(by: disposeBag)
         
     }
     

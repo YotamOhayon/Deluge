@@ -30,16 +30,16 @@ protocol ThemeManaging {
     
 }
 
-class ThemeManager: ThemeManaging/*, ThemeServicing*/ {
+class ThemeManager: ThemeManaging {
 
     func color(forTorrentState state: TorrentState) -> UIColor {
         switch state {
-        case .seeding: return UIColor(red: 0.194, green: 0.84, blue: 0.47, alpha: 1)
-        case .paused: return UIColor(red: 0.153, green: 0.153, blue: 0.153, alpha: 1)
-        case .error: return UIColor(red: 0.97, green: 0.193, blue: 0.27, alpha: 1)
-        case .downloading: return UIColor(red: 0.101, green: 0.161, blue: 0.216, alpha: 1)
-        case .queued: return UIColor(red: 0.153, green: 0.153, blue: 0.153, alpha: 1)
-        case .checking: return UIColor(red: 0.153, green: 0.153, blue: 0.153, alpha: 1)
+        case .seeding: return UIColor(red: 194.0/255.0, green: 84.0/255.0, blue: 47.0/255.0, alpha: 1)
+        case .paused: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
+        case .error: return UIColor(red: 97.0/255.0, green: 193.0/255.0, blue: 27.0/255.0, alpha: 1)
+        case .downloading: return UIColor(red: 101.0/255.0, green: 162.0/255.0, blue: 216.0/255.0, alpha: 1)
+        case .queued: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
+        case .checking: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
         }
     }
     

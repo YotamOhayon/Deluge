@@ -104,9 +104,9 @@ class TorrentModel: TorrentModeling {
             .asDriver(onErrorJustReturn: .gray)
             .startWith(themeManager.color(forTorrentState: torrent.state))
         
-        self.progressNumeric = info.map { $0.progress }
+        self.progressNumeric = info.map { $0.progress.setPrecision(to: 1) }
             .asDriver(onErrorJustReturn: nil)
-            .startWith(torrent.progress)
+            .startWith(torrent.progress.setPrecision(to: 1))
         
         self.progressAngle = info.map { $0.progress * 3.6 }
             .asDriver(onErrorJustReturn: nil)

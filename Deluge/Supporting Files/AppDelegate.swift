@@ -12,18 +12,26 @@ import SwinjectStoryboard
 import Delugion
 import Fabric
 import Crashlytics
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var reachability: Reachability?
     var window: UIWindow?
     fileprivate let container = Container()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         Fabric.with([Crashlytics.self])
+        
+        reachability = Reachability()
+        try? reachability?.startNotifier()
+        
         setupContainer()
         setupWindow()
         return true
+        
     }
     
     func application(_ app: UIApplication,
@@ -55,6 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 fileprivate extension AppDelegate {
     
     func setupContainer() {
+        
+        container.register(Reachability?.self) { [weak self] _ in
+            self?.reachability
+        }.inObjectScope(.container)
         
         container.register(UserDefaults.self) { _ in
             UserDefaults.standard
@@ -89,7 +101,8 @@ fileprivate extension AppDelegate {
         
         container.register(MainViewModeling.self) { r in
             MainViewModel(delugionService: r.resolve(DelugionServicing.self)!,
-                          themeManager: r.resolve(ThemeManaging.self)!)
+                          themeManager: r.resolve(ThemeManaging.self)!,
+                          reachability: r.resolve(Reachability?.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in

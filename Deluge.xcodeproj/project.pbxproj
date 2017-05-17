@@ -16,6 +16,8 @@
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
 		553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */; };
+		553B4C161ECC70920008E460 /* NotReachableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4C151ECC70920008E460 /* NotReachableView.xib */; };
+		553B4C181ECC71120008E460 /* NotReachableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B4C171ECC71120008E460 /* NotReachableView.swift */; };
 		5541746E1EA0A73500BA4332 /* UnitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541746D1EA0A73500BA4332 /* UnitSpec.swift */; };
 		554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */; };
 		554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174721EA0BA0500BA4332 /* TorrentMock.swift */; };
@@ -76,6 +78,8 @@
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions_Spec.swift"; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		553B4C151ECC70920008E460 /* NotReachableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotReachableView.xib; sourceTree = "<group>"; };
+		553B4C171ECC71120008E460 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotReachableView.swift; path = NotReachableView.swift; sourceTree = "<group>"; };
 		5541746D1EA0A73500BA4332 /* UnitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSpec.swift; sourceTree = "<group>"; };
 		554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionServiceMock.swift; sourceTree = "<group>"; };
 		554174721EA0BA0500BA4332 /* TorrentMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentMock.swift; sourceTree = "<group>"; };
@@ -185,6 +189,14 @@
 				553AC7FD1E959A4200B2A658 /* Info.plist */,
 			);
 			path = DelugeTests;
+			sourceTree = "<group>";
+		};
+		553B4C191ECC746D0008E460 /* Not Reachable View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Not Reachable View";
+			path = "Not Reachable View";
 			sourceTree = "<group>";
 		};
 		5541746C1EA0A72400BA4332 /* Types */ = {
@@ -307,12 +319,15 @@
 			isa = PBXGroup;
 			children = (
 				554203721ECAE8D900B05CAF /* Download Cell Subtitle */,
+				553B4C191ECC746D0008E460 /* Not Reachable View */,
 				554203781ECAEB1900B05CAF /* Paused Cell Subtitle */,
 				554203731ECAE8F100B05CAF /* Progress View */,
 				5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */,
 				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
+				553B4C171ECC71120008E460 /* NotReachableView.swift */,
+				553B4C151ECC70920008E460 /* NotReachableView.xib */,
 				552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */,
 				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
 				55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */,
@@ -459,6 +474,7 @@
 			files = (
 				554203751ECAE94400B05CAF /* PausedSubtitleView.xib in Resources */,
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
+				553B4C161ECC70920008E460 /* NotReachableView.xib in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
 				55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */,
 				5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */,
@@ -619,6 +635,7 @@
 				5566405A1E9A4E71002819B9 /* Unit.swift in Sources */,
 				55BFA57E1E9A509A00963B2C /* TorrentViewModel.swift in Sources */,
 				55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */,
+				553B4C181ECC71120008E460 /* NotReachableView.swift in Sources */,
 				55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,

@@ -15,6 +15,7 @@ target 'Deluge' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Reveal-SDK', :configurations => ['Debug']
+  pod 'RxReachability', '~> 0.1'
 
   # Pods for Deluge
 

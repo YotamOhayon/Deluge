@@ -10,6 +10,8 @@ import Foundation
 import Delugion
 import RxSwift
 import RxCocoa
+import ReachabilitySwift
+import RxReachability
 
 typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?)
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
@@ -17,6 +19,7 @@ typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 protocol MainViewModeling {
     var torrents: Driver<[TorrentProtocol]> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
+    var isReachable: Observable<Bool> { get }
     var showFilterAlertController: Driver<filterAlertData> { get }
     var showSortAlertController: Driver<sortAlertData> { get }
     var filterStatus: Driver<String?> { get }
@@ -29,6 +32,7 @@ class MainViewModel: MainViewModeling {
     let disposeBag = DisposeBag()
     let delugionService: DelugionServicing
     let themeManager: ThemeManaging
+    let isReachable: Observable<Bool>
     let connected: Observable<ServerResponse<Void>>
     let torrents: Driver<[TorrentProtocol]>
     let filterButtonTapped = PublishSubject<Void>()
@@ -39,10 +43,13 @@ class MainViewModel: MainViewModeling {
     let sort: BehaviorSubject<SortBy>
     let filterStatus: Driver<String?>
     
-    init(delugionService: DelugionServicing, themeManager: ThemeManaging) {
+    init(delugionService: DelugionServicing,
+         themeManager: ThemeManaging, reachability: Reachability?) {
         
         self.delugionService = delugionService
         self.themeManager = themeManager
+        
+        self.isReachable = reachability!.rx.isReachable
         
         self.connected = delugionService.connection.filter {
             switch $0 {

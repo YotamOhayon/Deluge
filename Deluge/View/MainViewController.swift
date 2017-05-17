@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
     let disposeBag = DisposeBag()
+    var noInternetView: NotReachableView?
     
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
@@ -126,6 +127,20 @@ class MainViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
             
+        }).disposed(by: disposeBag)
+        
+        viewModel.isReachable.subscribe(onNext: {
+            self.noInternetView?.removeFromSuperview()
+            if !$0 {
+                let view = NotReachableView()
+                view.translatesAutoresizingMaskIntoConstraints = false
+                self.view.addSubview(view)
+                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+                view.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
+                view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+                self.noInternetView = view
+            }
         }).disposed(by: disposeBag)
         
         

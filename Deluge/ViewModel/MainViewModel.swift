@@ -17,9 +17,8 @@ typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 
 protocol MainViewModeling {
-    var isMissingCredentials: Driver<Bool> { get }
-    var isConnected: Driver<Bool> { get }
-    var torrents: Driver<[TorrentProtocol]> { get }
+    var showError: Driver<String?> { get }
+    var torrents: Driver<[TorrentProtocol]?> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
     var isReachable: Observable<Bool> { get }
     var showFilterAlertController: Driver<filterAlertData> { get }
@@ -35,9 +34,8 @@ class MainViewModel: MainViewModeling {
     let delugionService: DelugionServicing
     let themeManager: ThemeManaging
     let isReachable: Observable<Bool>
-    let isMissingCredentials: Driver<Bool>
-    let isConnected: Driver<Bool>
-    let torrents: Driver<[TorrentProtocol]>
+    let showError: Driver<String?>
+    let torrents: Driver<[TorrentProtocol]?>
     let filterButtonTapped = PublishSubject<Void>()
     let sortButtonTapped = PublishSubject<Void>()
     let showFilterAlertController: Driver<filterAlertData>
@@ -56,22 +54,38 @@ class MainViewModel: MainViewModeling {
         
         self.isReachable = reachability!.rx.isReachable
         
-        self.isMissingCredentials = Observable.combineLatest(settings.hostObservable,
-                                                             settings.portObservable,
-                                                             settings.passwordObservable) {
-         ($0, $1, $2)
+        let isMissingCredentials: Observable<Bool> = Observable.combineLatest(settings.hostObservable,
+                                                            settings.portObservable,
+                                                            settings.passwordObservable)
+        {
+                                                                ($0, $1, $2)
             }.map {
-                return $0.0 == nil || $0.1 == nil
-        }.asDriver(onErrorJustReturn: true)
+                let password: Bool = $0.2?.isEmpty ?? true
+                return $0.0 == nil || $0.1 == nil || password
+        }
         
-        self.isConnected = delugionService.connection.map {
+        let isConnected: Observable<Bool> = delugionService.connection.map {
             switch $0 {
-            case .valid:
-                return true
-            default:
+            case .error(_):
                 return false
+            case .valid():
+                return true
             }
-        }.asDriver(onErrorJustReturn: false)
+        }
+        
+        self.showError = Observable.combineLatest(isMissingCredentials, isConnected) {
+                                                    ($0, $1)
+            }.map {
+                if $0 {
+                    return "No Credentials!"
+                }
+                else if !$1 {
+                    return "Not Connected"
+                }
+                else {
+                    return nil
+                }
+            }.asDriver(onErrorJustReturn: nil)
         
         let filter = BehaviorSubject<TorrentState?>(value: nil)
         self.filter = filter
@@ -79,29 +93,32 @@ class MainViewModel: MainViewModeling {
         let sort = BehaviorSubject<SortBy>(value: SortBy.priority)
         self.sort = sort
         
-        self.torrents = Observable.combineLatest(isConnected.asObservable(),
+        self.torrents = Observable.combineLatest(isMissingCredentials,
+                                                 isConnected,
                                                  delugionService.torrents,
                                                  filter,
                                                  sort) {
-            ($1, $2, $3)
-            }.filter {
-                switch $0.0 {
-                case .error:
-                    return false
-                default:
-                    return true
+                                                    ($0, $1, $2, $3, $4)
+            }.map { isMissingCredentials, isConnected, torrents, filter, sort in
+                
+                guard !isMissingCredentials, isConnected else {
+                    return nil
                 }
-            }.map {
-                ($0.associatedValue as! [TorrentProtocol], $1, $2)
-            }.map { torrents, filter, sort in
-                var torrents = torrents.filter { $0.state != .checking }
-                if let filter = filter {
-                    torrents = torrents.filter { $0.state == filter }
+                
+                switch torrents {
+                case .error(_):
+                    return nil
+                case .valid(var torrentsArray):
+                    torrentsArray = torrentsArray.filter { $0.state != .checking }
+                    if let filter = filter {
+                        torrentsArray = torrentsArray.filter { $0.state == filter }
+                    }
+                    torrentsArray = torrentsArray.sorted(by: sort)
+                    return torrentsArray
                 }
-                torrents = torrents.sorted(by: sort)
-                return torrents
+                
             }
-            .asDriver(onErrorJustReturn: [TorrentProtocol]())
+            .asDriver(onErrorJustReturn: nil)
         
         self.showFilterAlertController = self.filterButtonTapped.map {
             let message = "Filter by"
@@ -113,14 +130,14 @@ class MainViewModel: MainViewModeling {
         
         self.filterStatus = filter.map {
             $0?.rawValue ?? "All"
-        }.asDriver(onErrorJustReturn: nil)
+            }.asDriver(onErrorJustReturn: nil)
         
         self.showSortAlertController = self.sortButtonTapped.map {
             let message = "Sort by"
             let actions = SortBy.allValues
             let block: (SortBy) -> Void = { sort.onNext($0) }
             return (message, actions, block)
-        }.asDriver(onErrorJustReturn: (nil, nil, nil))
+            }.asDriver(onErrorJustReturn: (nil, nil, nil))
         
     }
     

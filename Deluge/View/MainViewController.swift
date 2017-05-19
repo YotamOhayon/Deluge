@@ -21,16 +21,12 @@ class MainViewController: UIViewController {
     var themeManager: ThemeManaging!
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
-    var noCredentialsView: UILabel!
+    var errorMessage: UILabel!
     var noInternetView: NotReachableView!
-    var notConnectedView: UILabel!
     let disposeBag = DisposeBag()
     
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
-            if self.tableView.isHidden {
-                self.tableView.isHidden = false
-            }
             self.tableView.reloadData()
         }
     }
@@ -145,40 +141,26 @@ class MainViewController: UIViewController {
             
         }()
         
-        self.noCredentialsView = { [unowned self] in
+        self.errorMessage = { [unowned self] in
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.isHidden = true
-            label.text = "No Credentials!"
+            label.text = nil
             self.view.addSubview(label)
             label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
             return label
             }()
         
-        self.notConnectedView = { [unowned self] in
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.isHidden = true
-            label.text = "Not Connected to Server"
-            self.view.addSubview(label)
-            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            return label
-        }()
-        
         viewModel.isReachable.subscribe(onNext: { [weak self] in
             self?.noInternetView.isHidden = $0
         }).disposed(by: disposeBag)
         
-        viewModel.isMissingCredentials.drive(onNext: { [weak self] in
-            self?.noCredentialsView.isHidden = !$0
-        }).disposed(by: disposeBag)
-        
-        viewModel.isConnected.drive(onNext: { [weak self] in
+        viewModel.showError.drive(onNext: { [weak self] in
             guard let `self` = self else { return }
-            self.tableView.isHidden = !$0
-            self.notConnectedView.isHidden = $0
+            self.tableView.isHidden = $0 != nil
+            self.errorMessage.text = $0
+            self.errorMessage.isHidden = $0 == nil
         }).disposed(by: disposeBag)
         
     }
@@ -188,7 +170,13 @@ class MainViewController: UIViewController {
         
         self.tableView.isHidden = true
         self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
-            self.dataSource = $0
+            guard let torrents = $0 else {
+                self.dataSource = [TorrentProtocol]()
+                self.tableView.isHidden = true
+                return
+            }
+            self.dataSource = torrents
+            self.tableView.isHidden = false 
         })
         self.torrentsDisposable.disposed(by: self.disposeBag)
         

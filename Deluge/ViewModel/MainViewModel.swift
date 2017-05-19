@@ -17,6 +17,8 @@ typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 
 protocol MainViewModeling {
+    var isMissingCredentials: Driver<Bool> { get }
+    var isConnected: Driver<Bool> { get }
     var torrents: Driver<[TorrentProtocol]> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
     var isReachable: Observable<Bool> { get }
@@ -33,7 +35,8 @@ class MainViewModel: MainViewModeling {
     let delugionService: DelugionServicing
     let themeManager: ThemeManaging
     let isReachable: Observable<Bool>
-    let connected: Observable<ServerResponse<Void>>
+    let isMissingCredentials: Driver<Bool>
+    let isConnected: Driver<Bool>
     let torrents: Driver<[TorrentProtocol]>
     let filterButtonTapped = PublishSubject<Void>()
     let sortButtonTapped = PublishSubject<Void>()
@@ -44,21 +47,31 @@ class MainViewModel: MainViewModeling {
     let filterStatus: Driver<String?>
     
     init(delugionService: DelugionServicing,
-         themeManager: ThemeManaging, reachability: Reachability?) {
+         themeManager: ThemeManaging,
+         reachability: Reachability?,
+         settings: SettingsServicing) {
         
         self.delugionService = delugionService
         self.themeManager = themeManager
         
         self.isReachable = reachability!.rx.isReachable
         
-        self.connected = delugionService.connection.filter {
+        self.isMissingCredentials = Observable.combineLatest(settings.hostObservable,
+                                                             settings.portObservable,
+                                                             settings.passwordObservable) {
+         ($0, $1, $2)
+            }.map {
+                return $0.0 == nil || $0.1 == nil
+        }.asDriver(onErrorJustReturn: true)
+        
+        self.isConnected = delugionService.connection.map {
             switch $0 {
             case .valid:
                 return true
             default:
                 return false
             }
-        }
+        }.asDriver(onErrorJustReturn: false)
         
         let filter = BehaviorSubject<TorrentState?>(value: nil)
         self.filter = filter
@@ -66,7 +79,10 @@ class MainViewModel: MainViewModeling {
         let sort = BehaviorSubject<SortBy>(value: SortBy.priority)
         self.sort = sort
         
-        self.torrents = Observable.combineLatest(connected, delugionService.torrents, filter, sort) {
+        self.torrents = Observable.combineLatest(isConnected.asObservable(),
+                                                 delugionService.torrents,
+                                                 filter,
+                                                 sort) {
             ($1, $2, $3)
             }.filter {
                 switch $0.0 {

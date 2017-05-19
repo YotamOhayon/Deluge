@@ -21,7 +21,9 @@ class MainViewController: UIViewController {
     var themeManager: ThemeManaging!
     var viewModel: MainViewModeling!
     var torrentsDisposable: Disposable!
+    var noCredentialsView: UILabel!
     var noInternetView: NotReachableView!
+    var notConnectedView: UILabel!
     let disposeBag = DisposeBag()
     
     fileprivate var dataSource = [TorrentProtocol]() {
@@ -143,8 +145,40 @@ class MainViewController: UIViewController {
             
         }()
         
+        self.noCredentialsView = { [unowned self] in
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.isHidden = true
+            label.text = "No Credentials!"
+            self.view.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            return label
+            }()
+        
+        self.notConnectedView = { [unowned self] in
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.isHidden = true
+            label.text = "Not Connected to Server"
+            self.view.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            return label
+        }()
+        
         viewModel.isReachable.subscribe(onNext: { [weak self] in
             self?.noInternetView.isHidden = $0
+        }).disposed(by: disposeBag)
+        
+        viewModel.isMissingCredentials.drive(onNext: { [weak self] in
+            self?.noCredentialsView.isHidden = !$0
+        }).disposed(by: disposeBag)
+        
+        viewModel.isConnected.drive(onNext: { [weak self] in
+            guard let `self` = self else { return }
+            self.tableView.isHidden = !$0
+            self.notConnectedView.isHidden = $0
         }).disposed(by: disposeBag)
         
     }

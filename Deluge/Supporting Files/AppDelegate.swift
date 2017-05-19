@@ -102,7 +102,8 @@ fileprivate extension AppDelegate {
         container.register(MainViewModeling.self) { r in
             MainViewModel(delugionService: r.resolve(DelugionServicing.self)!,
                           themeManager: r.resolve(ThemeManaging.self)!,
-                          reachability: r.resolve(Reachability?.self)!)
+                          reachability: r.resolve(Reachability?.self)!,
+                          settings: r.resolve(SettingsServicing.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in

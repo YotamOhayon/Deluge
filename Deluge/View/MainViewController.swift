@@ -67,7 +67,9 @@ class MainViewController: UIViewController {
                 guard let message = $0,
                     let actions = $1,
                     let block = $2,
-                    let allBlock = $3 else {
+                    let allBlock = $3,
+                    let allTitle = $4,
+                    let cancelTitle = $5 else {
                         return
                 }
                 
@@ -83,14 +85,14 @@ class MainViewController: UIViewController {
                     alert.addAction(filterAction)
                 }
                 
-                let allAction = UIAlertAction(title: "Show all",
+                let allAction = UIAlertAction(title: allTitle,
                                               style: .default)
                 { _ in
                     allBlock()
                 }
                 alert.addAction(allAction)
                 
-                let cancelAction = UIAlertAction(title: "Cancel",
+                let cancelAction = UIAlertAction(title: cancelTitle,
                                                  style: .cancel,
                                                  handler: nil)
                 alert.addAction(cancelAction)

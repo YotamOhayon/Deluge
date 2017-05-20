@@ -13,7 +13,7 @@ import RxCocoa
 import ReachabilitySwift
 import RxReachability
 
-typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?)
+typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?, String?, String?)
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 
 protocol MainViewModeling {
@@ -126,8 +126,10 @@ class MainViewModel: MainViewModeling {
             let actions: [TorrentState] = [.seeding, .paused, .error, .downloading, .queued, .checking]
             let block: (TorrentState) -> Void = { filter.onNext($0) }
             let allBlock: () -> Void = { filter.onNext(nil) }
-            return (message, actions, block, allBlock)
-            }.asDriver(onErrorJustReturn: (nil, nil, nil, nil))
+            let allTitle = textManager.showAll
+            let cancel = textManager.cancel
+            return (message, actions, block, allBlock, allTitle, cancel)
+            }.asDriver(onErrorJustReturn: (nil, nil, nil, nil, nil, nil))
         
         self.filterStatus = filter.map {
             $0?.rawValue ?? textManager.all

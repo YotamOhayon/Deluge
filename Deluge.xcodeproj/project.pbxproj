@@ -216,10 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */,
-				55F523151ECC48450009E39F /* ThemeManagerMock.swift */,
-				554174721EA0BA0500BA4332 /* TorrentMock.swift */,
 				55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */,
 				55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */,
+				55F523151ECC48450009E39F /* ThemeManagerMock.swift */,
+				554174721EA0BA0500BA4332 /* TorrentMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -361,8 +361,8 @@
 			children = (
 				55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */,
 				5528EFAC1EB2181000839501 /* SettingsService.swift */,
-				554203871ECB215200B05CAF /* ThemeService.swift */,
 				55DC7D5C1ED0927C0045A8E0 /* TextService.swift */,
+				554203871ECB215200B05CAF /* ThemeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

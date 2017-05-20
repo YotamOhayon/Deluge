@@ -14,22 +14,38 @@ protocol TextManaging {
     var filterByTitle: String { get }
     var all: String { get }
     var sortByTitle: String { get }
+    var showAll: String { get }
+    var cancel: String { get }
 }
 
 class TextManager: TextManaging {
     
-    let noCredentials: String
-    let notConnectedToServer: String
-    let filterByTitle: String
-    let all: String
-    let sortByTitle: String
+    var noCredentials: String {
+        return "You have not set up credentials"
+    }
     
-    init() {
-        self.noCredentials = "You have not set up credentials"
-        self.notConnectedToServer = "Not Connected To Server"
-        self.filterByTitle = "Filter By"
-        self.all = "All"
-        self.sortByTitle = "Sort By"
+    var notConnectedToServer: String {
+        return "Not Connected To Server"
+    }
+    
+    var filterByTitle: String {
+        return "Filter By"
+    }
+    
+    var all: String {
+        return "All"
+    }
+    
+    var sortByTitle: String {
+        return "Sort By"
+    }
+    
+    var showAll: String {
+        return "Show all"
+    }
+    
+    var cancel: String {
+        return "Cancel"
     }
     
 }

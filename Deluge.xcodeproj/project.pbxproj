@@ -52,6 +52,8 @@
 		55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */; };
 		55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */; };
 		55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */; };
+		55DC7D5D1ED0927C0045A8E0 /* TextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5C1ED0927C0045A8E0 /* TextService.swift */; };
+		55DC7D5F1ED094700045A8E0 /* TextManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */; };
 		55F523161ECC48450009E39F /* ThemeManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F523151ECC48450009E39F /* ThemeManagerMock.swift */; };
 		56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +117,8 @@
 		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionService.swift; sourceTree = "<group>"; };
 		55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMock.swift; sourceTree = "<group>"; };
+		55DC7D5C1ED0927C0045A8E0 /* TextService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextService.swift; sourceTree = "<group>"; };
+		55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManagerMock.swift; sourceTree = "<group>"; };
 		55F523151ECC48450009E39F /* ThemeManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerMock.swift; sourceTree = "<group>"; };
 		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +219,7 @@
 				55F523151ECC48450009E39F /* ThemeManagerMock.swift */,
 				554174721EA0BA0500BA4332 /* TorrentMock.swift */,
 				55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */,
+				55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */,
 				5528EFAC1EB2181000839501 /* SettingsService.swift */,
 				554203871ECB215200B05CAF /* ThemeService.swift */,
+				55DC7D5C1ED0927C0045A8E0 /* TextService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -640,6 +646,7 @@
 				553B4C181ECC71120008E460 /* NotReachableView.swift in Sources */,
 				55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
+				55DC7D5D1ED0927C0045A8E0 /* TextService.swift in Sources */,
 				55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */,
 				55AB921F1EA6B86E00CA898E /* FileNameTableViewCell.swift in Sources */,
 				55AEA8F81EC9D9F600E0CABF /* Array+Extension.swift in Sources */,
@@ -658,6 +665,7 @@
 			files = (
 				55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */,
 				554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */,
+				55DC7D5F1ED094700045A8E0 /* TextManagerMock.swift in Sources */,
 				554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */,
 				55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */,
 				55F523161ECC48450009E39F /* ThemeManagerMock.swift in Sources */,

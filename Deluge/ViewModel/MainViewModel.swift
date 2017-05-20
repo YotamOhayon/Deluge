@@ -47,7 +47,8 @@ class MainViewModel: MainViewModeling {
     init(delugionService: DelugionServicing,
          themeManager: ThemeManaging,
          reachability: Reachability?,
-         settings: SettingsServicing) {
+         settings: SettingsServicing,
+         textManager: TextManaging) {
         
         self.delugionService = delugionService
         self.themeManager = themeManager
@@ -77,10 +78,10 @@ class MainViewModel: MainViewModeling {
                                                     ($0, $1)
             }.map {
                 if $0 {
-                    return "No Credentials!"
+                    return textManager.noCredentials
                 }
                 else if !$1 {
-                    return "Not Connected"
+                    return textManager.notConnectedToServer
                 }
                 else {
                     return nil
@@ -121,7 +122,7 @@ class MainViewModel: MainViewModeling {
             .asDriver(onErrorJustReturn: nil)
         
         self.showFilterAlertController = self.filterButtonTapped.map {
-            let message = "Filter by"
+            let message = textManager.filterByTitle
             let actions: [TorrentState] = [.seeding, .paused, .error, .downloading, .queued, .checking]
             let block: (TorrentState) -> Void = { filter.onNext($0) }
             let allBlock: () -> Void = { filter.onNext(nil) }
@@ -129,11 +130,11 @@ class MainViewModel: MainViewModeling {
             }.asDriver(onErrorJustReturn: (nil, nil, nil, nil))
         
         self.filterStatus = filter.map {
-            $0?.rawValue ?? "All"
+            $0?.rawValue ?? textManager.all
             }.asDriver(onErrorJustReturn: nil)
         
         self.showSortAlertController = self.sortButtonTapped.map {
-            let message = "Sort by"
+            let message = textManager.sortByTitle
             let actions = SortBy.allValues
             let block: (SortBy) -> Void = { sort.onNext($0) }
             return (message, actions, block)

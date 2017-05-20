@@ -99,11 +99,16 @@ fileprivate extension AppDelegate {
             ThemeManager()
         }
         
+        container.register(TextManaging.self) { _ in
+            TextManager()
+        }
+        
         container.register(MainViewModeling.self) { r in
             MainViewModel(delugionService: r.resolve(DelugionServicing.self)!,
                           themeManager: r.resolve(ThemeManaging.self)!,
                           reachability: r.resolve(Reachability?.self)!,
-                          settings: r.resolve(SettingsServicing.self)!)
+                          settings: r.resolve(SettingsServicing.self)!,
+                          textManager: r.resolve(TextManaging.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in

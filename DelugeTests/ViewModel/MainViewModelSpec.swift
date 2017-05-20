@@ -29,7 +29,8 @@ class MainViewModelSpec: QuickSpec {
             viewModel = MainViewModel(delugionService: delugion,
                                       themeManager: ThemeManagerMock(),
                                       reachability: Reachability(),
-                                      settings: settings)
+                                      settings: settings,
+                                      textManager: TextManagerMock())
         }
         
         describe("") {

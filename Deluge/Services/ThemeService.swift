@@ -34,7 +34,7 @@ class ThemeManager: ThemeManaging {
 
     func color(forTorrentState state: TorrentState) -> UIColor {
         switch state {
-        case .seeding: return UIColor(red: 194.0/255.0, green: 84.0/255.0, blue: 47.0/255.0, alpha: 1)
+        case .seeding: return UIColor(red: 97.0/255.0, green: 193.0/255.0, blue: 27.0/255.0, alpha: 1)
         case .paused: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
         case .error: return UIColor(red: 97.0/255.0, green: 193.0/255.0, blue: 27.0/255.0, alpha: 1)
         case .downloading: return UIColor(red: 101.0/255.0, green: 162.0/255.0, blue: 216.0/255.0, alpha: 1)

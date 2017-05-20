@@ -25,9 +25,11 @@ class MainViewModelSpec: QuickSpec {
         
         beforeEach {
             delugion = DelugionServiceMock()
+            let settings = SettingsMock(userDefaults: UserDefaults.standard)
             viewModel = MainViewModel(delugionService: delugion,
                                       themeManager: ThemeManagerMock(),
-                                      reachability: Reachability())
+                                      reachability: Reachability(),
+                                      settings: settings)
         }
         
         describe("") {

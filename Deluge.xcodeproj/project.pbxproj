@@ -51,6 +51,7 @@
 		55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D5EB631E9610DD00F93DE1 /* Gemfile */; };
 		55D5EB6B1E96166600F93DE1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */; };
 		55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */; };
+		55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */; };
 		55F523161ECC48450009E39F /* ThemeManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F523151ECC48450009E39F /* ThemeManagerMock.swift */; };
 		56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */; };
 /* End PBXBuildFile section */
@@ -79,7 +80,7 @@
 		553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions_Spec.swift"; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553B4C151ECC70920008E460 /* NotReachableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotReachableView.xib; sourceTree = "<group>"; };
-		553B4C171ECC71120008E460 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotReachableView.swift; path = NotReachableView.swift; sourceTree = "<group>"; };
+		553B4C171ECC71120008E460 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotReachableView.swift; sourceTree = "<group>"; };
 		5541746D1EA0A73500BA4332 /* UnitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSpec.swift; sourceTree = "<group>"; };
 		554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionServiceMock.swift; sourceTree = "<group>"; };
 		554174721EA0BA0500BA4332 /* TorrentMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentMock.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		55D5EB631E9610DD00F93DE1 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionService.swift; sourceTree = "<group>"; };
+		55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMock.swift; sourceTree = "<group>"; };
 		55F523151ECC48450009E39F /* ThemeManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerMock.swift; sourceTree = "<group>"; };
 		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Not Reachable View";
 			path = "Not Reachable View";
 			sourceTree = "<group>";
 		};
@@ -213,6 +214,7 @@
 				554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */,
 				55F523151ECC48450009E39F /* ThemeManagerMock.swift */,
 				554174721EA0BA0500BA4332 /* TorrentMock.swift */,
+				55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -654,6 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */,
 				554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */,
 				554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */,
 				55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */,

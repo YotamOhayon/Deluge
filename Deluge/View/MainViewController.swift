@@ -20,14 +20,16 @@ class MainViewController: UIViewController {
     
     var themeManager: ThemeManaging!
     var viewModel: MainViewModeling!
-    var torrentsDisposable: Disposable!
     var errorMessage: UILabel!
     var noInternetView: NotReachableView!
     let disposeBag = DisposeBag()
     
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
+            let contentOffset = self.tableView.contentOffset;
             self.tableView.reloadData()
+            self.tableView.layoutIfNeeded()
+            self.tableView.setContentOffset(contentOffset, animated: false)
         }
     }
     
@@ -169,22 +171,16 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.tableView.isHidden = true
-        self.torrentsDisposable = self.viewModel.torrents.drive(onNext: { [unowned self] in
+        self.viewModel.torrents.drive(onNext: { [unowned self] in
             guard let torrents = $0 else {
                 self.dataSource = [TorrentProtocol]()
                 self.tableView.isHidden = true
                 return
             }
             self.dataSource = torrents
-            self.tableView.isHidden = false 
-        })
-        self.torrentsDisposable.disposed(by: self.disposeBag)
+            self.tableView.isHidden = false
+        }).disposed(by: self.disposeBag)
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.torrentsDisposable.dispose()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

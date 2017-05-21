@@ -94,8 +94,10 @@ class TorrentModel: TorrentModeling {
         
         self.subtitle = info.map {
             return TorrentModel.subtitle(forTorrent: $0, withTextManager: textManager)
-        }.asDriver(onErrorJustReturn: UIView()).startWith(TorrentModel.subtitle(forTorrent: torrent,
-                                                                                withTextManager: textManager))
+        }
+            .asDriver(onErrorJustReturn: UIView())
+            .startWith(TorrentModel.subtitle(forTorrent: torrent,
+                                             withTextManager: textManager))
         
         self.barButtonItems = info
             .map { $0.state }

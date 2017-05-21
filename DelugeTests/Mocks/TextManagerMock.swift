@@ -43,4 +43,12 @@ class TextManagerMock: TextManaging {
         return "Error"
     }
     
+    var paused: String {
+        return "Paused"
+    }
+    
+    var completed: String {
+        return "Completed"
+    }
+    
 }

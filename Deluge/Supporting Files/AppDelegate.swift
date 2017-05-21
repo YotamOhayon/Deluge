@@ -108,7 +108,8 @@ fileprivate extension AppDelegate {
                           themeManager: r.resolve(ThemeManaging.self)!,
                           reachability: r.resolve(Reachability?.self)!,
                           settings: r.resolve(SettingsServicing.self)!,
-                          textManager: r.resolve(TextManaging.self)!)
+                          textManager: r.resolve(TextManaging.self)!,
+                          userDefaults: r.resolve(UserDefaults.self)!)
         }
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in

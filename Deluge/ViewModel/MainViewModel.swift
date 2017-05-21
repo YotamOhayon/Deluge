@@ -30,10 +30,12 @@ protocol MainViewModeling {
 
 class MainViewModel: MainViewModeling {
     
-    let textManager: TextManaging
-    let disposeBag = DisposeBag()
-    let delugionService: DelugionServicing
-    let themeManager: ThemeManaging
+    private let textManager: TextManaging
+    private let disposeBag = DisposeBag()
+    private let delugionService: DelugionServicing
+    private let themeManager: ThemeManaging
+    private let userDefaults: UserDefaults
+    
     let isReachable: Observable<Bool>
     let showError: Driver<String?>
     let torrents: Driver<[TorrentProtocol]?>
@@ -49,8 +51,10 @@ class MainViewModel: MainViewModeling {
          themeManager: ThemeManaging,
          reachability: Reachability?,
          settings: SettingsServicing,
-         textManager: TextManaging) {
+         textManager: TextManaging,
+         userDefaults: UserDefaults) {
         
+        self.userDefaults = userDefaults
         self.textManager = textManager
         self.delugionService = delugionService
         self.themeManager = themeManager
@@ -147,7 +151,11 @@ class MainViewModel: MainViewModeling {
     }
     
     func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentModeling {
-        return TorrentModel(torrent: torrent, delugionService: self.delugionService, themeManager: self.themeManager, textManager: self.textManager)
+        return TorrentModel(torrent: torrent,
+                            delugionService: self.delugionService,
+                            themeManager: self.themeManager,
+                            textManager: self.textManager,
+                            userDefaults: self.userDefaults)
     }
     
 }

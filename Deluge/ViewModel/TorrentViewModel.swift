@@ -63,6 +63,7 @@ class TorrentModel: TorrentModeling {
     }
     let barButtonItems: Driver<UIBarButtonSystemItem>
     
+    private let userDefaults: UserDefaults
     fileprivate let torrent: TorrentProtocol
     fileprivate let delugion: DelugionServicing
     fileprivate let disposeBag = DisposeBag()
@@ -70,8 +71,10 @@ class TorrentModel: TorrentModeling {
     init(torrent: TorrentProtocol,
          delugionService: DelugionServicing,
          themeManager: ThemeManaging,
-         textManager: TextManaging) {
+         textManager: TextManaging,
+         userDefaults: UserDefaults) {
         
+        self.userDefaults = userDefaults
         self.torrent = torrent
         self.delugion = delugionService
         
@@ -149,8 +152,12 @@ class TorrentModel: TorrentModeling {
     }
     
     var torrentFilesViewModel: TorrentFilesViewModeling {
-        return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash, delugionService: self.delugion)
+        return TorrentFilesViewModel(torrentHash: self.torrent.torrentHash,
+                                     delugionService: self.delugion,
+                                     userDefaults: self.userDefaults)
     }
+    
+    //TODO: remove torrent files from user defaults
     
     func removeTorrent(withData shouldRemoveData: Bool) {
         self.delugion.removeTorrent(hash: self.torrent.torrentHash,

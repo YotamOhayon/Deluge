@@ -30,7 +30,8 @@ class MainViewModelSpec: QuickSpec {
                                       themeManager: ThemeManagerMock(),
                                       reachability: Reachability(),
                                       settings: settings,
-                                      textManager: TextManagerMock())
+                                      textManager: TextManagerMock(),
+                                      userDefaults: UserDefaults.standard)
         }
         
         describe("") {

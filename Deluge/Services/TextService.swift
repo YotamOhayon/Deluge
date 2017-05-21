@@ -21,7 +21,7 @@ protocol TextManaging {
     var completed: String { get }
 }
 
-class TextManager: TextManaging {
+struct TextManager: TextManaging {
     
     var noCredentials: String {
         return NSLocalizedString("noCredentials", comment: "")

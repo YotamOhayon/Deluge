@@ -45,6 +45,8 @@
 		55B806211ED172510001F67D /* SeedingSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B806231ED172510001F67D /* SeedingSubtitleView.xib */; };
 		55B806261ED1726F0001F67D /* NotReachableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B806281ED1726F0001F67D /* NotReachableView.xib */; };
 		55B8062F1ED179360001F67D /* CircleSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8062E1ED179360001F67D /* CircleSeparator.swift */; };
+		55B806311ED18FBA0001F67D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B806301ED18FBA0001F67D /* UserDefaults+Extension.swift */; };
+		55B806331ED18FE20001F67D /* FilePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B806321ED18FE20001F67D /* FilePresentation.swift */; };
 		55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */; };
 		55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
@@ -117,6 +119,8 @@
 		55B806271ED1726F0001F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotReachableView.xib; sourceTree = "<group>"; };
 		55B8062A1ED172710001F67D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/NotReachableView.xib; sourceTree = "<group>"; };
 		55B8062E1ED179360001F67D /* CircleSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSeparator.swift; sourceTree = "<group>"; };
+		55B806301ED18FBA0001F67D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		55B806321ED18FE20001F67D /* FilePresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePresentation.swift; sourceTree = "<group>"; };
 		55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesTableViewController.swift; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 		555A34451E9E73EF0056F1A8 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				55B806321ED18FE20001F67D /* FilePresentation.swift */,
 				55AEA8F91EC9DA1600E0CABF /* SortBy.swift */,
 				556640591E9A4E71002819B9 /* Unit.swift */,
 			);
@@ -293,6 +298,7 @@
 				55AEA8F71EC9D9F600E0CABF /* Array+Extension.swift */,
 				556640571E9A4E3B002819B9 /* Double+Extension.swift */,
 				55ADB1131EC86B7500094A48 /* Optional+Exntension.swift */,
+				55B806301ED18FBA0001F67D /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -645,6 +651,7 @@
 				5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */,
 				55B8062F1ED179360001F67D /* CircleSeparator.swift in Sources */,
 				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
+				55B806331ED18FE20001F67D /* FilePresentation.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
 				554203881ECB215200B05CAF /* ThemeService.swift in Sources */,
@@ -669,6 +676,7 @@
 				55ADB1181EC88F0C00094A48 /* AddTorrentViewModel.swift in Sources */,
 				552439531EB078A700FDDDB4 /* SettingsViewModel.swift in Sources */,
 				5528EFAD1EB2181000839501 /* SettingsService.swift in Sources */,
+				55B806311ED18FBA0001F67D /* UserDefaults+Extension.swift in Sources */,
 				552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

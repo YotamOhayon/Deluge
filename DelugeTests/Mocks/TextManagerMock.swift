@@ -39,4 +39,8 @@ class TextManagerMock: TextManaging {
         return "Cancel"
     }
     
+    var error: String {
+        return "Error"
+    }
+    
 }

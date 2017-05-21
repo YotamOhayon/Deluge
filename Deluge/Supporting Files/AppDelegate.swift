@@ -114,6 +114,7 @@ fileprivate extension AppDelegate {
         container.storyboardInitCompleted(MainViewController.self) { r, c in
             c.themeManager = r.resolve(ThemeManaging.self)
             c.viewModel = r.resolve(MainViewModeling.self)
+            c.textManager = r.resolve(TextManaging.self)
         }
         
         container.storyboardInitCompleted(SettingsTableViewController.self) { r, c in

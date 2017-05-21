@@ -16,36 +16,51 @@ protocol TextManaging {
     var sortByTitle: String { get }
     var showAll: String { get }
     var cancel: String { get }
+    var error: String { get }
+    var paused: String { get }
+    var completed: String { get }
 }
 
 class TextManager: TextManaging {
     
     var noCredentials: String {
-        return "You have not set up credentials"
+        return NSLocalizedString("noCredentials", comment: "")
     }
     
     var notConnectedToServer: String {
-        return "Not Connected To Server"
+        return NSLocalizedString("notConnectedToServer", comment: "")
     }
     
     var filterByTitle: String {
-        return "Filter By"
+        return NSLocalizedString("filterBy", comment: "")
     }
     
     var all: String {
-        return "All"
+        return NSLocalizedString("all", comment: "")
     }
     
     var sortByTitle: String {
-        return "Sort By"
+        return NSLocalizedString("sortBy", comment: "")
     }
     
     var showAll: String {
-        return "Show all"
+        return NSLocalizedString("showAll", comment: "")
     }
     
     var cancel: String {
-        return "Cancel"
+        return NSLocalizedString("cancel", comment: "")
+    }
+    
+    var error: String {
+        return NSLocalizedString("error", comment: "")
+    }
+    
+    var paused: String {
+        return NSLocalizedString("paused", comment: "")
+    }
+    
+    var completed: String {
+        return NSLocalizedString("completed", comment: "")
     }
     
 }

@@ -67,7 +67,10 @@ class TorrentModel: TorrentModeling {
     fileprivate let delugion: DelugionServicing
     fileprivate let disposeBag = DisposeBag()
     
-    init(torrent: TorrentProtocol, delugionService: DelugionServicing, themeManager: ThemeManaging) {
+    init(torrent: TorrentProtocol,
+         delugionService: DelugionServicing,
+         themeManager: ThemeManaging,
+         textManager: TextManaging) {
         
         self.torrent = torrent
         self.delugion = delugionService
@@ -86,9 +89,10 @@ class TorrentModel: TorrentModeling {
                 return $0.associatedValue as! Torrent
         }
         
-        self.subtitle = info.map { torrent in
-            return torrent.subtitle
-        }.asDriver(onErrorJustReturn: UIView()).startWith(torrent.subtitle)
+        self.subtitle = info.map {
+            return TorrentModel.subtitle(forTorrent: $0, withTextManager: textManager)
+        }.asDriver(onErrorJustReturn: UIView()).startWith(TorrentModel.subtitle(forTorrent: torrent,
+                                                                                withTextManager: textManager))
         
         self.barButtonItems = info
             .map { $0.state }
@@ -178,18 +182,18 @@ fileprivate extension TorrentFilesViewModel {
     
 }
 
-fileprivate extension TorrentProtocol {
+fileprivate extension TorrentModel {
     
-    var subtitle: UIView {
+    static func subtitle(forTorrent torrent: TorrentProtocol, withTextManager textManager: TextManaging) -> UIView {
         
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         
-        switch self.state {
+        switch torrent.state {
         case .downloading:
             let downloadLabel = UILabel()
             downloadLabel.translatesAutoresizingMaskIntoConstraints = false
-            var (speed, unit) = self.downloadPayloadrate.inUnits(withPrecision: 1)
+            var (speed, unit) = torrent.downloadPayloadrate.inUnits(withPrecision: 1)
             downloadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
             container.addSubview(downloadLabel)
             downloadLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
@@ -200,7 +204,7 @@ fileprivate extension TorrentProtocol {
             circleSeparator.centerYAnchor.constraint(equalTo: downloadLabel.centerYAnchor).isActive = true
             let uploadLabel = UILabel()
             uploadLabel.translatesAutoresizingMaskIntoConstraints = false
-            (speed, unit) = self.uploadPayloadrate.inUnits(withPrecision: 1)
+            (speed, unit) = torrent.uploadPayloadrate.inUnits(withPrecision: 1)
             uploadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
             container.addSubview(uploadLabel)
             uploadLabel.leadingAnchor.constraint(equalTo: circleSeparator.trailingAnchor, constant: 8.0).isActive = true
@@ -208,21 +212,21 @@ fileprivate extension TorrentProtocol {
             container.addSubview(circleSeparator)
         case .error:
             let label = UILabel()
-            label.text = "Error"
+            label.text = textManager.error
             label.translatesAutoresizingMaskIntoConstraints = false
             container.addSubview(label)
             label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
             label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         case .paused:
             let label = UILabel()
-            label.text = "Paused"
+            label.text = textManager.paused
             label.translatesAutoresizingMaskIntoConstraints = false
             container.addSubview(label)
             label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
             label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         case .seeding:
             let label = UILabel()
-            label.text = "Seeding"
+            label.text = textManager.completed
             label.translatesAutoresizingMaskIntoConstraints = false
             container.addSubview(label)
             label.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
@@ -233,7 +237,7 @@ fileprivate extension TorrentProtocol {
             circleSeparator.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
             let uploadLabel = UILabel()
             uploadLabel.translatesAutoresizingMaskIntoConstraints = false
-            let (speed, unit) = self.uploadPayloadrate.inUnits(withPrecision: 1)
+            let (speed, unit) = torrent.uploadPayloadrate.inUnits(withPrecision: 1)
             uploadLabel.text = "\(speed) \(unit.stringifiedAsSpeed)"
             container.addSubview(uploadLabel)
             uploadLabel.leadingAnchor.constraint(equalTo: circleSeparator.trailingAnchor, constant: 8.0).isActive = true
@@ -250,33 +254,6 @@ fileprivate extension TorrentProtocol {
         
         return container
         
-    }
-    
-}
-
-class CircleSeparator: UIView {
-    
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: 5).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 5).isActive = true
-        self.makeLayout()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.makeLayout()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.makeLayout()
-    }
-    
-    func makeLayout() {
-        self.backgroundColor = .lightGray
-        self.layer.cornerRadius = 2.5
     }
     
 }

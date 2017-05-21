@@ -1,0 +1,12 @@
+{
+	cancel = Cancel;
+	showAll = "Show All";
+	sortBy = "Sort By";
+	all = All;
+	filterBy = "Filter By";
+	notConnectedToServer = "Not Connected To Server";
+	noCredentials = "No Credentials";
+	error = Error;
+	paused = Paused;
+	completed = Completed;
+}

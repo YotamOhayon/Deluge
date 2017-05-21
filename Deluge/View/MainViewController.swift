@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var filterStatusLabel: UILabel!
     
     var themeManager: ThemeManaging!
+    var textManager: TextManaging!
     var viewModel: MainViewModeling!
     var errorMessage: UILabel!
     var noInternetView: NotReachableView!
@@ -218,6 +219,7 @@ extension MainViewController: UITableViewDataSource {
         
         let torrent = self.dataSource[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell") as! TorrentTableViewCell
+        cell.textManager = self.textManager
         cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
         return cell
         

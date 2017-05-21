@@ -1,0 +1,12 @@
+{
+	cancel = "\U05d1\U05d9\U05d8\U05d5\U05dc";
+	showAll = "\U05d4\U05e8\U05d0\U05d4 \U05d4\U05db\U05dc";
+	sortBy = "\U05de\U05d9\U05d9\U05df \U05dc\U05e4\U05d9";
+	all = "\U05d4\U05db\U05dc";
+	filterBy = "\U05e1\U05e0\U05df \U05dc\U05e4\U05d9";
+	notConnectedToServer = "\U05dc\U05d0 \U05de\U05d7\U05d5\U05d1\U05e8 \U05dc\U05e9\U05e8\U05ea";
+	noCredentials = "\U05dc\U05d0 \U05d4\U05d5\U05d2\U05d3\U05e8 \U05e9\U05e8\U05ea";
+	error = "\U05e9\U05d2\U05d9\U05d0\U05d4";
+	paused = "\U05de\U05d5\U05e9\U05d4\U05d4";
+	completed = "\U05e1\U05d9\U05d9\U05dd";
+}

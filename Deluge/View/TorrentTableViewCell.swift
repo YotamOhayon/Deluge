@@ -15,6 +15,7 @@ class TorrentTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var vertiaclBarView: UIView!
     var subtitle: UIView?
+    var textManager: TextManaging!
     
     var viewModel: TorrentCellViewModeling! {
         didSet {
@@ -54,7 +55,7 @@ class TorrentTableViewCell: UITableViewCell {
             addConstraints(subtitle)
         case .error:
             let subtitle = UILabel()
-            subtitle.text = "Error"
+            subtitle.text = textManager.error
             subtitle.font = UIFont(name: "Helvetica Neue", size: 12)
             subtitle.textColor = .lightGray
             addConstraints(subtitle)

@@ -16,17 +16,15 @@
 		553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7ED1E959A4200B2A658 /* Assets.xcassets */; };
 		553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553AC7EF1E959A4200B2A658 /* LaunchScreen.storyboard */; };
 		553AC7FC1E959A4200B2A658 /* Double+Extensions_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */; };
-		553B4C161ECC70920008E460 /* NotReachableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4C151ECC70920008E460 /* NotReachableView.xib */; };
 		553B4C181ECC71120008E460 /* NotReachableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B4C171ECC71120008E460 /* NotReachableView.swift */; };
+		553CAB351ED1699D008ACC5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553CAB371ED1699D008ACC5A /* Localizable.strings */; };
 		5541746E1EA0A73500BA4332 /* UnitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541746D1EA0A73500BA4332 /* UnitSpec.swift */; };
 		554174711EA0B88C00BA4332 /* DelugionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */; };
 		554174731EA0BA0500BA4332 /* TorrentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174721EA0BA0500BA4332 /* TorrentMock.swift */; };
 		554174791EA0C77800BA4332 /* MainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554174781EA0C77800BA4332 /* MainViewModelSpec.swift */; };
 		5542036F1ECAD98F00B05CAF /* DownloadSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */; };
 		554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */; };
-		554203751ECAE94400B05CAF /* PausedSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554203741ECAE94400B05CAF /* PausedSubtitleView.xib */; };
 		554203771ECAE9D800B05CAF /* PausedSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */; };
-		5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */; };
 		5542037C1ECAECCC00B05CAF /* SeedingSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */; };
 		554203881ECB215200B05CAF /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554203871ECB215200B05CAF /* ThemeService.swift */; };
 		556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556640571E9A4E3B002819B9 /* Double+Extension.swift */; };
@@ -43,6 +41,10 @@
 		55AEA8FA1EC9DA1600E0CABF /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8F91EC9DA1600E0CABF /* SortBy.swift */; };
 		55AEA9011EC9EB9A00E0CABF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */; };
 		55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */; };
+		55B8061C1ED172150001F67D /* PausedSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B8061E1ED172150001F67D /* PausedSubtitleView.xib */; };
+		55B806211ED172510001F67D /* SeedingSubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B806231ED172510001F67D /* SeedingSubtitleView.xib */; };
+		55B806261ED1726F0001F67D /* NotReachableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B806281ED1726F0001F67D /* NotReachableView.xib */; };
+		55B8062F1ED179360001F67D /* CircleSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8062E1ED179360001F67D /* CircleSeparator.swift */; };
 		55BDA4471EA117F700FB9E46 /* TorrentCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */; };
 		55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */; };
 		55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */; };
@@ -81,17 +83,16 @@
 		553AC7F71E959A4200B2A658 /* DelugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AC7FB1E959A4200B2A658 /* Double+Extensions_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions_Spec.swift"; sourceTree = "<group>"; };
 		553AC7FD1E959A4200B2A658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		553B4C151ECC70920008E460 /* NotReachableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotReachableView.xib; sourceTree = "<group>"; };
 		553B4C171ECC71120008E460 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotReachableView.swift; sourceTree = "<group>"; };
+		553CAB361ED1699D008ACC5A /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		553CAB381ED169A6008ACC5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5541746D1EA0A73500BA4332 /* UnitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSpec.swift; sourceTree = "<group>"; };
 		554174701EA0B88C00BA4332 /* DelugionServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionServiceMock.swift; sourceTree = "<group>"; };
 		554174721EA0BA0500BA4332 /* TorrentMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentMock.swift; sourceTree = "<group>"; };
 		554174781EA0C77800BA4332 /* MainViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelSpec.swift; sourceTree = "<group>"; };
 		5542036E1ECAD98F00B05CAF /* DownloadSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadSubtitleView.xib; sourceTree = "<group>"; };
 		554203701ECADBE600B05CAF /* DownloadSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadSubtitleView.swift; sourceTree = "<group>"; };
-		554203741ECAE94400B05CAF /* PausedSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PausedSubtitleView.xib; sourceTree = "<group>"; };
 		554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedSubtitleView.swift; sourceTree = "<group>"; };
-		554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeedingSubtitleView.xib; sourceTree = "<group>"; };
 		5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedingSubtitleView.swift; sourceTree = "<group>"; };
 		554203871ECB215200B05CAF /* ThemeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		556640571E9A4E3B002819B9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -108,6 +109,14 @@
 		55AEA8F91EC9DA1600E0CABF /* SortBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
 		55AEA8FF1EC9EB9A00E0CABF /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		55AEA9001EC9EB9A00E0CABF /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		55B8061B1ED1715B0001F67D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55B8061F1ED1721B0001F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PausedSubtitleView.xib; sourceTree = "<group>"; };
+		55B806201ED172340001F67D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/PausedSubtitleView.xib; sourceTree = "<group>"; };
+		55B806221ED172510001F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SeedingSubtitleView.xib; sourceTree = "<group>"; };
+		55B806251ED172530001F67D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SeedingSubtitleView.xib; sourceTree = "<group>"; };
+		55B806271ED1726F0001F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotReachableView.xib; sourceTree = "<group>"; };
+		55B8062A1ED172710001F67D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/NotReachableView.xib; sourceTree = "<group>"; };
+		55B8062E1ED179360001F67D /* CircleSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSeparator.swift; sourceTree = "<group>"; };
 		55BDA4461EA117F700FB9E46 /* TorrentCellViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCellViewModelSpec.swift; sourceTree = "<group>"; };
 		55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentFilesTableViewController.swift; sourceTree = "<group>"; };
 		55BFA57B1E9A506A00963B2C /* TorrentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentViewController.swift; sourceTree = "<group>"; };
@@ -255,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				554203761ECAE9D800B05CAF /* PausedSubtitleView.swift */,
-				554203741ECAE94400B05CAF /* PausedSubtitleView.xib */,
+				55B8061E1ED172150001F67D /* PausedSubtitleView.xib */,
 			);
 			path = "Paused Cell Subtitle";
 			sourceTree = "<group>";
@@ -264,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				5542037B1ECAECCC00B05CAF /* SeedingSubtitleView.swift */,
-				554203791ECAECC000B05CAF /* SeedingSubtitleView.xib */,
+				55B806231ED172510001F67D /* SeedingSubtitleView.xib */,
 			);
 			path = "Seeding Cell Subtitle";
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				553AC7ED1E959A4200B2A658 /* Assets.xcassets */,
+				553CAB371ED1699D008ACC5A /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -331,10 +341,11 @@
 				554203731ECAE8F100B05CAF /* Progress View */,
 				5542037D1ECAECD200B05CAF /* Seeding Cell Subtitle */,
 				55ADB1151EC8783000094A48 /* AddTorrentViewController.swift */,
+				55B8062E1ED179360001F67D /* CircleSeparator.swift */,
 				55AB921E1EA6B86E00CA898E /* FileNameTableViewCell.swift */,
 				55D5EB611E9610A300F93DE1 /* MainViewController.swift */,
 				553B4C171ECC71120008E460 /* NotReachableView.swift */,
-				553B4C151ECC70920008E460 /* NotReachableView.xib */,
+				55B806281ED1726F0001F67D /* NotReachableView.xib */,
 				552439501EB0770800FDDDB4 /* SettingsTableViewController.swift */,
 				55BED30E1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift */,
 				55885C031E99148E005A4D3D /* TorrentTableViewCell.swift */,
@@ -463,6 +474,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = 553AC7DA1E959A4200B2A658;
 			productRefGroup = 553AC7E41E959A4200B2A658 /* Products */;
@@ -480,12 +492,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				554203751ECAE94400B05CAF /* PausedSubtitleView.xib in Resources */,
+				55B8061C1ED172150001F67D /* PausedSubtitleView.xib in Resources */,
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
-				553B4C161ECC70920008E460 /* NotReachableView.xib in Resources */,
+				553CAB351ED1699D008ACC5A /* Localizable.strings in Resources */,
+				55B806261ED1726F0001F67D /* NotReachableView.xib in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
 				55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */,
-				5542037A1ECAECC000B05CAF /* SeedingSubtitleView.xib in Resources */,
+				55B806211ED172510001F67D /* SeedingSubtitleView.xib in Resources */,
 				5542036F1ECAD98F00B05CAF /* DownloadSubtitleView.xib in Resources */,
 				55AEA9021EC9EB9A00E0CABF /* ProgressView.xib in Resources */,
 				556B847B1E959AB000C37034 /* Podfile in Resources */,
@@ -630,6 +643,7 @@
 			files = (
 				55ADB1141EC86B7500094A48 /* Optional+Exntension.swift in Sources */,
 				5579EB5C1EA4089400557808 /* TorrentFilesViewModel.swift in Sources */,
+				55B8062F1ED179360001F67D /* CircleSeparator.swift in Sources */,
 				554203711ECADBE600B05CAF /* DownloadSubtitleView.swift in Sources */,
 				55BFA57C1E9A506A00963B2C /* TorrentViewController.swift in Sources */,
 				55D5EB6E1E96173E00F93DE1 /* DelugionService.swift in Sources */,
@@ -690,6 +704,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				553AC7EB1E959A4200B2A658 /* Base */,
+				55B8061B1ED1715B0001F67D /* he */,
 			);
 			name = Main.storyboard;
 			path = .;
@@ -704,6 +719,46 @@
 			path = .;
 			sourceTree = "<group>";
 		};
+		553CAB371ED1699D008ACC5A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553CAB381ED169A6008ACC5A /* Base */,
+				553CAB361ED1699D008ACC5A /* he */,
+			);
+			name = Localizable.strings;
+			path = .;
+			sourceTree = "<group>";
+		};
+		55B8061E1ED172150001F67D /* PausedSubtitleView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55B8061F1ED1721B0001F67D /* Base */,
+				55B806201ED172340001F67D /* he */,
+			);
+			name = PausedSubtitleView.xib;
+			path = .;
+			sourceTree = "<group>";
+		};
+		55B806231ED172510001F67D /* SeedingSubtitleView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55B806221ED172510001F67D /* Base */,
+				55B806251ED172530001F67D /* he */,
+			);
+			name = SeedingSubtitleView.xib;
+			path = .;
+			sourceTree = "<group>";
+		};
+		55B806281ED1726F0001F67D /* NotReachableView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55B806271ED1726F0001F67D /* Base */,
+				55B8062A1ED172710001F67D /* he */,
+			);
+			name = NotReachableView.xib;
+			path = .;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -711,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -762,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

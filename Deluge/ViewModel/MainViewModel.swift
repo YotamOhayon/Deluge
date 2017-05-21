@@ -30,6 +30,7 @@ protocol MainViewModeling {
 
 class MainViewModel: MainViewModeling {
     
+    let textManager: TextManaging
     let disposeBag = DisposeBag()
     let delugionService: DelugionServicing
     let themeManager: ThemeManaging
@@ -50,6 +51,7 @@ class MainViewModel: MainViewModeling {
          settings: SettingsServicing,
          textManager: TextManaging) {
         
+        self.textManager = textManager
         self.delugionService = delugionService
         self.themeManager = themeManager
         
@@ -145,7 +147,7 @@ class MainViewModel: MainViewModeling {
     }
     
     func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentModeling {
-        return TorrentModel(torrent: torrent, delugionService: self.delugionService, themeManager: self.themeManager)
+        return TorrentModel(torrent: torrent, delugionService: self.delugionService, themeManager: self.themeManager, textManager: self.textManager)
     }
     
 }

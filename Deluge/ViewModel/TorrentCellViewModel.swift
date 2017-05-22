@@ -14,7 +14,7 @@ protocol TorrentCellViewModeling {
     var title: String? { get }
     var progress: Double { get }
     var themeColor: UIColor { get }
-    var progressNumeric: Double? { get }
+    var progressNumeric: Int? { get }
     var torrent: TorrentProtocol { get }
     
 }
@@ -26,7 +26,7 @@ class TorrentCellViewModel: TorrentCellViewModeling {
     let title: String?
     let progress: Double
     let themeColor: UIColor
-    let progressNumeric: Double?
+    let progressNumeric: Int?
     let torrent: TorrentProtocol
     
     init(torrent: TorrentProtocol, themeManager: ThemeManaging) {
@@ -35,7 +35,7 @@ class TorrentCellViewModel: TorrentCellViewModeling {
         
         self.progress = Double(3.6 * torrent.progress)
         self.themeColor = themeManager.color(forTorrentState: torrent.state)
-        self.progressNumeric = torrent.progress.setPrecision(to: 0)
+        self.progressNumeric = Int(torrent.progress)
         self.torrent = torrent
         
     }

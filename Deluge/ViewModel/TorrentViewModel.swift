@@ -20,7 +20,7 @@ protocol TorrentModeling {
     var downloadSpeed: Driver<String?> { get }
     var torrentFilesViewModel: TorrentFilesViewModeling { get }
     var progressColor: Driver<UIColor> { get }
-    var progressNumeric: Driver<Double?> { get }
+    var progressNumeric: Driver<Int?> { get }
     var progressAngle: Driver<Double?> { get }
     var didRemoveTorrent: Observable<Bool> { get }
     var showDeleteConfirmation: Observable<(String, String, String, String)> { get }
@@ -41,7 +41,7 @@ class TorrentModel: TorrentModeling {
     let subtitle: Driver<UIView>
     let downloadSpeed: Driver<String?>
     let progressColor: Driver<UIColor>
-    let progressNumeric: Driver<Double?>
+    let progressNumeric: Driver<Int?>
     let progressAngle: Driver<Double?>
     let didRemoveTorrentSubject = PublishSubject<Bool>()
     var didRemoveTorrent: Observable<Bool> {
@@ -113,9 +113,9 @@ class TorrentModel: TorrentModeling {
             .asDriver(onErrorJustReturn: .gray)
             .startWith(themeManager.color(forTorrentState: torrent.state))
         
-        self.progressNumeric = info.map { $0.progress.setPrecision(to: 1) }
+        self.progressNumeric = info.map { Int($0.progress) }
             .asDriver(onErrorJustReturn: nil)
-            .startWith(torrent.progress.setPrecision(to: 1))
+            .startWith(Int(torrent.progress))
         
         self.progressAngle = info.map { $0.progress * 3.6 }
             .asDriver(onErrorJustReturn: nil)

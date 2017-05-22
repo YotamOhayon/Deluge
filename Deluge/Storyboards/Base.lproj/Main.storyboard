@@ -35,13 +35,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGY-8o-7PI" userLabel="Vertical Bar">
-                                                    <rect key="frame" x="0.0" y="3" width="4" height="85.5"/>
-                                                    <color key="backgroundColor" red="0.39787769317626953" green="0.63547015190124512" blue="0.84753304719924927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="4" id="J7C-nF-eVm"/>
-                                                    </constraints>
-                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTO-04-GUb" userLabel="Circular Progress" customClass="ProgressView" customModule="Deluge" customModuleProvider="target">
                                                     <rect key="frame" x="22" y="23" width="46" height="46"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,10 +62,7 @@
                                                 <constraint firstItem="UT0-k7-rgr" firstAttribute="leading" secondItem="yTO-04-GUb" secondAttribute="trailing" constant="13" id="7FP-L5-UfY"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UT0-k7-rgr" secondAttribute="trailing" constant="8" id="E4H-d5-nLD"/>
                                                 <constraint firstItem="UT0-k7-rgr" firstAttribute="top" secondItem="yTO-04-GUb" secondAttribute="top" id="EO2-qI-mSY"/>
-                                                <constraint firstItem="OGY-8o-7PI" firstAttribute="leading" secondItem="50p-Lc-oVO" secondAttribute="leading" id="FKO-1h-QLV"/>
-                                                <constraint firstItem="OGY-8o-7PI" firstAttribute="top" secondItem="50p-Lc-oVO" secondAttribute="top" constant="3.5" id="II9-Jx-V62"/>
                                                 <constraint firstItem="yTO-04-GUb" firstAttribute="leading" secondItem="50p-Lc-oVO" secondAttribute="leadingMargin" constant="14" id="O0a-wc-Lgi"/>
-                                                <constraint firstAttribute="bottom" secondItem="OGY-8o-7PI" secondAttribute="bottom" constant="3.5" id="kte-Vo-KT7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -81,7 +71,6 @@
                                         <connections>
                                             <outlet property="progressView" destination="yTO-04-GUb" id="lNe-8E-VVd"/>
                                             <outlet property="title" destination="UT0-k7-rgr" id="6ET-XG-NG2"/>
-                                            <outlet property="vertiaclBarView" destination="OGY-8o-7PI" id="CQ9-Ir-8la"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

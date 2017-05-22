@@ -13,7 +13,6 @@ class TorrentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var vertiaclBarView: UIView!
     var subtitle: UIView?
     var textManager: TextManaging!
     
@@ -23,7 +22,6 @@ class TorrentTableViewCell: UITableViewCell {
             self.progressView.angle = viewModel.progress
             self.progressView.trackColor = .lightGray
             self.progressView.progressColor = viewModel.themeColor
-            self.vertiaclBarView.backgroundColor = viewModel.themeColor
             self.progressView.progress = viewModel.progressNumeric
             self.addSubtitle(fromTorrent: viewModel.torrent)
         }

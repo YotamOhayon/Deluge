@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressView" customModule="Deluge" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="OTk-ba-tpv"/>
+                <outlet property="percentageLabel" destination="o5i-qf-S1X" id="MtX-3C-noH"/>
                 <outlet property="progressLabel" destination="E2J-U3-DAA" id="ZSb-ds-tOA"/>
                 <outlet property="progressView" destination="3Uk-F4-vkY" id="QzW-YC-4PM"/>
             </connections>
@@ -30,9 +31,17 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5i-qf-S1X">
+                            <rect key="frame" x="90" y="57.5" width="8" height="10"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="o5i-qf-S1X" firstAttribute="leading" secondItem="E2J-U3-DAA" secondAttribute="trailing" id="1lZ-Wy-kJu"/>
+                        <constraint firstItem="o5i-qf-S1X" firstAttribute="top" secondItem="E2J-U3-DAA" secondAttribute="top" id="Dbe-Ja-Pis"/>
                         <constraint firstItem="E2J-U3-DAA" firstAttribute="centerX" secondItem="3Uk-F4-vkY" secondAttribute="centerX" id="q0S-qe-d5M"/>
                         <constraint firstItem="E2J-U3-DAA" firstAttribute="centerY" secondItem="3Uk-F4-vkY" secondAttribute="centerY" id="vqK-Tq-dCJ"/>
                     </constraints>

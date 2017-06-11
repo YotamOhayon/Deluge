@@ -463,7 +463,7 @@
 					553AC7E21E959A4200B2A658 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 7V77HPPE58;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					553AC7F61E959A4200B2A658 = {
 						CreatedOnToolsVersion = 8.3;
@@ -872,12 +872,15 @@
 			baseConfigurationReference = E7263B7AAF78990851B838C2 /* Pods-Deluge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yotam Ohayon (8TRUZ5CJES)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7V77HPPE58;
 				INFOPLIST_FILE = "Deluge/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bana.Deluge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "99e5f80c-b402-438a-8768-f14da8dbbea7";
+				PROVISIONING_PROFILE_SPECIFIER = "Deluge Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -887,11 +890,14 @@
 			baseConfigurationReference = D978AC660750F137BFF2E275 /* Pods-Deluge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yotam Ohayon (8TRUZ5CJES)";
 				DEVELOPMENT_TEAM = 7V77HPPE58;
 				INFOPLIST_FILE = "Deluge/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bana.Deluge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "99e5f80c-b402-438a-8768-f14da8dbbea7";
+				PROVISIONING_PROFILE_SPECIFIER = "Deluge Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

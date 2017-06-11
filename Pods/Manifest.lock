@@ -30,7 +30,7 @@ DEPENDENCIES:
   - Crashlytics
   - Delugion (from `../Delugion/`)
   - Fabric
-  - KDCircularProgress (from `../KDCircularProgress/`)
+  - KDCircularProgress (from `./KDCircularProgress/`)
   - Nimble (~> 7.0)
   - Quick (~> 1.1)
   - Reveal-SDK
@@ -45,7 +45,7 @@ EXTERNAL SOURCES:
   Delugion:
     :path: "../Delugion/"
   KDCircularProgress:
-    :path: "../KDCircularProgress/"
+    :path: "./KDCircularProgress/"
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
 
-PODFILE CHECKSUM: 32281e90b02a1d489a0fe087fc32886d474d5872
+PODFILE CHECKSUM: 27c6415312696bda4508a394828f6b498ad410a1
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

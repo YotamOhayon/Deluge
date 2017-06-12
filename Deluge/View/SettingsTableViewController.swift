@@ -80,22 +80,15 @@ class SettingsTableViewController: UITableViewController {
         viewModel.connectionLabel.subscribe(onNext: { [unowned self] text in
             self.connectionStatusLabel.attributedText = text
         }).disposed(by: disposeBag)
+        
+        Observable.combineLatest(self.hostnameTextField.rx.text,
+                                 self.portTextField.rx.text,
+                                 self.passwordTextField.rx.text)
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _, _, _ in
+                self?.viewModel.done()
+        }).disposed(by: disposeBag)
 
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let s = Segue(segue: segue) else {
-            return
-        }
-        
-        switch s {
-        case .settingsCancel:
-            return
-        case .settingsDone:
-            self.viewModel.done()
-        }
-        
     }
 
 }

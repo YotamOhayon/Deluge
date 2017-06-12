@@ -13,8 +13,7 @@ class ProgressView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var progressView: KDCircularProgress!
-    @IBOutlet weak var progressLabel: UILabel!    
-    @IBOutlet weak var percentageLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +35,6 @@ class ProgressView: UIView {
         set {
             self.progressView.progressColors = [newValue]
             self.progressLabel.textColor = newValue
-            self.percentageLabel.textColor = newValue
         }
     }
     

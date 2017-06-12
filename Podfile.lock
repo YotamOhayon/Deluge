@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - BuddyBuildSDK (1.0.16)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Delugion (0.2.7):
@@ -32,6 +33,7 @@ PODS:
     - Swinject (~> 2.0)
 
 DEPENDENCIES:
+  - BuddyBuildSDK (~> 1.0)
   - Crashlytics
   - Delugion (from `https://github.com/yotamoo/Delugion.git`)
   - Fabric
@@ -57,6 +59,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  BuddyBuildSDK: 2c5469eee2981a3365386e46393e97068d75e4f4
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Delugion: 4546f7e7c58841d7875cbe1b2246473ea42c8a88
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
 
-PODFILE CHECKSUM: 03380105db6fd32b74e6441048bb4694337c1537
+PODFILE CHECKSUM: 5399830808e13a1ffb759a167e7cb1adaaad862b
 
 COCOAPODS: 1.2.1

@@ -33,7 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics
-  - Delugion (from `../Delugion/`)
+  - Delugion (from `https://github.com/yotamoo/Delugion.git`)
   - Fabric
   - Nimble (~> 7.0)
   - Quick (~> 1.1)
@@ -48,7 +48,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Delugion:
-    :path: "../Delugion/"
+    :git: https://github.com/yotamoo/Delugion.git
+
+CHECKOUT OPTIONS:
+  Delugion:
+    :commit: 8012ecf93fc689ca83e5c995b88d44c0af0f1c22
+    :git: https://github.com/yotamoo/Delugion.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -69,6 +74,6 @@ SPEC CHECKSUMS:
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
 
-PODFILE CHECKSUM: 85c57b6d3cf0b21e93ff6979da949ace9ffcbdfc
+PODFILE CHECKSUM: 03380105db6fd32b74e6441048bb4694337c1537
 
 COCOAPODS: 1.2.1

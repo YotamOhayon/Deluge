@@ -33,7 +33,7 @@ class TorrentCellViewModelSpec: QuickSpec {
                 
                 expect(viewModel.title).to(equal("name"))
                 expect(viewModel.progress).to(equal(90.0 * 3.6))
-                expect(viewModel.progressNumeric).to(equal(90.0))
+                expect(viewModel.progressNumeric).to(equal(90))
                 
             }
             

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KDCircularProgress
 import RxCocoa
 import RxSwift
 

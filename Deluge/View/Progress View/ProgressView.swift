@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KDCircularProgress
 
 @IBDesignable
 class ProgressView: UIView {

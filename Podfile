@@ -10,8 +10,6 @@ target 'Deluge' do
   pod 'RxOptional', '~> 3.1'
   pod 'Swinject', '~> 2.1'
   pod 'SwinjectStoryboard', '~> 1.1'
-  pod 'KDCircularProgress', :path => './KDCircularProgress/'
-  #pod 'RxNimble', '~> 2.0'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Reveal-SDK', :configurations => ['Debug']
@@ -24,6 +22,7 @@ target 'Deluge' do
     # Pods for testing
     pod 'Quick', '~> 1.1'
     pod 'Nimble', '~> 7.0'
+    pod 'RxNimble', '~> 3.0'
   end
 
 end

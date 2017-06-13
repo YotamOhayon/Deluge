@@ -248,30 +248,26 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: SwipeTableViewCellDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   editActionsForRowAt indexPath: IndexPath,
-                   for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
-        let desired: SwipeActionsOrientation = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
-        
-        guard orientation == desired else { return nil }
-        
+    private var deleteAction: SwipeAction {
         let deleteAction = SwipeAction(style: .destructive, title: "Delete")
         { [weak self] action, indexPath in
-            guard let `self` = self else { return }
+//            guard let `self` = self else { return }
             print("delete")
-//            self.log.debug("delete button tapped")
-//            self.viewModel.removeItemTapped.onNext(indexPath.row)
+            //            self.log.debug("delete button tapped")
+            //            self.viewModel.removeItemTapped.onNext(indexPath.row)
         }
         
         deleteAction.image = #imageLiteral(resourceName: "Trash")
         deleteAction.backgroundColor = UIColor(red: 255.0,
                                                green: 59.0,
                                                blue: 48.0)
-        
+        return deleteAction
+    }
+    
+    private var resumeAction: SwipeAction {
         let resumeAction = SwipeAction(style: .destructive, title: "Resume")
         { [weak self] action, indexPath in
-            guard let `self` = self else { return }
+//            guard let `self` = self else { return }
             print("resume")
             //            self.log.debug("delete button tapped")
             //            self.viewModel.removeItemTapped.onNext(indexPath.row)
@@ -281,10 +277,13 @@ extension MainViewController: SwipeTableViewCellDelegate {
         resumeAction.backgroundColor = UIColor(red: 255.0,
                                                green: 149.0,
                                                blue: 0.0)
-        
+        return resumeAction
+    }
+    
+    private var pauseAction: SwipeAction {
         let pauseAction = SwipeAction(style: .destructive, title: "Pause")
         { [weak self] action, indexPath in
-            guard let `self` = self else { return }
+//            guard let `self` = self else { return }
             print("pause")
             //            self.log.debug("delete button tapped")
             //            self.viewModel.removeItemTapped.onNext(indexPath.row)
@@ -294,6 +293,16 @@ extension MainViewController: SwipeTableViewCellDelegate {
         pauseAction.backgroundColor = UIColor(red: 255.0,
                                               green: 149.0,
                                               blue: 0.0)
+        return pauseAction
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath,
+                   for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        let desired: SwipeActionsOrientation = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
+        
+        guard orientation == desired else { return nil }
         
         if self.dataSource[indexPath.row].state == .downloading {
             return [deleteAction, pauseAction]

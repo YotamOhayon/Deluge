@@ -19,7 +19,7 @@ class TorrentViewController: UIViewController {
     
     var subtitle: UIView?
     var progressSubview: UIView?
-    var viewModel: TorrentModeling!
+    var viewModel: TorrentViewModeling!
     let disposeBag = DisposeBag()
     
     var resumeButton: UIBarButtonItem!
@@ -48,7 +48,7 @@ class TorrentViewController: UIViewController {
         }).disposed(by: self.disposeBag)
         
         viewModel.progressNumeric.drive(onNext: { [unowned self] in
-            self.progressView.progress = $0
+            self.progressView.progressNumeric = $0
         }).disposed(by: self.disposeBag)
         
         viewModel.progressAngle.filterNil().drive(onNext: { [unowned self] in

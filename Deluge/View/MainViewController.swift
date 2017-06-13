@@ -14,9 +14,9 @@ import Delugion
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var filterButton: UIBarButtonItem!
-    @IBOutlet weak var sortButton: UIBarButtonItem!
-    @IBOutlet weak var filterStatusLabel: UILabel!
+//    @IBOutlet weak var filterButton: UIBarButtonItem!
+//    @IBOutlet weak var sortButton: UIBarButtonItem!
+//    @IBOutlet weak var filterStatusLabel: UILabel!
     
     var themeManager: ThemeManaging!
     var textManager: TextManaging!
@@ -42,23 +42,23 @@ class MainViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
         
-        self.filterButton
-            .rx
-            .tap
-            .bind(to: viewModel.filterButtonTapped)
-            .disposed(by: self.disposeBag)
-        
-        self.sortButton
-            .rx
-            .tap
-            .bind(to: viewModel.sortButtonTapped)
-            .disposed(by: disposeBag)
-        
-        self.viewModel
-            .filterStatus
-            .asObservable()
-            .bind(to: self.filterStatusLabel.rx.text)
-            .disposed(by: disposeBag)
+//        self.filterButton
+//            .rx
+//            .tap
+//            .bind(to: viewModel.filterButtonTapped)
+//            .disposed(by: self.disposeBag)
+//        
+//        self.sortButton
+//            .rx
+//            .tap
+//            .bind(to: viewModel.sortButtonTapped)
+//            .disposed(by: disposeBag)
+//        
+//        self.viewModel
+//            .filterStatus
+//            .asObservable()
+//            .bind(to: self.filterStatusLabel.rx.text)
+//            .disposed(by: disposeBag)
         
         self.viewModel
             .showFilterAlertController

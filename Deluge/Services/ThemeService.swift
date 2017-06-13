@@ -26,21 +26,44 @@ class ThemeService: ThemeServicing {
 
 protocol ThemeManaging {
     
-    func color(forTorrentState state: TorrentState) -> UIColor
+    var trackColor: UIColor { get }
+    func progressColor(forTorrentState state: TorrentState) -> UIColor
+    func progressNumericColor(forTorrentState state: TorrentState) -> UIColor
+    func progressBackgroundColor(forTorrentState state: TorrentState) -> UIColor
     
 }
 
 class ThemeManager: ThemeManaging {
-
-    func color(forTorrentState state: TorrentState) -> UIColor {
+    
+    let trackColor = UIColor(red: 239, green: 239, blue: 244)
+    
+    func progressColor(forTorrentState state: TorrentState) -> UIColor {
         switch state {
-        case .seeding: return UIColor(red: 97.0/255.0, green: 193.0/255.0, blue: 27.0/255.0, alpha: 1)
-        case .paused: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
-        case .error: return UIColor(red: 209.0/255.0, green: 78.0/255.0, blue: 48.0/255.0, alpha: 1)
-        case .downloading: return UIColor(red: 101.0/255.0, green: 162.0/255.0, blue: 216.0/255.0, alpha: 1)
-        case .queued: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
-        case .checking: return UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
+        case .downloading, .seeding: return UIColor(red: 0, green: 122.0, blue: 255.0)
+        case .paused: return UIColor(red: 199.0, green: 199.0, blue: 204.0)
+        default: return UIColor(red: 239.0, green: 239.0, blue: 244.0)
         }
     }
     
+    func progressNumericColor(forTorrentState state: TorrentState) -> UIColor {
+        switch state {
+        case .downloading: return UIColor(red: 0, green: 122.0, blue: 255.0)
+        case .paused: return UIColor(red: 178, green: 178, blue: 178)
+        default: return .clear
+        }
+    }
+    
+    func progressBackgroundColor(forTorrentState state: TorrentState) -> UIColor {
+        switch state {
+        case .seeding: return UIColor(red: 0, green: 117.0, blue: 255.0)
+        default: return .clear
+        }
+    }
+    
+}
+
+extension UIColor {
+    convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
+        self.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+    }
 }

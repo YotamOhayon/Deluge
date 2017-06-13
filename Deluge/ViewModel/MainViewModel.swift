@@ -25,7 +25,7 @@ protocol MainViewModeling {
     var showSortAlertController: Driver<sortAlertData> { get }
     var filterStatus: Driver<String?> { get }
     var sortButtonTapped: PublishSubject<Void> { get }
-    func viewModel(forTorrent: TorrentProtocol) -> TorrentModeling
+    func viewModel(forTorrent: TorrentProtocol) -> TorrentViewModeling
 }
 
 class MainViewModel: MainViewModeling {
@@ -150,8 +150,8 @@ class MainViewModel: MainViewModeling {
         
     }
     
-    func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentModeling {
-        return TorrentModel(torrent: torrent,
+    func viewModel(forTorrent torrent: TorrentProtocol) -> TorrentViewModeling {
+        return TorrentViewModel(torrent: torrent,
                             delugionService: self.delugionService,
                             themeManager: self.themeManager,
                             textManager: self.textManager,

@@ -12,14 +12,28 @@ import Delugion
 
 class ThemeManagerMock: ThemeManaging {
     
-    func color(forTorrentState state: TorrentState) -> UIColor {
+    let trackColor = UIColor(red: 239, green: 239, blue: 244)
+    
+    func progressColor(forTorrentState state: TorrentState) -> UIColor {
         switch state {
-        case .seeding: return .green
-        case .paused: return .lightGray
-        case .error: return .red
-        case .downloading: return .blue
-        case .queued: return .lightGray
-        case .checking: return .lightGray
+        case .downloading, .seeding: return UIColor(red: 0, green: 122.0, blue: 255.0)
+        case .paused: return UIColor(red: 199.0, green: 199.0, blue: 204.0)
+        default: return UIColor(red: 239.0, green: 239.0, blue: 244.0)
+        }
+    }
+    
+    func progressNumericColor(forTorrentState state: TorrentState) -> UIColor {
+        switch state {
+        case .downloading: return UIColor(red: 0, green: 122.0, blue: 255.0)
+        case .paused: return UIColor(red: 178, green: 178, blue: 178)
+        default: return .clear
+        }
+    }
+    
+    func progressBackgroundColor(forTorrentState state: TorrentState) -> UIColor {
+        switch state {
+        case .seeding: return UIColor(red: 0, green: 117.0, blue: 255.0)
+        default: return .clear
         }
     }
     

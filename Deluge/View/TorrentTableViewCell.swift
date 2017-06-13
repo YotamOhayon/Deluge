@@ -20,9 +20,10 @@ class TorrentTableViewCell: UITableViewCell {
         didSet {
             self.title.text = viewModel.title
             self.progressView.angle = viewModel.progress
-            self.progressView.trackColor = .lightGray
-            self.progressView.progressColor = viewModel.themeColor
-            self.progressView.progress = viewModel.progressNumeric
+            self.progressView.trackColor = viewModel.trackColor
+            self.progressView.progressColor = viewModel.progressColor
+            self.progressView.progressNumeric = viewModel.progressNumeric
+            self.progressView.insideColor = viewModel.progressBackgroundColor
             self.addSubtitle(fromTorrent: viewModel.torrent)
         }
     }

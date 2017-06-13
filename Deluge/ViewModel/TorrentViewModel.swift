@@ -13,7 +13,7 @@ import RxSwift
 import RxOptional
 import UIKit
 
-protocol TorrentModeling {
+protocol TorrentViewModeling {
     
     var title: String? { get }
     var subtitle: Driver<UIView> { get }
@@ -35,7 +35,7 @@ protocol TorrentModeling {
     
 }
 
-class TorrentModel: TorrentModeling {
+class TorrentViewModel: TorrentViewModeling {
     
     let title: String?
     let subtitle: Driver<UIView>
@@ -93,10 +93,10 @@ class TorrentModel: TorrentModeling {
         }
         
         self.subtitle = info.map {
-            return TorrentModel.subtitle(forTorrent: $0, withTextManager: textManager)
+            return TorrentViewModel.subtitle(forTorrent: $0, withTextManager: textManager)
         }
             .asDriver(onErrorJustReturn: UIView())
-            .startWith(TorrentModel.subtitle(forTorrent: torrent,
+            .startWith(TorrentViewModel.subtitle(forTorrent: torrent,
                                              withTextManager: textManager))
         
         self.barButtonItems = info
@@ -109,9 +109,9 @@ class TorrentModel: TorrentModeling {
         
         self.downloadSpeed = info.map { String(describing: $0.downloadPayloadrate) }.asDriver(onErrorJustReturn: nil)
         
-        self.progressColor = info.map { themeManager.color(forTorrentState: $0.state) }
+        self.progressColor = info.map { themeManager.progressColor(forTorrentState: $0.state) }
             .asDriver(onErrorJustReturn: .gray)
-            .startWith(themeManager.color(forTorrentState: torrent.state))
+            .startWith(themeManager.progressColor(forTorrentState: torrent.state))
         
         self.progressNumeric = info.map { Int($0.progress) }
             .asDriver(onErrorJustReturn: nil)
@@ -191,7 +191,7 @@ fileprivate extension TorrentFilesViewModel {
     
 }
 
-fileprivate extension TorrentModel {
+fileprivate extension TorrentViewModel {
     
     static func subtitle(forTorrent torrent: TorrentProtocol, withTextManager textManager: TextManaging) -> UIView {
         

@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Terri-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Deluge" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,36 +85,8 @@
                             <constraint firstAttribute="trailing" secondItem="sF0-et-pdm" secondAttribute="trailing" id="d68-Od-eRT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zdB-o9-Fwc">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="fhF-cc-rgS">
-                            <view key="customView" contentMode="scaleToFill" id="ffv-Vq-fvh">
-                                <rect key="frame" x="16" y="5" width="83" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="San-OV-3mU">
-                                        <rect key="frame" x="31.5" y="6" width="19" height="21"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="San-OV-3mU" firstAttribute="centerY" secondItem="ffv-Vq-fvh" secondAttribute="centerY" id="JN2-Jv-bST"/>
-                                    <constraint firstItem="San-OV-3mU" firstAttribute="centerX" secondItem="ffv-Vq-fvh" secondAttribute="centerX" id="WMH-H1-B85"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Filter" id="ye9-3p-Buy"/>
-                            <barButtonItem title="Sort" id="Qk2-cx-6Id"/>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Terri" prompt="connected" id="zdB-o9-Fwc"/>
                     <connections>
-                        <outlet property="filterButton" destination="ye9-3p-Buy" id="cMz-cy-0q5"/>
-                        <outlet property="filterStatusLabel" destination="San-OV-3mU" id="uxf-5G-ALs"/>
-                        <outlet property="sortButton" destination="Qk2-cx-6Id" id="efO-8f-1gV"/>
                         <outlet property="tableView" destination="sF0-et-pdm" id="g68-XN-gmS"/>
                         <segue destination="qvR-Nx-f6B" kind="show" identifier="ShowTorrentSegue" id="Mge-WT-doo"/>
                     </connections>
@@ -547,6 +519,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ye3-Q2-ioa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="C2G-YL-QE0">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

@@ -8,8 +8,9 @@
 
 import UIKit
 import Delugion
+import SwipeCellKit
 
-class TorrentTableViewCell: UITableViewCell {
+class TorrentTableViewCell: SwipeTableViewCell {
     
     @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var title: UILabel!

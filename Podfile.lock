@@ -8,7 +8,7 @@ PODS:
     - Himotoki (~> 3.0)
   - Fabric (1.6.11)
   - Himotoki (3.0.1)
-  - Nimble (7.0.0)
+  - Nimble (7.0.1)
   - Quick (1.1.0)
   - ReachabilitySwift (3)
   - Reveal-SDK (8)
@@ -28,9 +28,11 @@ PODS:
     - RxCocoa (~> 3)
     - RxSwift (~> 3)
   - RxSwift (3.5.0)
+  - SwiftyBeaver (1.2.2)
   - Swinject (2.1.0)
   - SwinjectStoryboard (1.1.1):
     - Swinject (~> 2.0)
+  - SwipeCellKit (1.8.0)
 
 DEPENDENCIES:
   - BuddyBuildSDK (~> 1.0)
@@ -45,8 +47,10 @@ DEPENDENCIES:
   - RxOptional (~> 3.1)
   - RxReachability (~> 0.1)
   - RxSwift (~> 3.4)
+  - SwiftyBeaver (~> 1.2)
   - Swinject (~> 2.1)
   - SwinjectStoryboard (~> 1.1)
+  - SwipeCellKit (~> 1.8)
 
 EXTERNAL SOURCES:
   Delugion:
@@ -64,7 +68,7 @@ SPEC CHECKSUMS:
   Delugion: 4546f7e7c58841d7875cbe1b2246473ea42c8a88
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Himotoki: 85fda41d4d0e14f7228317a3b474175cdfb8f515
-  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
@@ -74,9 +78,11 @@ SPEC CHECKSUMS:
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxReachability: 0e781fc978c3c850dda6cafa2c5956ff806a1fcc
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
+  SwipeCellKit: 01a58bf7e63d5df09aedd161828833944c4c333c
 
-PODFILE CHECKSUM: 5399830808e13a1ffb759a167e7cb1adaaad862b
+PODFILE CHECKSUM: 1713feda83ff4bb32863c26445cc4a178bfd10b6
 
 COCOAPODS: 1.2.1

@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Delugion
+import SwipeCellKit
 
 class MainViewController: UIViewController {
     
@@ -27,7 +28,7 @@ class MainViewController: UIViewController {
     
     fileprivate var dataSource = [TorrentProtocol]() {
         didSet {
-            let contentOffset = self.tableView.contentOffset;
+            let contentOffset = self.tableView.contentOffset
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
             self.tableView.setContentOffset(contentOffset, animated: false)
@@ -221,6 +222,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell") as! TorrentTableViewCell
         cell.textManager = self.textManager
         cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
+        cell.delegate = self
         return cell
         
     }
@@ -240,6 +242,69 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
+    }
+    
+}
+
+extension MainViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath,
+                   for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        let desired: SwipeActionsOrientation = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
+        
+        guard orientation == desired else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete")
+        { [weak self] action, indexPath in
+            guard let `self` = self else { return }
+            print("delete")
+//            self.log.debug("delete button tapped")
+//            self.viewModel.removeItemTapped.onNext(indexPath.row)
+        }
+        
+        deleteAction.image = #imageLiteral(resourceName: "Trash")
+        deleteAction.backgroundColor = UIColor(red: 255.0,
+                                               green: 59.0,
+                                               blue: 48.0)
+        
+        let resumeAction = SwipeAction(style: .destructive, title: "Resume")
+        { [weak self] action, indexPath in
+            guard let `self` = self else { return }
+            print("resume")
+            //            self.log.debug("delete button tapped")
+            //            self.viewModel.removeItemTapped.onNext(indexPath.row)
+        }
+        
+        resumeAction.image = #imageLiteral(resourceName: "Resume")
+        resumeAction.backgroundColor = UIColor(red: 255.0,
+                                               green: 149.0,
+                                               blue: 0.0)
+        
+        let pauseAction = SwipeAction(style: .destructive, title: "Pause")
+        { [weak self] action, indexPath in
+            guard let `self` = self else { return }
+            print("pause")
+            //            self.log.debug("delete button tapped")
+            //            self.viewModel.removeItemTapped.onNext(indexPath.row)
+        }
+        
+        pauseAction.image = #imageLiteral(resourceName: "Pause")
+        pauseAction.backgroundColor = UIColor(red: 255.0,
+                                              green: 149.0,
+                                              blue: 0.0)
+        
+        if self.dataSource[indexPath.row].state == .downloading {
+            return [deleteAction, pauseAction]
+        }
+        else if self.dataSource[indexPath.row].state == .paused {
+            return [deleteAction, resumeAction]
+        }
+        else {
+            return [deleteAction]
+        }
+        
     }
     
 }

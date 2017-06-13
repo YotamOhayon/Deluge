@@ -15,6 +15,8 @@ target 'Deluge' do
   pod 'Reveal-SDK', :configurations => ['Debug']
   pod 'RxReachability', '~> 0.1'
   pod 'BuddyBuildSDK', '~> 1.0'
+  pod 'SwiftyBeaver', '~> 1.2'
+  pod 'SwipeCellKit', '~> 1.8'
 
   # Pods for Deluge
 

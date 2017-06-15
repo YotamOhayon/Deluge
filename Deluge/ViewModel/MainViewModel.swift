@@ -17,8 +17,12 @@ import RxDataSources
 typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?, String?, String?)
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 
+enum ViewToShow {
+    case serverNotConfigured, notConnectedToServer
+}
+
 protocol MainViewModeling {
-    var showError: Driver<String?> { get }
+    var showError: Driver<ViewToShow?> { get }
     var torrents: Driver<[SectionOfTorrents]> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
     var isReachable: Observable<Bool> { get }
@@ -38,7 +42,7 @@ class MainViewModel: MainViewModeling {
     private let userDefaults: UserDefaults
     
     let isReachable: Observable<Bool>
-    let showError: Driver<String?>
+    let showError: Driver<ViewToShow?>
     let torrents: Driver<[SectionOfTorrents]>
     let filterButtonTapped = PublishSubject<Void>()
     let sortButtonTapped = PublishSubject<Void>()
@@ -85,10 +89,10 @@ class MainViewModel: MainViewModeling {
                                                     ($0, $1)
             }.map {
                 if $0 {
-                    return textManager.noCredentials
+                    return ViewToShow.serverNotConfigured
                 }
                 else if !$1 {
-                    return textManager.notConnectedToServer
+                    return ViewToShow.notConnectedToServer
                 }
                 else {
                     return nil

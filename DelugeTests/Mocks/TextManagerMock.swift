@@ -11,14 +11,6 @@ import Foundation
 
 class TextManagerMock: TextManaging {
     
-    var noCredentials: String {
-        return "You have not set up credentials"
-    }
-    
-    var notConnectedToServer: String {
-        return "Not Connected To Server"
-    }
-    
     var filterByTitle: String {
         return "Filter By"
     }

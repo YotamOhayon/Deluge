@@ -1,5 +1,5 @@
 //
-//  ConnectionFailedView.swift
+//  NoTorrentsView.swift
 //  Deluge
 //
 //  Created by Yotam Ohayon on 15/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConnectionFailedView: UIView {
+class NoTorrentsView: UIView {
 
     @IBOutlet var contentView: UIView!
     
@@ -26,7 +26,7 @@ class ConnectionFailedView: UIView {
     
     private func initSubviews() {
         
-        let nib = UINib(nibName: "ConnectionFailedView",
+        let nib = UINib(nibName: "NoTorrentsView",
                         bundle: Bundle(for: type(of: self)))
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
@@ -34,7 +34,7 @@ class ConnectionFailedView: UIView {
         
     }
     
-    @IBAction func setServerTapped() {
+    @IBAction func findTorrentsTapped() {
         self.buttonBlock?()
     }
 

@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     var viewModel: MainViewModeling!
     private var errorMessage: UILabel!
     private var noServerView: NoServerView?
+    private var noTorrentsView: NoTorrentsView?
     private var connectionFailedView: ConnectionFailedView?
     private var noInternetView: NotReachableView!
     private let disposeBag = DisposeBag()
@@ -183,6 +184,8 @@ class MainViewController: UIViewController {
             self.noServerView = nil
             self.connectionFailedView?.removeFromSuperview()
             self.connectionFailedView = nil
+            self.noTorrentsView?.removeFromSuperview()
+            self.noTorrentsView = nil
             
             switch viewToShow {
             case .serverNotConfigured:
@@ -212,6 +215,19 @@ class MainViewController: UIViewController {
                 self.view.addSubview(connectionFailedView)
                 connectionFailedView.strech(toView: self.view)
                 self.connectionFailedView = connectionFailedView
+            case .noTorrents:
+                let noTorrentsView = { () -> NoTorrentsView in
+                    let noTorrentsView = NoTorrentsView(frame: CGRect.zero)
+                    noTorrentsView.translatesAutoresizingMaskIntoConstraints = false
+                    noTorrentsView.buttonBlock = { [weak self] in
+                        self?.tabBarController?.selectedIndex = 1
+                    }
+                    return noTorrentsView
+                }()
+                
+                self.view.addSubview(noTorrentsView)
+                noTorrentsView.strech(toView: self.view)
+                self.noTorrentsView = noTorrentsView
             }
             
         }).disposed(by: disposeBag)

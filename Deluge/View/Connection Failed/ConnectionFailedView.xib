@@ -47,7 +47,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="setServerTapped" destination="-1" eventType="touchUpInside" id="X4I-wW-Pqv"/>
+                        <action selector="retryTapped" destination="-1" eventType="touchUpInside" id="bBh-iq-HS9"/>
                     </connections>
                 </button>
             </subviews>

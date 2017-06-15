@@ -60,6 +60,8 @@
 		55DA35DB1EF2B51000562B31 /* ConnectionFailedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA35DA1EF2B51000562B31 /* ConnectionFailedView.xib */; };
 		55DA35DD1EF2B69100562B31 /* ConnectionFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA35DC1EF2B69100562B31 /* ConnectionFailedView.swift */; };
 		55DA35DF1EF2B7BD00562B31 /* NotReachableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA35DE1EF2B7BD00562B31 /* NotReachableView.swift */; };
+		55DA35E21EF3077900562B31 /* NoTorrentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA35E11EF3077900562B31 /* NoTorrentsView.xib */; };
+		55DA35E41EF3078C00562B31 /* NoTorrentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA35E31EF3078C00562B31 /* NoTorrentsView.swift */; };
 		55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */; };
 		55DC7D5D1ED0927C0045A8E0 /* TextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5C1ED0927C0045A8E0 /* TextService.swift */; };
 		55DC7D5F1ED094700045A8E0 /* TextManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */; };
@@ -136,10 +138,12 @@
 		55D5EB6A1E96166600F93DE1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		55D5EB6D1E96173E00F93DE1 /* DelugionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelugionService.swift; sourceTree = "<group>"; };
 		55DA35D71EF2B24B00562B31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoServerView.xib; sourceTree = "<group>"; };
-		55DA35D81EF2B25E00562B31 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/NoServerView.strings; sourceTree = "<group>"; };
+		55DA35D81EF2B25E00562B31 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/NoServerView.xib; sourceTree = "<group>"; };
 		55DA35DA1EF2B51000562B31 /* ConnectionFailedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionFailedView.xib; sourceTree = "<group>"; };
-		55DA35DC1EF2B69100562B31 /* ConnectionFailedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionFailedView.swift; path = "No Server/ConnectionFailedView.swift"; sourceTree = "<group>"; };
-		55DA35DE1EF2B7BD00562B31 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotReachableView.swift; path = Deluge/View/NotReachableView.swift; sourceTree = SOURCE_ROOT; };
+		55DA35DC1EF2B69100562B31 /* ConnectionFailedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionFailedView.swift; path = ConnectionFailedView.swift; sourceTree = "<group>"; };
+		55DA35DE1EF2B7BD00562B31 /* NotReachableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotReachableView.swift; path = NotReachableView.swift; sourceTree = "<group>"; };
+		55DA35E11EF3077900562B31 /* NoTorrentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoTorrentsView.xib; sourceTree = "<group>"; };
+		55DA35E31EF3078C00562B31 /* NoTorrentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoTorrentsView.swift; path = NoTorrentsView.swift; sourceTree = "<group>"; };
 		55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMock.swift; sourceTree = "<group>"; };
 		55DC7D5C1ED0927C0045A8E0 /* TextService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextService.swift; sourceTree = "<group>"; };
 		55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManagerMock.swift; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 				55DA35D91EF2B4FE00562B31 /* Connection Failed */,
 				554203721ECAE8D900B05CAF /* Download Cell Subtitle */,
 				552CD96F1EF273D400CE6234 /* No Server */,
+				55DA35E01EF3075C00562B31 /* No Torrents View */,
 				553B4C191ECC746D0008E460 /* Not Reachable View */,
 				554203781ECAEB1900B05CAF /* Paused Cell Subtitle */,
 				554203731ECAE8F100B05CAF /* Progress View */,
@@ -410,10 +415,21 @@
 		55DA35D91EF2B4FE00562B31 /* Connection Failed */ = {
 			isa = PBXGroup;
 			children = (
-				55DA35DA1EF2B51000562B31 /* ConnectionFailedView.xib */,
 				55DA35DC1EF2B69100562B31 /* ConnectionFailedView.swift */,
+				55DA35DA1EF2B51000562B31 /* ConnectionFailedView.xib */,
 			);
 			name = "Connection Failed";
+			path = "Connection Failed";
+			sourceTree = "<group>";
+		};
+		55DA35E01EF3075C00562B31 /* No Torrents View */ = {
+			isa = PBXGroup;
+			children = (
+				55DA35E31EF3078C00562B31 /* NoTorrentsView.swift */,
+				55DA35E11EF3077900562B31 /* NoTorrentsView.xib */,
+			);
+			name = "No Torrents View";
+			path = "No Torrents View";
 			sourceTree = "<group>";
 		};
 		95A7BA7E275FADB335BCC937 /* Frameworks */ = {
@@ -534,6 +550,7 @@
 				55B8061C1ED172150001F67D /* PausedSubtitleView.xib in Resources */,
 				553AC7F11E959A4200B2A658 /* LaunchScreen.storyboard in Resources */,
 				553CAB351ED1699D008ACC5A /* Localizable.strings in Resources */,
+				55DA35E21EF3077900562B31 /* NoTorrentsView.xib in Resources */,
 				55B806261ED1726F0001F67D /* NotReachableView.xib in Resources */,
 				553AC7EE1E959A4200B2A658 /* Assets.xcassets in Resources */,
 				55D5EB641E9610DD00F93DE1 /* Gemfile in Resources */,
@@ -715,6 +732,7 @@
 				55B806311ED18FBA0001F67D /* UserDefaults+Extension.swift in Sources */,
 				552439511EB0770800FDDDB4 /* SettingsTableViewController.swift in Sources */,
 				55DA35DD1EF2B69100562B31 /* ConnectionFailedView.swift in Sources */,
+				55DA35E41EF3078C00562B31 /* NoTorrentsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +819,7 @@
 				55B8062A1ED172710001F67D /* he */,
 			);
 			name = NotReachableView.xib;
-			path = ../.;
+			path = .;
 			sourceTree = "<group>";
 		};
 		55DA35D61EF2B24700562B31 /* NoServerView.xib */ = {
@@ -811,6 +829,7 @@
 				55DA35D81EF2B25E00562B31 /* he */,
 			);
 			name = NoServerView.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

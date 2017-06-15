@@ -9,8 +9,6 @@
 import Foundation
 
 protocol TextManaging {
-    var noCredentials: String { get }
-    var notConnectedToServer: String { get }
     var filterByTitle: String { get }
     var all: String { get }
     var sortByTitle: String { get }
@@ -22,14 +20,6 @@ protocol TextManaging {
 }
 
 struct TextManager: TextManaging {
-    
-    var noCredentials: String {
-        return NSLocalizedString("noCredentials", comment: "")
-    }
-    
-    var notConnectedToServer: String {
-        return NSLocalizedString("notConnectedToServer", comment: "")
-    }
     
     var filterByTitle: String {
         return NSLocalizedString("filterBy", comment: "")

@@ -16,14 +16,15 @@ import SwipeCellKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var filterButton: UIBarButtonItem!
-//    @IBOutlet weak var sortButton: UIBarButtonItem!
-//    @IBOutlet weak var filterStatusLabel: UILabel!
+    //    @IBOutlet weak var filterButton: UIBarButtonItem!
+    //    @IBOutlet weak var sortButton: UIBarButtonItem!
+    //    @IBOutlet weak var filterStatusLabel: UILabel!
     
     var themeManager: ThemeManaging!
     var textManager: TextManaging!
     var viewModel: MainViewModeling!
     private var errorMessage: UILabel!
+    private var noServerView: NoServerView?
     private var noInternetView: NotReachableView!
     private let disposeBag = DisposeBag()
     
@@ -37,7 +38,7 @@ class MainViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         
         dataSource.configureCell = { [unowned self] (dataSource, tableView, indexPath, torrent) in
-
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell", for: indexPath) as! TorrentTableViewCell
             cell.textManager = self.textManager
             cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
@@ -54,95 +55,95 @@ class MainViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-//        self.filterButton
-//            .rx
-//            .tap
-//            .bind(to: viewModel.filterButtonTapped)
-//            .disposed(by: self.disposeBag)
-//        
-//        self.sortButton
-//            .rx
-//            .tap
-//            .bind(to: viewModel.sortButtonTapped)
-//            .disposed(by: disposeBag)
-//        
-//        self.viewModel
-//            .filterStatus
-//            .asObservable()
-//            .bind(to: self.filterStatusLabel.rx.text)
-//            .disposed(by: disposeBag)
+        //        self.filterButton
+        //            .rx
+        //            .tap
+        //            .bind(to: viewModel.filterButtonTapped)
+        //            .disposed(by: self.disposeBag)
+        //
+        //        self.sortButton
+        //            .rx
+        //            .tap
+        //            .bind(to: viewModel.sortButtonTapped)
+        //            .disposed(by: disposeBag)
+        //
+        //        self.viewModel
+        //            .filterStatus
+        //            .asObservable()
+        //            .bind(to: self.filterStatusLabel.rx.text)
+        //            .disposed(by: disposeBag)
         
-//        self.viewModel
-//            .showFilterAlertController
-//            .asObservable()
-//            .subscribe(onNext: {
-//                
-//                guard let message = $0,
-//                    let actions = $1,
-//                    let block = $2,
-//                    let allBlock = $3,
-//                    let allTitle = $4,
-//                    let cancelTitle = $5 else {
-//                        return
-//                }
-//                
-//                let alert = UIAlertController(title: nil,
-//                                              message: message,
-//                                              preferredStyle: .actionSheet)
-//                
-//                actions.forEach { action in
-//                    let filterAction = UIAlertAction(title: action.rawValue,
-//                                                     style: .default) { _ in
-//                                                        block(action)
-//                    }
-//                    alert.addAction(filterAction)
-//                }
-//                
-//                let allAction = UIAlertAction(title: allTitle,
-//                                              style: .default)
-//                { _ in
-//                    allBlock()
-//                }
-//                alert.addAction(allAction)
-//                
-//                let cancelAction = UIAlertAction(title: cancelTitle,
-//                                                 style: .cancel,
-//                                                 handler: nil)
-//                alert.addAction(cancelAction)
-//                
-//                self.present(alert, animated: true, completion: nil)
-//                
-//            }).disposed(by: disposeBag)
-//        
-//        viewModel.showSortAlertController.asObservable().subscribe(onNext: {
-//            
-//            guard let message = $0,
-//                let actions = $1,
-//                let block = $2 else {
-//                    return
-//            }
-//            
-//            let alert = UIAlertController(title: nil,
-//                                          message: message,
-//                                          preferredStyle: .actionSheet)
-//            
-//            actions.forEach { action in
-//                let filterAction = UIAlertAction(title: action.description,
-//                                                 style: .default)
-//                { _ in
-//                    block(action)
-//                }
-//                alert.addAction(filterAction)
-//            }
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel",
-//                                             style: .cancel,
-//                                             handler: nil)
-//            alert.addAction(cancelAction)
-//            
-//            self.present(alert, animated: true, completion: nil)
-//            
-//        }).disposed(by: disposeBag)
+        //        self.viewModel
+        //            .showFilterAlertController
+        //            .asObservable()
+        //            .subscribe(onNext: {
+        //
+        //                guard let message = $0,
+        //                    let actions = $1,
+        //                    let block = $2,
+        //                    let allBlock = $3,
+        //                    let allTitle = $4,
+        //                    let cancelTitle = $5 else {
+        //                        return
+        //                }
+        //
+        //                let alert = UIAlertController(title: nil,
+        //                                              message: message,
+        //                                              preferredStyle: .actionSheet)
+        //
+        //                actions.forEach { action in
+        //                    let filterAction = UIAlertAction(title: action.rawValue,
+        //                                                     style: .default) { _ in
+        //                                                        block(action)
+        //                    }
+        //                    alert.addAction(filterAction)
+        //                }
+        //
+        //                let allAction = UIAlertAction(title: allTitle,
+        //                                              style: .default)
+        //                { _ in
+        //                    allBlock()
+        //                }
+        //                alert.addAction(allAction)
+        //
+        //                let cancelAction = UIAlertAction(title: cancelTitle,
+        //                                                 style: .cancel,
+        //                                                 handler: nil)
+        //                alert.addAction(cancelAction)
+        //
+        //                self.present(alert, animated: true, completion: nil)
+        //
+        //            }).disposed(by: disposeBag)
+        //
+        //        viewModel.showSortAlertController.asObservable().subscribe(onNext: {
+        //
+        //            guard let message = $0,
+        //                let actions = $1,
+        //                let block = $2 else {
+        //                    return
+        //            }
+        //
+        //            let alert = UIAlertController(title: nil,
+        //                                          message: message,
+        //                                          preferredStyle: .actionSheet)
+        //
+        //            actions.forEach { action in
+        //                let filterAction = UIAlertAction(title: action.description,
+        //                                                 style: .default)
+        //                { _ in
+        //                    block(action)
+        //                }
+        //                alert.addAction(filterAction)
+        //            }
+        //
+        //            let cancelAction = UIAlertAction(title: "Cancel",
+        //                                             style: .cancel,
+        //                                             handler: nil)
+        //            alert.addAction(cancelAction)
+        //
+        //            self.present(alert, animated: true, completion: nil)
+        //
+        //        }).disposed(by: disposeBag)
         
         self.noInternetView = { [unowned self] in
             
@@ -156,7 +157,7 @@ class MainViewController: UIViewController {
             view.heightAnchor.constraint(equalToConstant: 30).isActive = true
             return view
             
-        }()
+            }()
         
         self.errorMessage = { [unowned self] in
             let label = UILabel()
@@ -174,14 +175,36 @@ class MainViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.showError.drive(onNext: { [weak self] in
-            guard let `self` = self else { return }
-            self.tableView.isHidden = $0 != nil
-            self.errorMessage.text = $0
-            self.errorMessage.isHidden = $0 == nil
+            
+            guard let `self` = self, let viewToShow = $0 else { return }
+            
+            self.noServerView?.removeFromSuperview()
+            
+            switch viewToShow {
+            case .serverNotConfigured:
+                let noServerView = { () -> NoServerView in
+                    let noServer = NoServerView(frame: CGRect.zero)
+                    noServer.translatesAutoresizingMaskIntoConstraints = false
+                    noServer.buttonBlock = { [weak self] in
+                        self?.tabBarController?.selectedIndex = 2
+                    }
+                    return noServer
+                }()
+                
+                self.view.addSubview(noServerView)
+                noServerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+                noServerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+                noServerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+                noServerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+                self.noServerView = noServerView
+            case .notConnectedToServer:
+                print("not connected!!!")
+            }
+            
         }).disposed(by: disposeBag)
         
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowTorrentSegue" {
@@ -231,7 +254,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     private var deleteAction: SwipeAction {
         let deleteAction = SwipeAction(style: .destructive, title: "Delete")
         { /*[weak self]*/ action, indexPath in
-//            guard let `self` = self else { return }
+            //            guard let `self` = self else { return }
             print("delete")
             //            self.log.debug("delete button tapped")
             //            self.viewModel.removeItemTapped.onNext(indexPath.row)
@@ -247,7 +270,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     private var resumeAction: SwipeAction {
         let resumeAction = SwipeAction(style: .destructive, title: "Resume")
         { /*[weak self]*/ action, indexPath in
-//            guard let `self` = self else { return }
+            //            guard let `self` = self else { return }
             print("resume")
             //            self.log.debug("delete button tapped")
             //            self.viewModel.removeItemTapped.onNext(indexPath.row)
@@ -263,7 +286,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     private var pauseAction: SwipeAction {
         let pauseAction = SwipeAction(style: .destructive, title: "Pause")
         { /*[weak self]*/ action, indexPath in
-//            guard let `self` = self else { return }
+            //            guard let `self` = self else { return }
             print("pause")
             //            self.log.debug("delete button tapped")
             //            self.viewModel.removeItemTapped.onNext(indexPath.row)
@@ -284,15 +307,15 @@ extension MainViewController: SwipeTableViewCellDelegate {
         
         guard orientation == desired else { return nil }
         
-//        if self.dataSource[indexPath.row].state == .downloading {
-//            return [deleteAction, pauseAction]
-//        }
-//        else if self.dataSource[indexPath.row].state == .paused {
-//            return [deleteAction, resumeAction]
-//        }
-//        else {
-            return [deleteAction]
-//        }
+        //        if self.dataSource[indexPath.row].state == .downloading {
+        //            return [deleteAction, pauseAction]
+        //        }
+        //        else if self.dataSource[indexPath.row].state == .paused {
+        //            return [deleteAction, resumeAction]
+        //        }
+        //        else {
+        return [deleteAction]
+        //        }
         
     }
     

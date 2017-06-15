@@ -18,6 +18,7 @@ target 'Deluge' do
   pod 'BuddyBuildSDK', '~> 1.0'
   pod 'SwiftyBeaver', '~> 1.2'
   pod 'SwipeCellKit', '~> 1.8'
+  pod 'RxDataSources', '~> 1.0'
 
   # Pods for Deluge
 

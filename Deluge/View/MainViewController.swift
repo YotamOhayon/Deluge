@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     var viewModel: MainViewModeling!
     private var errorMessage: UILabel!
     private var noServerView: NoServerView?
+    private var connectionFailedView: ConnectionFailedView?
     private var noInternetView: NotReachableView!
     private let disposeBag = DisposeBag()
     
@@ -179,6 +180,9 @@ class MainViewController: UIViewController {
             guard let `self` = self, let viewToShow = $0 else { return }
             
             self.noServerView?.removeFromSuperview()
+            self.noServerView = nil
+            self.connectionFailedView?.removeFromSuperview()
+            self.connectionFailedView = nil
             
             switch viewToShow {
             case .serverNotConfigured:
@@ -192,13 +196,22 @@ class MainViewController: UIViewController {
                 }()
                 
                 self.view.addSubview(noServerView)
-                noServerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-                noServerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-                noServerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-                noServerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+                noServerView.strech(toView: self.view)
                 self.noServerView = noServerView
             case .notConnectedToServer:
-                print("not connected!!!")
+                let connectionFailedView = { () -> ConnectionFailedView in
+                    let connectionFailedView = ConnectionFailedView(frame: CGRect.zero)
+                    connectionFailedView.translatesAutoresizingMaskIntoConstraints = false
+                    connectionFailedView.buttonBlock = { /*[weak self] in */
+//                        self?.tabBarController?.selectedIndex = 2
+                        print("retry!!")
+                    }
+                    return connectionFailedView
+                }()
+                
+                self.view.addSubview(connectionFailedView)
+                connectionFailedView.strech(toView: self.view)
+                self.connectionFailedView = connectionFailedView
             }
             
         }).disposed(by: disposeBag)
@@ -317,6 +330,17 @@ extension MainViewController: SwipeTableViewCellDelegate {
         return [deleteAction]
         //        }
         
+    }
+    
+}
+
+extension UIView {
+    
+    func strech(toView view: UIView) {
+        self.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        self.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
 }

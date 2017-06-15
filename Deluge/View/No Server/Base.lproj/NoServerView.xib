@@ -60,6 +60,9 @@
                 <constraint firstItem="hnY-ib-44J" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nUw-IC-zaQ"/>
                 <constraint firstItem="2be-UW-elE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rG3-Fk-x3F"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="35.5" y="53.5"/>
         </view>
     </objects>

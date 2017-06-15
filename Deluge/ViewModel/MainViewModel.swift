@@ -12,13 +12,14 @@ import RxSwift
 import RxCocoa
 import ReachabilitySwift
 import RxReachability
+import RxDataSources
 
 typealias filterAlertData = (String?, [TorrentState]?, ((TorrentState) -> Void)?, (() -> Void)?, String?, String?)
 typealias sortAlertData = (String?, [SortBy]?, ((SortBy) -> Void)?)
 
 protocol MainViewModeling {
     var showError: Driver<String?> { get }
-    var torrents: Driver<[TorrentProtocol]?> { get }
+    var torrents: Driver<[SectionOfTorrents]> { get }
     var filterButtonTapped: PublishSubject<Void> { get }
     var isReachable: Observable<Bool> { get }
     var showFilterAlertController: Driver<filterAlertData> { get }
@@ -38,7 +39,7 @@ class MainViewModel: MainViewModeling {
     
     let isReachable: Observable<Bool>
     let showError: Driver<String?>
-    let torrents: Driver<[TorrentProtocol]?>
+    let torrents: Driver<[SectionOfTorrents]>
     let filterButtonTapped = PublishSubject<Void>()
     let sortButtonTapped = PublishSubject<Void>()
     let showFilterAlertController: Driver<filterAlertData>
@@ -109,23 +110,23 @@ class MainViewModel: MainViewModeling {
             }.map { isMissingCredentials, isConnected, torrents, filter, sort in
                 
                 guard !isMissingCredentials, isConnected else {
-                    return nil
+                    return [SectionOfTorrents]()
                 }
                 
                 switch torrents {
                 case .error(_):
-                    return nil
+                    return [SectionOfTorrents]()
                 case .valid(var torrentsArray):
                     torrentsArray = torrentsArray.filter { $0.state != .checking }
                     if let filter = filter {
                         torrentsArray = torrentsArray.filter { $0.state == filter }
                     }
                     torrentsArray = torrentsArray.sorted(by: sort)
-                    return torrentsArray
+                    return [SectionOfTorrents(header: "", items: torrentsArray)]
                 }
                 
             }
-            .asDriver(onErrorJustReturn: nil)
+            .asDriver(onErrorJustReturn: [SectionOfTorrents]())
         
         self.showFilterAlertController = self.filterButtonTapped.map {
             let message = textManager.filterByTitle
@@ -158,4 +159,18 @@ class MainViewModel: MainViewModeling {
                             userDefaults: self.userDefaults)
     }
     
+}
+
+struct SectionOfTorrents {
+    var header: String
+    var items: [Item]
+}
+
+extension SectionOfTorrents: SectionModelType {
+    typealias Item = TorrentProtocol
+    
+    init(original: SectionOfTorrents, items: [Item]) {
+        self = original
+        self.items = items
+    }
 }

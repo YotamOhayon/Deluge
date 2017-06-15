@@ -16,6 +16,9 @@ PODS:
     - RxSwift (~> 3.4)
   - RxCocoa (3.5.0):
     - RxSwift (~> 3.4)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - RxNimble (3.0.0):
     - Nimble (~> 7.0)
     - RxBlocking (~> 3.0)
@@ -43,6 +46,7 @@ DEPENDENCIES:
   - Quick (~> 1.1)
   - Reveal-SDK
   - RxCocoa (~> 3.4)
+  - RxDataSources (~> 1.0)
   - RxNimble (~> 3.0)
   - RxOptional (~> 3.1)
   - RxReachability (~> 0.1)
@@ -74,6 +78,7 @@ SPEC CHECKSUMS:
   Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
   RxBlocking: 471315e18b87c5ed4b9d0c69a57dfdbca5c01af1
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxNimble: 64ef7b0eb8edb423b088773f35d14dda37593460
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxReachability: 0e781fc978c3c850dda6cafa2c5956ff806a1fcc
@@ -83,6 +88,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
   SwipeCellKit: 01a58bf7e63d5df09aedd161828833944c4c333c
 
-PODFILE CHECKSUM: 3f785fa8a5b0ace0a38a92909af0df3eedeb75b8
+PODFILE CHECKSUM: 274f2b51a4f8f27869130b07cdb9daa681a1e69f
 
 COCOAPODS: 1.2.1

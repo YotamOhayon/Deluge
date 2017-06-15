@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 import Delugion
 import SwipeCellKit
 
@@ -22,26 +23,36 @@ class MainViewController: UIViewController {
     var themeManager: ThemeManaging!
     var textManager: TextManaging!
     var viewModel: MainViewModeling!
-    var errorMessage: UILabel!
-    var noInternetView: NotReachableView!
-    let disposeBag = DisposeBag()
+    private var errorMessage: UILabel!
+    private var noInternetView: NotReachableView!
+    private let disposeBag = DisposeBag()
     
-    fileprivate var dataSource = [TorrentProtocol]() {
-        didSet {
-            let contentOffset = self.tableView.contentOffset
-            self.tableView.reloadData()
-            self.tableView.layoutIfNeeded()
-            self.tableView.setContentOffset(contentOffset, animated: false)
-        }
-    }
+    fileprivate let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTorrents>()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
+        
+        dataSource.configureCell = { [unowned self] (dataSource, tableView, indexPath, torrent) in
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell", for: indexPath) as! TorrentTableViewCell
+            cell.textManager = self.textManager
+            cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
+            cell.delegate = self
+            return cell
+        }
+        
+        dataSource.titleForHeaderInSection = { ds, index in
+            return nil
+        }
+        
+        viewModel.torrents
+            .asObservable()
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
 //        self.filterButton
 //            .rx
@@ -61,77 +72,77 @@ class MainViewController: UIViewController {
 //            .bind(to: self.filterStatusLabel.rx.text)
 //            .disposed(by: disposeBag)
         
-        self.viewModel
-            .showFilterAlertController
-            .asObservable()
-            .subscribe(onNext: {
-                
-                guard let message = $0,
-                    let actions = $1,
-                    let block = $2,
-                    let allBlock = $3,
-                    let allTitle = $4,
-                    let cancelTitle = $5 else {
-                        return
-                }
-                
-                let alert = UIAlertController(title: nil,
-                                              message: message,
-                                              preferredStyle: .actionSheet)
-                
-                actions.forEach { action in
-                    let filterAction = UIAlertAction(title: action.rawValue,
-                                                     style: .default) { _ in
-                                                        block(action)
-                    }
-                    alert.addAction(filterAction)
-                }
-                
-                let allAction = UIAlertAction(title: allTitle,
-                                              style: .default)
-                { _ in
-                    allBlock()
-                }
-                alert.addAction(allAction)
-                
-                let cancelAction = UIAlertAction(title: cancelTitle,
-                                                 style: .cancel,
-                                                 handler: nil)
-                alert.addAction(cancelAction)
-                
-                self.present(alert, animated: true, completion: nil)
-                
-            }).disposed(by: disposeBag)
-        
-        viewModel.showSortAlertController.asObservable().subscribe(onNext: {
-            
-            guard let message = $0,
-                let actions = $1,
-                let block = $2 else {
-                    return
-            }
-            
-            let alert = UIAlertController(title: nil,
-                                          message: message,
-                                          preferredStyle: .actionSheet)
-            
-            actions.forEach { action in
-                let filterAction = UIAlertAction(title: action.description,
-                                                 style: .default)
-                { _ in
-                    block(action)
-                }
-                alert.addAction(filterAction)
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel",
-                                             style: .cancel,
-                                             handler: nil)
-            alert.addAction(cancelAction)
-            
-            self.present(alert, animated: true, completion: nil)
-            
-        }).disposed(by: disposeBag)
+//        self.viewModel
+//            .showFilterAlertController
+//            .asObservable()
+//            .subscribe(onNext: {
+//                
+//                guard let message = $0,
+//                    let actions = $1,
+//                    let block = $2,
+//                    let allBlock = $3,
+//                    let allTitle = $4,
+//                    let cancelTitle = $5 else {
+//                        return
+//                }
+//                
+//                let alert = UIAlertController(title: nil,
+//                                              message: message,
+//                                              preferredStyle: .actionSheet)
+//                
+//                actions.forEach { action in
+//                    let filterAction = UIAlertAction(title: action.rawValue,
+//                                                     style: .default) { _ in
+//                                                        block(action)
+//                    }
+//                    alert.addAction(filterAction)
+//                }
+//                
+//                let allAction = UIAlertAction(title: allTitle,
+//                                              style: .default)
+//                { _ in
+//                    allBlock()
+//                }
+//                alert.addAction(allAction)
+//                
+//                let cancelAction = UIAlertAction(title: cancelTitle,
+//                                                 style: .cancel,
+//                                                 handler: nil)
+//                alert.addAction(cancelAction)
+//                
+//                self.present(alert, animated: true, completion: nil)
+//                
+//            }).disposed(by: disposeBag)
+//        
+//        viewModel.showSortAlertController.asObservable().subscribe(onNext: {
+//            
+//            guard let message = $0,
+//                let actions = $1,
+//                let block = $2 else {
+//                    return
+//            }
+//            
+//            let alert = UIAlertController(title: nil,
+//                                          message: message,
+//                                          preferredStyle: .actionSheet)
+//            
+//            actions.forEach { action in
+//                let filterAction = UIAlertAction(title: action.description,
+//                                                 style: .default)
+//                { _ in
+//                    block(action)
+//                }
+//                alert.addAction(filterAction)
+//            }
+//            
+//            let cancelAction = UIAlertAction(title: "Cancel",
+//                                             style: .cancel,
+//                                             handler: nil)
+//            alert.addAction(cancelAction)
+//            
+//            self.present(alert, animated: true, completion: nil)
+//            
+//        }).disposed(by: disposeBag)
         
         self.noInternetView = { [unowned self] in
             
@@ -170,23 +181,7 @@ class MainViewController: UIViewController {
         }).disposed(by: disposeBag)
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tableView.isHidden = true
-        self.viewModel.torrents.drive(onNext: { [unowned self] in
-            guard let torrents = $0 else {
-                self.dataSource = [TorrentProtocol]()
-                self.tableView.isHidden = true
-                return
-            }
-            self.dataSource = torrents
-            self.tableView.isHidden = false
-        }).disposed(by: self.disposeBag)
-        
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowTorrentSegue" {
@@ -214,30 +209,15 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let torrent = self.dataSource[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentCell") as! TorrentTableViewCell
-        cell.textManager = self.textManager
-        cell.viewModel = TorrentCellViewModel(torrent: torrent, themeManager: self.themeManager)
-        cell.delegate = self
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
-    }
-    
-}
-
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let section = self.dataSource[indexPath.section]
+        let torrent = section.items[indexPath.row]
+        
         self.performSegue(withIdentifier: "ShowTorrentSegue",
-                          sender: self.dataSource[indexPath.row])
+                          sender: torrent)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -250,7 +230,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     
     private var deleteAction: SwipeAction {
         let deleteAction = SwipeAction(style: .destructive, title: "Delete")
-        { [weak self] action, indexPath in
+        { /*[weak self]*/ action, indexPath in
 //            guard let `self` = self else { return }
             print("delete")
             //            self.log.debug("delete button tapped")
@@ -266,7 +246,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     
     private var resumeAction: SwipeAction {
         let resumeAction = SwipeAction(style: .destructive, title: "Resume")
-        { [weak self] action, indexPath in
+        { /*[weak self]*/ action, indexPath in
 //            guard let `self` = self else { return }
             print("resume")
             //            self.log.debug("delete button tapped")
@@ -282,7 +262,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     
     private var pauseAction: SwipeAction {
         let pauseAction = SwipeAction(style: .destructive, title: "Pause")
-        { [weak self] action, indexPath in
+        { /*[weak self]*/ action, indexPath in
 //            guard let `self` = self else { return }
             print("pause")
             //            self.log.debug("delete button tapped")
@@ -304,15 +284,15 @@ extension MainViewController: SwipeTableViewCellDelegate {
         
         guard orientation == desired else { return nil }
         
-        if self.dataSource[indexPath.row].state == .downloading {
-            return [deleteAction, pauseAction]
-        }
-        else if self.dataSource[indexPath.row].state == .paused {
-            return [deleteAction, resumeAction]
-        }
-        else {
+//        if self.dataSource[indexPath.row].state == .downloading {
+//            return [deleteAction, pauseAction]
+//        }
+//        else if self.dataSource[indexPath.row].state == .paused {
+//            return [deleteAction, resumeAction]
+//        }
+//        else {
             return [deleteAction]
-        }
+//        }
         
     }
     

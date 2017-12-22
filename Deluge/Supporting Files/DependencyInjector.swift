@@ -10,6 +10,7 @@ import Foundation
 import Reachability
 import Swinject
 import SwinjectStoryboard
+import SwinjectAutoregistration
 
 class DependencyInjector {
     
@@ -56,9 +57,9 @@ private extension DependencyInjector {
             UserDefaults.standard
         }
         
-        container.register(Settings.self) { r in
-            Settings(userDefaults: r.resolve(UserDefaults.self)!)
-            }.inObjectScope(.container)
+        container
+            .autoregister(Settings.self, initializer: Settings.init)
+            .inObjectScope(.container)
         
         container.register(SettingsServicing.self) { r in
             r.resolve(Settings.self)!
@@ -68,30 +69,19 @@ private extension DependencyInjector {
             r.resolve(Settings.self)!
         }
         
-        container.register(DelugionServicing.self) { r in
-            return DelugionService(settings: r.resolve(SettingsServicing.self)!)
-            }.inObjectScope(.container)
+        container
+            .autoregister(DelugionServicing.self, initializer: DelugionService.init)
+            .inObjectScope(.container)
+
+        container.autoregister(ThemeServicing.self, initializer: ThemeService.init)
         
-        container.register(ThemeServicing.self) { _ in
-            ThemeService()
-        }
-        
-        container.register(TextManaging.self) { _ in
-            TextManager()
-        }
+        container.autoregister(TextManaging.self, initializer: TextManager.init)
         
     }
     
     func registerScreens() {
         
-        container.register(MainViewModeling.self) { r in
-            MainViewModel(delugionService: r.resolve(DelugionServicing.self)!,
-                          themeManager: r.resolve(ThemeServicing.self)!,
-                          reachability: r.resolve(Reachability?.self)!,
-                          settings: r.resolve(SettingsServicing.self)!,
-                          textManager: r.resolve(TextManaging.self)!,
-                          userDefaults: r.resolve(UserDefaults.self)!)
-        }
+        container.autoregister(MainViewModeling.self, initializer: MainViewModel.init)
         
         container.storyboardInitCompleted(MainViewController.self) { r, c in
             c.themeManager = r.resolve(ThemeServicing.self)
@@ -99,10 +89,8 @@ private extension DependencyInjector {
             c.textManager = r.resolve(TextManaging.self)
         }
         
-        container.register(SettingsViewModeling.self) { r in
-            return SettingsViewModel(settingsModel: r.resolve(SettingsModeling.self)!,
-                                     settingsService: r.resolve(SettingsServicing.self)!)
-        }
+        container.autoregister(SettingsViewModeling.self,
+                               initializer: SettingsViewModel.init)
         
         container.storyboardInitCompleted(SettingsTableViewController.self) { r, c in
             c.viewModel = r.resolve(SettingsViewModeling.self)

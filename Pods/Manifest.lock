@@ -3,11 +3,11 @@ PODS:
   - BuddyBuildSDK (1.0.16)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
-  - Delugion (1.1.0):
+  - Delugion (1.0.0):
     - Alamofire (~> 4.5)
-    - Delugion/Rx (= 1.1.0)
+    - Delugion/Rx (= 1.0.0)
     - Himotoki (~> 3.1)
-  - Delugion/Rx (1.1.0):
+  - Delugion/Rx (1.0.0):
     - Alamofire (~> 4.5)
     - Himotoki (~> 3.1)
     - RxSwift (~> 4.0)
@@ -51,6 +51,8 @@ PODS:
     - RxSwift (~> 4.0)
   - SwiftyBeaver (1.4.3)
   - Swinject (2.1.1)
+  - SwinjectAutoregistration (2.1.1):
+    - Swinject (~> 2.1)
   - SwinjectStoryboard (1.1.2):
     - Swinject (~> 2.1)
   - SwipeCellKit (2.0.0)
@@ -74,6 +76,7 @@ DEPENDENCIES:
   - RxTest (~> 4.0)
   - SwiftyBeaver (~> 1.4)
   - Swinject (~> 2.1)
+  - SwinjectAutoregistration (~> 2.1)
   - SwinjectStoryboard (~> 1.1)
   - SwipeCellKit (~> 2.0)
 
@@ -85,7 +88,7 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   BuddyBuildSDK: 2c5469eee2981a3365386e46393e97068d75e4f4
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  Delugion: 4fd5796313080ee6857ec3971e0da2daafebccf1
+  Delugion: 931879a4203214c556775021a8e057cced455c0a
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Himotoki: b09643fa5456d49bda43d0fb4e30dfa79e37f72f
@@ -103,9 +106,10 @@ SPEC CHECKSUMS:
   RxTest: 0041e792cede35e53e4749f378d21482af0e9d12
   SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
   Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
   SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
   SwipeCellKit: 349c61ffde96ac3ae51c2691a03e421b5b29ee98
 
-PODFILE CHECKSUM: 909df5b8641768a957eb098e9bf6c1042955f356
+PODFILE CHECKSUM: 2cd6aadfea734ce1e5e7db7369f12522f4c0c2c0
 
 COCOAPODS: 1.2.1

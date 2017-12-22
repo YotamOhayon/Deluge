@@ -8,6 +8,7 @@ def production_pods
     pod 'RxOptional', '~> 3.3'
     pod 'Swinject', '~> 2.1'
     pod 'SwinjectStoryboard', '~> 1.1'
+    pod 'SwinjectAutoregistration', '~> 2.1'
     pod 'Fabric', '~> 1.7'
     pod 'Crashlytics', '~> 3.9'
     pod 'Reveal-SDK', :configurations => ['Debug']

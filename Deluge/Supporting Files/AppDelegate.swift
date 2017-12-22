@@ -10,12 +10,15 @@ import UIKit
 import Delugion
 import Fabric
 import Crashlytics
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     private let dependencyInjector = DependencyInjector()
+    private let bag = DisposeBag()
+    private var appCoordinator: AppCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -52,9 +55,8 @@ fileprivate extension AppDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
-        let storyboard = self.dependencyInjector.storyboard
-        
-        window.rootViewController = storyboard.instantiateInitialViewController()
+        self.appCoordinator = AppCoordinator(window: window, di: self.dependencyInjector)
+        appCoordinator.start().subscribe().disposed(by: bag)
         
     }
     

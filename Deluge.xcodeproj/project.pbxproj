@@ -117,6 +117,10 @@
 		55DC7D5B1ED090790045A8E0 /* SettingsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */; };
 		55DC7D5D1ED0927C0045A8E0 /* TextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5C1ED0927C0045A8E0 /* TextService.swift */; };
 		55DC7D5F1ED094700045A8E0 /* TextManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */; };
+		55EBB8DE1FED090C00578451 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB8DD1FED090C00578451 /* AppCoordinator.swift */; };
+		55EBB8E01FED093E00578451 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB8DF1FED093E00578451 /* BaseCoordinator.swift */; };
+		55EBB8E11FED0E3400578451 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB8DF1FED093E00578451 /* BaseCoordinator.swift */; };
+		55EBB8E21FED0E3700578451 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB8DD1FED090C00578451 /* AppCoordinator.swift */; };
 		55F523161ECC48450009E39F /* ThemeManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F523151ECC48450009E39F /* ThemeManagerMock.swift */; };
 		56E4C2BA1141C9490BEC616D /* Pods_Deluge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */; };
 		78A4C8C81D3D458E20D8C7B1 /* Pods_DelugePlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED2032844E894D99110013B /* Pods_DelugePlayground.framework */; };
@@ -231,6 +235,8 @@
 		55DC7D5A1ED090790045A8E0 /* SettingsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMock.swift; sourceTree = "<group>"; };
 		55DC7D5C1ED0927C0045A8E0 /* TextService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextService.swift; sourceTree = "<group>"; };
 		55DC7D5E1ED094700045A8E0 /* TextManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManagerMock.swift; sourceTree = "<group>"; };
+		55EBB8DD1FED090C00578451 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		55EBB8DF1FED093E00578451 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		55F523151ECC48450009E39F /* ThemeManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerMock.swift; sourceTree = "<group>"; };
 		57DA1EE898054D326B717447 /* Pods_DelugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DelugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BA745C115A6561D2EC1A5D /* Pods_Deluge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deluge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,6 +437,8 @@
 		55D5EB651E96112900F93DE1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				55EBB8DF1FED093E00578451 /* BaseCoordinator.swift */,
+				55EBB8DD1FED090C00578451 /* AppCoordinator.swift */,
 				553AC7E61E959A4200B2A658 /* AppDelegate.swift */,
 				55086D751FD81A5700AC9F15 /* DependencyInjector.swift */,
 				553AC7F21E959A4200B2A658 /* Info.plist */,
@@ -892,6 +900,7 @@
 				556640581E9A4E3B002819B9 /* Double+Extension.swift in Sources */,
 				552CD9751EF277D300CE6234 /* NoServerView.swift in Sources */,
 				55DC52491F90AABF0015E41D /* UIView+Extension.swift in Sources */,
+				55EBB8DE1FED090C00578451 /* AppCoordinator.swift in Sources */,
 				553AC7E71E959A4200B2A658 /* AppDelegate.swift in Sources */,
 				55ADB1161EC8783000094A48 /* AddTorrentViewController.swift in Sources */,
 				55885C041E99148E005A4D3D /* TorrentTableViewCell.swift in Sources */,
@@ -901,6 +910,7 @@
 				55885C061E99159F005A4D3D /* TorrentCellViewModel.swift in Sources */,
 				55BED30F1EA29A7100AE1D60 /* TorrentFilesTableViewController.swift in Sources */,
 				55086D761FD81A5700AC9F15 /* DependencyInjector.swift in Sources */,
+				55EBB8E01FED093E00578451 /* BaseCoordinator.swift in Sources */,
 				55D5EB621E9610A300F93DE1 /* MainViewController.swift in Sources */,
 				5556B8A21FD29A9C00882D7A /* UserDefaults+Extension.swift in Sources */,
 				55DC52461F90AA830015E41D /* UINavigationItem+Extension.swift in Sources */,
@@ -949,6 +959,7 @@
 				5550A3ED1F54804A00FFDFFE /* Optional+Exntension.swift in Sources */,
 				5550A3EF1F54804A00FFDFFE /* DelugionService.swift in Sources */,
 				5550A3F01F54804A00FFDFFE /* SettingsService.swift in Sources */,
+				55EBB8E21FED0E3700578451 /* AppCoordinator.swift in Sources */,
 				55B9D25A1FD32321008AA51B /* UIResponder+Extension.swift in Sources */,
 				5550A3F11F54804A00FFDFFE /* TextService.swift in Sources */,
 				5550A3F21F54804A00FFDFFE /* ThemeService.swift in Sources */,
@@ -972,6 +983,7 @@
 				5550A4031F54804A00FFDFFE /* FileNameTableViewCell.swift in Sources */,
 				5550A4041F54804A00FFDFFE /* MainViewController.swift in Sources */,
 				5550A4051F54804A00FFDFFE /* SettingsTableViewController.swift in Sources */,
+				55EBB8E11FED0E3400578451 /* BaseCoordinator.swift in Sources */,
 				55B404A01F9678C200B229F0 /* ConnectionManagerView.swift in Sources */,
 				5550A4061F54804A00FFDFFE /* TorrentFilesTableViewController.swift in Sources */,
 				5550A4071F54804A00FFDFFE /* TorrentTableViewCell.swift in Sources */,

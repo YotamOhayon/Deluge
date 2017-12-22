@@ -36,9 +36,7 @@ class DependencyInjector {
             self.storyboard.instantiateViewController(withIdentifier: "AddTorrentViewController")
                 as! AddTorrentViewController
         
-        let delugion = self.container.resolve(DelugionServicing.self)!
-        addTorrentViewController.viewModel = AddTorrentViewModel(magnetURL: url,
-                                                                 delugionService: delugion)
+        addTorrentViewController.viewModel = self.container.resolve(AddTorrentViewModeling.self, argument: url)
         
         return addTorrentViewController
     }
@@ -94,6 +92,11 @@ private extension DependencyInjector {
         
         container.storyboardInitCompleted(SettingsTableViewController.self) { r, c in
             c.viewModel = r.resolve(SettingsViewModeling.self)
+        }
+        
+        container.register(AddTorrentViewModeling.self) { r, url in
+            AddTorrentViewModel(magnetURL: url,
+                                delugionService: r.resolve(DelugionServicing.self)!)
         }
         
     }
